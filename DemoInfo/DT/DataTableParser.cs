@@ -21,7 +21,7 @@ namespace DemoInfo.DT
         }
 
 
-        public List<SendTable> DataTables = new List<SendTable>();
+         public List<SendTable> DataTables = new List<SendTable>();
         public List<ServerClass> ServerClasses = new List<ServerClass>();
 		List<ExcludeEntry> CurrentExcludes = new List<ExcludeEntry>();
 		List<ServerClass> CurrentBaseclasses = new List<ServerClass>();

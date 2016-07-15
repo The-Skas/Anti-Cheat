@@ -10,13 +10,13 @@ namespace DevNullPlayer
 	{
 		public static void Main(string[] args)
 		{
-
+			Console.WriteLine ("Cool Stories.");
 			using (var input = File.OpenRead(args[0])) {
 				var parser = new DemoParser(input);
 				
 				parser.ParseHeader ();
 
-				#if DEBUG
+			
 				Dictionary<Player, int> failures = new Dictionary<Player, int>();
 				parser.TickDone += (sender, e) => {
 					//Problem: The HP coming from CCSPlayerEvent are sent 1-4 ticks later
@@ -26,12 +26,15 @@ namespace DevNullPlayer
 					{
 						//Make sure the array is never empty ;)
 						failures[p] = failures.ContainsKey(p) ? failures[p] : 0;
-
+					
 						if(p.HP == p.AdditionaInformations.ScoreboardHP)
 							failures[p] = 0;
 						else
 							failures[p]++; //omg this is hacky. 
 
+						if(p.HP < 100 && p.HP > 0) {
+ 							Console.WriteLine (p.Name + " HP:"+ p.HP);
+						}
 						//Okay, if it's wrong 2 seconds in a row, something's off
 						//Since there should be a tick where it's right, right?
 						//And if there's something off (e.g. two players are swapped)
@@ -45,6 +48,18 @@ namespace DevNullPlayer
 							)
 						);
 
+					}
+				};
+
+				Dictionary<Player, int> killsThisRound = new Dictionary<Player, int> ();
+				parser.PlayerKilled += (object sender, PlayerKilledEventArgs e) => {
+					//the killer is null if you're killed by the world - eg. by falling
+					if(e.Killer != null) {
+						if(!killsThisRound.ContainsKey(e.Killer))
+							killsThisRound[e.Killer] = 0;
+
+						//Remember how many kills each player made this rounds
+						killsThisRound[e.Killer]++;
 					}
 				};
 
@@ -66,9 +81,8 @@ namespace DevNullPlayer
 
 					return;
 				}
-				#endif
-				
-				parser.ParseToEnd();
+
+					parser.ParseToEnd();
 			}
 		}
 	}
