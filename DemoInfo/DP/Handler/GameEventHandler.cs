@@ -26,6 +26,8 @@ namespace DemoInfo.DP.Handler
 		/// </summary>
 		/// <param name="rawEvent">The raw event.</param>
 		/// <param name="parser">The parser to mutate.</param>
+		/// 
+		///Skas: This is where all the events get checked. Book marked for now
 		public static void Apply(GameEvent rawEvent, DemoParser parser)
 		{
 			var descriptors = parser.GEH_Descriptors;
