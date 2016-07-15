@@ -24,13 +24,7 @@ namespace DevNullPlayer
 					//that often. Haven't checked though.
 					foreach(var p in parser.PlayingParticipants)
 					{
-						//Make sure the array is never empty ;)
-						failures[p] = failures.ContainsKey(p) ? failures[p] : 0;
-					
-						if(p.HP == p.AdditionaInformations.ScoreboardHP)
-							failures[p] = 0;
-						else
-							failures[p]++; //omg this is hacky. 
+
 
 						if(p.HP < 100 && p.HP > 0) {
  							Console.WriteLine (p.Name + " HP:"+ p.HP);
@@ -40,13 +34,6 @@ namespace DevNullPlayer
 						//And if there's something off (e.g. two players are swapped)
 						//there will be 2 seconds of ticks where it's wrong
 						//So no problem here :)
-						Debug.Assert(
-							failures[p] < parser.TickRate * 2, 
-							string.Format(
-								"The player-HP({0}) of {2} (Clan: {3}) and it's Scoreboard HP ({1}) didn't match for {4} ticks. ", 
-								p.HP, p.AdditionaInformations.ScoreboardHP, p.Name, p.AdditionaInformations.Clantag, parser.TickRate * 2
-							)
-						);
 
 					}
 				};
@@ -81,7 +68,8 @@ namespace DevNullPlayer
 
 					return;
 				}
-
+		
+				
 					parser.ParseToEnd();
 			}
 		}
