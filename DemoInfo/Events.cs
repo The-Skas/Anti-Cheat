@@ -175,7 +175,7 @@ namespace DemoInfo
 		public bool IsBot { get; internal set; }
 	}
 
-	public class PlayerKilledEventArgs : EventArgs
+public class PlayerKilledEventArgs : EventArgs
 	{
 		public Equipment Weapon { get; internal set; }
 
