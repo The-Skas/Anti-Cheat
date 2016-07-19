@@ -16,6 +16,20 @@ namespace DevNullPlayer
 				
 				parser.ParseHeader ();
 
+				//Get map name
+				string map = parser.Map;
+				// And now, generate the filename of the resulting file
+				string outputFileName = "Test_Me_1" + "_" + map + ".csv";
+				// and open it. 
+				var outputStream = new StreamWriter (outputFileName);
+				//Write to csv file headers first:
+
+				//Write Header? Possible Issue is if Im writing multiple files so organising which is which is good.
+				outputStream.WriteLine (WriteCSVLine("Steam_ID","Tick" ,"Time", "PlayerX","PlayerY", "PlayerZ", "ViewX", "ViewY"));
+
+				//PARSING GOES HERE
+
+		
 			
 				Dictionary<Player, int> failures = new Dictionary<Player, int>();
 				parser.TickDone += (sender, e) => {
@@ -29,6 +43,9 @@ namespace DevNullPlayer
 						if(p.HP < 100 && p.HP > 0) {
  							Console.WriteLine (p.Name + " HP:"+ p.HP);
 						}
+						// ID ; Tick ; Time ;
+
+						outputStream.WriteLine (WriteCSVLine(p.SteamID, parser.IngameTick, parser.CurrentTime, p.Position.X, p.Position.Y, p.Position.Z, p.ViewDirectionX, p.ViewDirectionY));
 						//Okay, if it's wrong 2 seconds in a row, something's off
 						//Since there should be a tick where it's right, right?
 						//And if there's something off (e.g. two players are swapped)
@@ -47,7 +64,16 @@ namespace DevNullPlayer
 
 						//Remember how many kills each player made this rounds
 						killsThisRound[e.Killer]++;
+
 					}
+				};
+
+				parser.PlayerHurt += (object sender, PlayerHurtEventArgs e) => {
+					//TODO: Test if The attacker is null if the world damages the player?
+					if(e.Attacker != null) {
+						int health = e.Health;
+					}
+						
 				};
 
 				
@@ -70,8 +96,58 @@ namespace DevNullPlayer
 				}
 		
 				
-					parser.ParseToEnd();
+				parser.ParseToEnd();
+				//END: Closes File
+				outputStream.Close ();
+				int x = 5;
+				x += 2;
 			}
+		}
+
+
+
+		static string WriteCSVLine(params object[] args)
+		{
+			string result = "";
+			foreach (object arg in args) {
+				if (arg == null) {
+					throw new ArgumentNullException ();
+				}
+				result += arg.ToString() +";";
+			}
+			return result;
+//			return string.Format(
+//				"{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11};{12};{13};{14};{15};{16};{17};{18};{19};{20};{21};{22};{23};",
+//				"Round-Number", // parser.CTScore + parser.TScore, //Round-Number
+//				"CT-Score", // parser.CTScore,
+//				"T-Score", // parser.TScore,
+//				//how many CTs are still alive?
+//				"SurvivingCTs", // parser.PlayingParticipants.Count(a => a.IsAlive && a.Team == Team.CounterTerrorist),
+//				//how many Ts are still alive?
+//				"SurvivingTs", // parser.PlayingParticipants.Count(a => a.IsAlive && a.Team == Team.Terrorist),
+//				"CT-StartMoney", // ctStartroundMoney,
+//				"T-StartMoney", // tStartroundMoney,
+//				"CT-EquipValue", // ctEquipValue,
+//				"T-EquipValue", // tEquipValue,
+//				"CT-SavedFromLastRound", // ctSaveAmount,
+//				"T-SavedFromLastRound", // tSaveAmount,
+//				"WalkedCTWay", // ctWay,
+//				"WalkedTWay", // tWay,
+//				//The kills of all CTs so far
+//				"CT-Kills", // parser.PlayingParticipants.Where(a => a.Team == Team.CounterTerrorist).Sum(a => a.AdditionaInformations.Kills),
+//				"T-Kills", // parser.PlayingParticipants.Where(a => a.Team == Team.Terrorist).Sum(a => a.AdditionaInformations.Kills),
+//				//The deaths of all CTs so far
+//				"CT-Deaths", // parser.PlayingParticipants.Where(a => a.Team == Team.CounterTerrorist).Sum(a => a.AdditionaInformations.Deaths),
+//				"T-Deaths", // parser.PlayingParticipants.Where(a => a.Team == Team.Terrorist).Sum(a => a.AdditionaInformations.Deaths),
+//				//The assists of all CTs so far
+//				"CT-Assists", // parser.PlayingParticipants.Where(a => a.Team == Team.CounterTerrorist).Sum(a => a.AdditionaInformations.Assists),
+//				"T-Assists", // parser.PlayingParticipants.Where(a => a.Team == Team.Terrorist).Sum(a => a.AdditionaInformations.Assists),
+//				"BombPlanted", // plants,
+//				"BombDefused", // defuses,
+//				"TopfraggerName", // "\"" + topfragger.Key.Name + "\"", //The name of the topfragger this round
+//				"TopfraggerSteamid", // topfragger.Key.SteamID, //The steamid of the topfragger this round
+//				"TopfraggerKillsThisRound" // topfragger.Value //The amount of kills he got
+//			);
 		}
 	}
 }

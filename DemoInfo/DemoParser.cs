@@ -598,6 +598,7 @@ namespace DemoInfo
 
 			this.CurrentTick++; // = TickNum;
 
+			//TODO: But where does the player states get updated?
 			switch (command) {
 			case DemoCommand.Synctick:
 				break;
@@ -846,6 +847,8 @@ namespace DemoInfo
 			p.Entity = playerEntity;
 			p.Position = new Vector();
 			p.Velocity = new Vector();
+
+			//TODO: So This is an event being called every tick it would seem. All
 
 			//position update
 			playerEntity.FindProperty("cslocaldata.m_vecOrigin").VectorRecived += (sender, e) => {

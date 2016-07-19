@@ -30,6 +30,11 @@ namespace DemoInfo.DP
 
 		public PropertyEntry FindProperty(string name)
 		{
+			//Skas: So the 'Single' Method  returns the only element of a sequence,
+			//Skas: Also 'Props' is where all the property of the player is stored
+
+
+			//Otherwise throws an exception.
 			return Props.Single(a => a.Entry.PropertyName == name);
 		}
 
