@@ -6,6 +6,17 @@ import pylab as P
 import csv as csv
 import pdb
 
+def dir_from_angle(deg_alpha, deg_beta, mag=1.0):
+	rad_alpha = math.radians(deg_alpha)
+	rad_beta  = math.radians(deg_beta)
+
+	x = r * math.cos(rad_beta) * math.sin(rad_alpha)
+	y = r * math.cos(rad_beta) * math.cos(rad_alpha)
+	z = r * math.sin(rad_beta)
+
+	#Weird, should be [x, y, z], but changing to fit demo data.
+	return [y, x, -z]
+
 def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = ['Name', 'Sex', 'Ticket', 'Cabin']):
 	df = pd.read_csv(file,delimiter=';', header=0)
 
@@ -13,7 +24,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	dfplayer= df[(df.Tick > 4570) & (df.Steam_ID > 0)]
 
 	#Drop Rows.
-	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: 11"], axis=1)
+	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: 17"], axis=1)
 
 	#Calculates the difference between previous viewAngle-X, and current viewAngleX. 
 	#Then get value.
@@ -29,6 +40,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	#Get acctual distance traveled of angle diff.. This needs testing probs.
 	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
 	dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
+	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
 	pdb.set_trace()
 
 	# Convert gender to number
