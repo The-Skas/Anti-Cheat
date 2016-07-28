@@ -9,18 +9,26 @@ import pdb
 def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = ['Name', 'Sex', 'Ticket', 'Cabin']):
 	df = pd.read_csv(file,delimiter=';', header=0)
 
-	#Get rows where tick is greater then 4580 and filter out bots.
-	dfplayer= df[(df.Tick > 4580) & (df.Steam_ID > 0)]
+	#Get rows where tick is greater then 4570 and filter out bots.
+	dfplayer= df[(df.Tick > 4570) & (df.Steam_ID > 0)]
 
 	#Drop Rows.
-	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: 8"], axis=1)
+	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: 11"], axis=1)
 
-
-	#Calculates the difference between previous viewAngle-X, and current viewAngleX.
-	dfplayer['ViewXDiff'] = (dfplayer.ViewX - dfplayer.ViewX.shift(1)).abs()
-
+	#Calculates the difference between previous viewAngle-X, and current viewAngleX. 
+	#Then get value.
+	dfplayer['ViewXDiff'] = ((dfplayer.ViewX - dfplayer.ViewX.shift(1) + 180) % 360 - 180).abs()
 	#Categorizes the angles.
-    dfplayer['ViewXDiffCat'] = pd.cut(dfplayer.ViewXDiff,3,labels=["low","medium","high"])
+	dfplayer['ViewXDiffBin'] = pd.cut(dfplayer.ViewXDiff,3,labels=["low","medium","high"])
+
+	#Same for Y
+	dfplayer['ViewYDiff'] = ((dfplayer.ViewY - dfplayer.ViewY.shift(1) + 180) % 360 - 180).abs()
+    #Bin angles to three:
+	dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
+
+	#Get acctual distance traveled of angle diff.. This needs testing probs.
+	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
+	dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
 	pdb.set_trace()
 
 	# Convert gender to number
