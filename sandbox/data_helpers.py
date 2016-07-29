@@ -21,7 +21,8 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	df = pd.read_csv(file,delimiter=';', header=0)
 
 	#Get rows where tick is greater then 4570 and filter out bots.
-	dfplayer= df[(df.Tick > 4570) & (df.Steam_ID > 0)]
+	# dfplayer= df[(df.Tick > 4570) & (df.Steam_ID > 0)]
+	dfplayer= df[(df.Steam_ID > 0)]
 
 	#Drop Rows.
 	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: 17"], axis=1)
@@ -41,6 +42,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
 	dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
+	
 	pdb.set_trace()
 
 	# Convert gender to number

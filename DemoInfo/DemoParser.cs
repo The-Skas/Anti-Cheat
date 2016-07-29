@@ -847,6 +847,9 @@ namespace DemoInfo
 			p.Entity = playerEntity;
 			p.Position = new Vector();
 			p.Velocity = new Vector();
+			p.ViewPunchAngle = new Vector ();
+			p.AimPunchAngle = new Vector ();
+			p.AimPunchVel = new Vector ();
 
 			//TODO: So This is an event being called every tick it would seem. All
 
@@ -890,7 +893,29 @@ namespace DemoInfo
 			playerEntity.FindProperty("localdata.m_vecVelocity[1]").FloatRecived += (sender, e) => p.Velocity.Y = e.Value;
 			playerEntity.FindProperty("localdata.m_vecVelocity[2]").FloatRecived += (sender, e) => p.Velocity.Z = e.Value;
 
+			playerEntity.FindProperty ("localdata.m_Local.m_viewPunchAngle").VectorRecived += (sender, e) => {
+				//Csgo Demo , y is x, and x is y
+				p.ViewPunchAngle.X = e.Value.Y;
+				p.ViewPunchAngle.Y = e.Value.X;
 
+			};
+
+			playerEntity.FindProperty("localdata.m_Local.m_aimPunchAngle").VectorRecived += (sender, e) => {
+				p.AimPunchAngle.X = e.Value.Y;
+				p.AimPunchAngle.Y = e.Value.X;
+
+	
+			};
+
+			playerEntity.FindProperty("localdata.m_Local.m_aimPunchAngleVel").VectorRecived += (sender, e) => {
+				p.AimPunchVel.X = e.Value.Y;
+				p.AimPunchVel.Y = e.Value.X;
+
+			};
+
+
+//			playerEntity.FindProperty("localdata.m_Local.m_aimPunchAngle[0]").FloatRecived += (sender, e) => p.AimPunchAngle.X = e.Value;
+//			playerEntity.FindProperty("localdata.m_Local.m_aimPunchAngle[1]").FloatRecived += (sender, e) => p.AimPunchAngle.Y = e.Value;
 
 			playerEntity.FindProperty("m_unCurrentEquipmentValue").IntRecived += (sender, e) => p.CurrentEquipmentValue = e.Value;
 			playerEntity.FindProperty("m_unRoundStartEquipmentValue").IntRecived += (sender, e) => p.RoundStartEquipmentValue = e.Value;

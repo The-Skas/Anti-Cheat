@@ -15,17 +15,20 @@ namespace DevNullPlayer
 				var parser = new DemoParser(input);
 				
 				parser.ParseHeader ();
-
+			
 				//Get map name
 				string map = parser.Map;
 				// And now, generate the filename of the resulting file
-				string outputFileName = "64t_Hacker" + "_" + map + ".csv";
+				string[] _output = args[0].Split(new[]{"/","."},StringSplitOptions.None);
+				string demo_name = _output [_output.Length - 2];
+				string outputFileName = Math.Round(parser.TickRate)+"t_" + map+"_" +demo_name+ ".csv";
 				// and open it. 
 				var outputStream = new StreamWriter (outputFileName);
 				//Write to csv file headers first:
 
 				//Write Header? Possible Issue is if Im writing multiple files so organising which is which is good.
-				outputStream.WriteLine (WriteCSVLine("Steam_ID", "Name","Tick" ,"Time", "Round", "IsAlive", "PlayerX","PlayerY", "PlayerZ", "ViewX", "ViewY"));
+				outputStream.WriteLine (WriteCSVLine("Steam_ID", "Name","Tick" ,"Time", "Round", "IsAlive", "PlayerX","PlayerY", "PlayerZ", "ViewX", "ViewY", 
+					"ViewXPunchAngle", "ViewYPunchAngle", "AimXPunchAngle", "AimYPunchAngle", "AimXPunchVel", "AimYPunchVel"));
 
 				//PARSING GOES HERE
 
@@ -38,14 +41,10 @@ namespace DevNullPlayer
 					//that often. Haven't checked though.
 					foreach(var p in parser.PlayingParticipants)
 					{
-
-						round = 2;
-						if(p.HP < 100 && p.HP > 0) {
- 							Console.WriteLine (p.Name + " HP:"+ p.HP);
-						}
+						
 						// ID ; Tick ; Time ;
-
-						outputStream.WriteLine (WriteCSVLine(p.SteamID,p.Name, parser.IngameTick, parser.CurrentTime, round, p.IsAlive, p.Position.X, p.Position.Y, p.Position.Z, p.ViewDirectionX, p.ViewDirectionY));
+						
+						outputStream.WriteLine (WriteCSVLine(p.SteamID,p.Name, parser.IngameTick, parser.CurrentTime, round, p.IsAlive, p.Position.X, p.Position.Y, p.Position.Z, p.ViewDirectionX, p.ViewDirectionY, p.ViewPunchAngle.X, p.ViewPunchAngle.Y, p.AimPunchAngle.X, p.AimPunchAngle.Y, p.AimPunchVel.X, p.AimPunchVel.Y));
 						//Okay, if it's wrong 2 seconds in a row, something's off
 						//Since there should be a tick where it's right, right?
 						//And if there's something off (e.g. two players are swapped)
@@ -74,6 +73,10 @@ namespace DevNullPlayer
 						int health = e.Health;
 					}
 						
+				};
+
+				parser.RoundOfficiallyEnd += (object sender, RoundOfficiallyEndedEventArgs e) => {
+				
 				};
 
 				
