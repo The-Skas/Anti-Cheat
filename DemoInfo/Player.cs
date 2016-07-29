@@ -25,6 +25,13 @@ namespace DemoInfo
 
 		public Vector Velocity { get; set; }
 
+		public Vector ViewPunchAngle { get; set; }
+
+		public Vector AimPunchAngle { get; set; }
+
+		public Vector AimPunchVel { get; set; }
+
+
 		public float ViewDirectionX { get; set; }
 
 		public float ViewDirectionY { get; set; }
