@@ -5,12 +5,14 @@ import math
 import pylab as P
 import csv as csv
 import pdb
+from collections import namedtuple
 
 def _debug():
 	my_pos = np.array([-1752.0130 , 1980.272 , 10.346030  ])
  	e_pos = np.array([-1364.9800,  2555.752,     5.275375])
  	alpha = 56.60156
  	beta = 0.351562
+ 	print "Ok"
  	return player_look_intersect(alpha, beta, my_pos, e_pos)
 
 
@@ -42,7 +44,14 @@ def dir_from_angle(deg_alpha, deg_beta, r=1.0):
 	return np.array([y, x, -z])
 
 
+def orthogonal(vec1, vec2):
+	if (vec1 * vec2).sum() == 0:
+		return True
+	else:
+		return False
+
 P_VIEW_Z_OFFSET = 50
+Intersect = namedtuple('Intersect', ['point', 'normal', 'localx', 'localy'])
 def player_look_intersect(p_view_x, p_view_y, p_pos , e_pos ):
 	""" Calculates the point of intersection of the players look direction
 	relative to a specific position.
@@ -54,9 +63,46 @@ def player_look_intersect(p_view_x, p_view_y, p_pos , e_pos ):
 	normal_vec = np.array(p_look_dir)
 	normal_vec[2] = 0
 
+	#Calculate Intersection Point.
 	intersection_point = line_plane_intersect(l_0 =l_0, l_vec= p_look_dir , p_0 = e_pos, normal_vec = normal_vec)
 
-	return intersection_point
+	#Calculate 2d coordinate relative: 
+	#Where:e_pos is the origin
+	#	   u is the relative 'x'-axis,
+	#	   v is the relative 'y'-axis.
+	v = np.array([0,0,1])
+	u = np.cross(normal_vec, v)
+
+	y = ((intersection_point - e_pos) * v).sum()
+	x = ((intersection_point - e_pos) * u).sum()
+
+	#Todo: So this is the bottle neck apparently. Creating tuples. 
+	#	   Perhaps an alternative would be to re-use the same class by reference.
+	return Intersect(intersection_point, normal_vec, x, y)
+
+def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start_tick=24056):
+	#TODO: Change this its hacky. Well acctually fuck it not worth it.
+	dfplayer = df[(df.Steam_ID == player_id) & (df.Tick >= start_tick)].reset_index()
+	dfenemy  = df[(df.Name    == enemy_name)& (df.Tick >= start_tick)].reset_index()
+						#TODO: Using iterrows is inefficient
+	#adding new column, to overwrite
+	dfplayer["XAimbot"] = dfplayer["Tick"]
+	dfplayer["YAimbot"] = dfplayer["Tick"]
+
+	for i, (player, enemy) in enumerate(zip(dfplayer.iterrows(), dfenemy.iterrows())):
+		p_pos = np.array([player[1].PlayerX, player[1].PlayerY, player[1].PlayerZ])
+		e_pos = np.array([ enemy[1].PlayerX,  enemy[1].PlayerY,  enemy[1].PlayerZ])
+
+		intersect = player_look_intersect(player[1].ViewX, player[1].ViewY, p_pos, e_pos)
+		dfplayer.set_value(i, "XAimbot", intersect.localx)
+		dfplayer.set_value(i, "YAimbot", intersect.localy) 
+
+	pdb.set_trace()
+
+	print "stop here."
+
+
+
 
 
 def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = ['Name', 'Sex', 'Ticket', 'Cabin']):
@@ -65,7 +111,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	#Get rows where tick is greater then 4570 and filter out bots.
 	# dfplayer= df[(df.Tick > 4570) & (df.Steam_ID > 0)]
 	dfplayer= df[(df.Steam_ID > 0)]
-
+	dfeugene = df[(df.Name == "Eugene")]
 	#Drop Rows.
 	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: 17"], axis=1)
 
@@ -84,7 +130,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
 	dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
-	_debug()
+	player_intersects(df)
 	pdb.set_trace()
 
 	# Convert gender to number
