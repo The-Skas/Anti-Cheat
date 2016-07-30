@@ -6,7 +6,31 @@ import pylab as P
 import csv as csv
 import pdb
 
-def dir_from_angle(deg_alpha, deg_beta, mag=1.0):
+def _debug():
+	my_pos = np.array([-1752.0130 , 1980.272 , 10.346030  ])
+ 	e_pos = np.array([-1364.9800,  2555.752,     5.275375])
+ 	alpha = 56.60156
+ 	beta = 0.351562
+ 	return player_look_intersect(alpha, beta, my_pos, e_pos)
+
+
+# https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection
+#
+def line_plane_intersect(l_0, l_vec, p_0, normal_vec):
+	""" Calculates intersect between a vector and a plane.
+	returns 0 if there is no intersect, otherwise:
+	returns intersection point [x,y,z]
+	"""
+	upper_eq = ((p_0 - l_0) * normal_vec).sum()
+	lower_eq = (l_vec * normal_vec).sum()
+	
+	if(lower_eq == 0):
+		return 0
+	else:
+		dist = upper_eq / lower_eq
+		return dist * l_vec + l_0
+
+def dir_from_angle(deg_alpha, deg_beta, r=1.0):
 	rad_alpha = math.radians(deg_alpha)
 	rad_beta  = math.radians(deg_beta)
 
@@ -15,7 +39,25 @@ def dir_from_angle(deg_alpha, deg_beta, mag=1.0):
 	z = r * math.sin(rad_beta)
 
 	#Weird, should be [x, y, z], but changing to fit demo data.
-	return [y, x, -z]
+	return np.array([y, x, -z])
+
+
+P_VIEW_Z_OFFSET = 50
+def player_look_intersect(p_view_x, p_view_y, p_pos , e_pos ):
+	""" Calculates the point of intersection of the players look direction
+	relative to a specific position.
+	"""
+	p_look_dir = dir_from_angle(p_view_x, p_view_y)
+	# Need to set Z to 0.
+	l_0 = np.array([p_pos[0], p_pos[1], p_pos[2] + P_VIEW_Z_OFFSET])
+	
+	normal_vec = np.array(p_look_dir)
+	normal_vec[2] = 0
+
+	intersection_point = line_plane_intersect(l_0 =l_0, l_vec= p_look_dir , p_0 = e_pos, normal_vec = normal_vec)
+
+	return intersection_point
+
 
 def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = ['Name', 'Sex', 'Ticket', 'Cabin']):
 	df = pd.read_csv(file,delimiter=';', header=0)
@@ -42,7 +84,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
 	dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
-	
+	_debug()
 	pdb.set_trace()
 
 	# Convert gender to number
