@@ -80,15 +80,15 @@ def player_look_intersect(p_view_x, p_view_y, p_pos , e_pos ):
 	#	   Perhaps an alternative would be to re-use the same class by reference.
 	return Intersect(intersection_point, normal_vec, x, y)
 
-def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start_tick=24056):
+def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start_tick=24056, end_tick=100000000):
 	#TODO: Change this its hacky. Well acctually fuck it not worth it.
-	dfplayer = df[(df.Steam_ID == player_id) & (df.Tick >= start_tick)].reset_index()
-	dfenemy  = df[(df.Name    == enemy_name)& (df.Tick >= start_tick)].reset_index()
+	dfplayer = df[(df.Steam_ID == player_id) & (df.Tick >= start_tick) & (df.Tick <= end_tick) ].reset_index()
+	dfenemy  = df[(df.Name    == enemy_name)& (df.Tick >= start_tick)  & (df.Tick <= end_tick)].reset_index()
 						#TODO: Using iterrows is inefficient
 	#adding new column, to overwrite
 	dfplayer["XAimbot"] = dfplayer["Tick"]
 	dfplayer["YAimbot"] = dfplayer["Tick"]
-
+	dfplayer["Intersect"] = dfplayer["Tick"].astype(str)
 	for i, (player, enemy) in enumerate(zip(dfplayer.iterrows(), dfenemy.iterrows())):
 		p_pos = np.array([player[1].PlayerX, player[1].PlayerY, player[1].PlayerZ])
 		e_pos = np.array([ enemy[1].PlayerX,  enemy[1].PlayerY,  enemy[1].PlayerZ])
@@ -96,25 +96,30 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 		intersect = player_look_intersect(player[1].ViewX, player[1].ViewY, p_pos, e_pos)
 		dfplayer.set_value(i, "XAimbot", intersect.localx)
 		dfplayer.set_value(i, "YAimbot", intersect.localy) 
+		dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
 
-	pdb.set_trace()
 
 	print "stop here."
+	pdb.set_trace()
 
 
 
 
-
-def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = ['Name', 'Sex', 'Ticket', 'Cabin']):
+def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = ['Name', 'Sex', 'Ticket', 'Cabin'], player_id = 0):
 	df = pd.read_csv(file,delimiter=';', header=0)
-
+	pdb.set_trace
 	#Get rows where tick is greater then 4570 and filter out bots.
 	# dfplayer= df[(df.Tick > 4570) & (df.Steam_ID > 0)]
-	dfplayer= df[(df.Steam_ID > 0)]
+	dfplayer = None
+	if not player_id:
+		dfplayer= df[(df.Steam_ID > 0)]
+	else:
+		dfplayer = df[(df.Steam_ID == int(player_id))]
 	dfeugene = df[(df.Name == "Eugene")]
 	#Drop Rows.
-	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: 17"], axis=1)
+	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: "+str(len(dfplayer.columns)-1)], axis=1)
 
+	dfplayer["TimeDiff"] = (dfplayer.Time - dfplayer.Time.shift(1))
 	#Calculates the difference between previous viewAngle-X, and current viewAngleX. 
 	#Then get value.
 	dfplayer['ViewXDiff'] = ((dfplayer.ViewX - dfplayer.ViewX.shift(1) + 180) % 360 - 180).abs()
@@ -129,8 +134,13 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	#Get acctual distance traveled of angle diff.. This needs testing probs.
 	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
 	dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
+	
+	dfplayer['AimYPunchAccel'] = dfplayer.AimYPunchVel - dfplayer.AimYPunchVel.shift(1)
+	dfplayer['AimYPunchAccelDiff'] = dfplayer.AimYPunchAccel - dfplayer.AimYPunchAccel.shift(1)
+
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
-	player_intersects(df)
+	
+	player_intersects(df , enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
 	pdb.set_trace()
 
 	# Convert gender to number
