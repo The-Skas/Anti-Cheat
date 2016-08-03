@@ -7,6 +7,73 @@ import csv as csv
 import pdb
 from collections import namedtuple
 
+#plot
+from mpl_toolkits.axes_grid.axislines import SubplotZero
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from  matplotlib.animation import FuncAnimation
+
+
+def plane_plot(x, y):
+	fig = plt.figure(1)
+	ax = SubplotZero(fig, 111)
+	fig.add_subplot(ax)
+
+	for direction in ["xzero", "yzero"]:
+		ax.axis[direction].set_axisline_style("-|>")
+		ax.axis[direction].set_visible(True)
+
+	for direction in ["left", "right", "bottom", "top"]:
+		ax.axis[direction].set_visible(False)
+	ax.plot(x.values, y.values)
+	plt.show()
+
+def plot_scatter_m4a1s(dfplayer):
+	_df = dfplayer[(dfplayer.Tick >=20938)& (dfplayer.Tick <= 21080) & (dfplayer.AimYPunchAccel < 0)][['Tick', 'AimYPunchAngle', 'AimXPunchAngle', 'ViewX', 'ViewY']][0:30]
+
+	#Must create new figure for each plot.
+	cm_subsection = np.linspace(0.0, 0.4, 20)
+	colors = [ cm.jet(x) for x in cm_subsection]
+
+	#Plot creating a fade away color for each line.. 
+	fig= plt.figure()
+	fig.suptitle('Hacker M4A1-S')
+	plt.xlabel('ViewX')
+	plt.ylabel('ViewY')
+	for i, x in enumerate(_df.ViewX.values):
+		plt.scatter(x=_df.ViewX.iloc[i], y=_df.ViewY.iloc[i], color=colors[i])
+
+	fig = plt.figure()
+	fig.suptitle('Recoil M4A1-S')
+	plt.xlabel('XPunch')
+	plt.ylabel('YPunch')
+	plt.scatter(x=-_df.AimXPunchAngle, y= -_df.AimYPunchAngle, color='blue')
+
+	fig = plt.figure()
+	fig.suptitle('Hacker M4A1-S vs Recoil M4A1-s')
+	plt.scatter(x=_df.ViewX, y=_df.ViewY, color='red')
+	plt.scatter(x= _df.ViewX.iloc[0] - _df.AimXPunchAngle, y= _df.ViewY.iloc[0] -_df.AimYPunchAngle, color='blue')
+
+	fig = plt.figure()
+	fig.suptitle('Hacker M4A1-S vs Recoil M4A1-s')
+	plt.scatter(x=_df.ViewX, y=_df.ViewY, color='red')
+	plt.scatter(x= _df.ViewX.iloc[0] - 2.0*_df.AimXPunchAngle, y= _df.ViewY.iloc[0] - 2.0*_df.AimYPunchAngle, color='blue')
+
+
+	fig = plt.figure()
+	fig.suptitle('Hacker M4A1-S vs Recoil M4A1-s vs Shots Angle')
+	plt.scatter(x=_df.ViewX, y=_df.ViewY, color='red')
+	plt.scatter(x= _df.ViewX.iloc[0] - 2.0*_df.AimXPunchAngle, y= _df.ViewY.iloc[0] - 2.0*_df.AimYPunchAngle, color='blue')
+	plt.scatter(x=_df.ViewX + 2.0*_df.AimXPunchAngle , y=_df.ViewY + 2.0*_df.AimYPunchAngle, color='green')
+	plt.show()
+
+	# fig = plt.figure()
+	# axes = plt.gca()
+	# axes.set_xlim([245,251])
+	# axes.set_ylim([0,8])
+	# fig.suptitle('Hacker Aim while removing recoil')
+	# plt.show()
+
 def _debug():
 	my_pos = np.array([-1752.0130 , 1980.272 , 10.346030  ])
  	e_pos = np.array([-1364.9800,  2555.752,     5.275375])
@@ -89,17 +156,58 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["XAimbot"] = dfplayer["Tick"]
 	dfplayer["YAimbot"] = dfplayer["Tick"]
 	dfplayer["Intersect"] = dfplayer["Tick"].astype(str)
+
+	""" DELETE HERE"""###
+	dfplayer["TimeDiff"] = (dfplayer.Time - dfplayer.Time.shift(1))
+	#Calculates the difference between previous viewAngle-X, and current viewAngleX. 
+	#Then get value.
+	dfplayer['ViewXDiff'] = ((dfplayer.ViewX - dfplayer.ViewX.shift(1) + 180) % 360 - 180).abs()
+	#Categorizes the angles.
+	dfplayer['ViewXDiffBin'] = pd.cut(dfplayer.ViewXDiff,3,labels=["low","medium","high"])
+
+	#Same for Y
+	dfplayer['ViewYDiff'] = ((dfplayer.ViewY - dfplayer.ViewY.shift(1) + 180) % 360 - 180).abs()
+    #Bin angles to three:
+	dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
+
+	#Get acctual distance traveled of angle diff.. This needs testing probs.
+	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
+	dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
+	
+	dfplayer['AimYPunchAccel'] = dfplayer.AimYPunchVel - dfplayer.AimYPunchVel.shift(1)
+	dfplayer['AimYPunchAccelDiff'] = dfplayer.AimYPunchAccel - dfplayer.AimYPunchAccel.shift(1)
+
+	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
+	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
+	""" TO HERE """ ######
 	for i, (player, enemy) in enumerate(zip(dfplayer.iterrows(), dfenemy.iterrows())):
 		p_pos = np.array([player[1].PlayerX, player[1].PlayerY, player[1].PlayerZ])
 		e_pos = np.array([ enemy[1].PlayerX,  enemy[1].PlayerY,  enemy[1].PlayerZ])
 
-		intersect = player_look_intersect(player[1].ViewX, player[1].ViewY, p_pos, e_pos)
+		intersect = player_look_intersect(player[1].ViewX + 2.0*player[1].AimXPunchAngle, player[1].ViewY + 2.0 * player[1].AimYPunchAngle, p_pos, e_pos)
 		dfplayer.set_value(i, "XAimbot", intersect.localx)
 		dfplayer.set_value(i, "YAimbot", intersect.localy) 
 		dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
 
-
 	print "stop here."
+
+	##Plot Fun###
+
+	##First Draw Player and Enemy Position.
+
+	fig = plt.figure()
+
+	i = 0
+	def update(frame):
+		i = frame
+		fig.clear()
+		plt.scatter(x=dfplayer.iloc[i].PlayerX, y=dfplayer.iloc[i].PlayerY, color="green")
+		plt.scatter(x=dfenemy.iloc[i].PlayerX, y=dfenemy.iloc[i].PlayerY, color="red")
+		intersect = dfplayer.iloc[i].Intersect.split("|#|")
+		plt.scatter(x=float(intersect[0]),y=float(intersect[1]), color="blue")
+
+	animation = FuncAnimation(fig, update, interval=24)
+	plt.show()
 	pdb.set_trace()
 
 
@@ -115,6 +223,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 		dfplayer= df[(df.Steam_ID > 0)]
 	else:
 		dfplayer = df[(df.Steam_ID == int(player_id))]
+
 	dfeugene = df[(df.Name == "Eugene")]
 	#Drop Rows.
 	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: "+str(len(dfplayer.columns)-1)], axis=1)
@@ -138,10 +247,14 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	dfplayer['AimYPunchAccel'] = dfplayer.AimYPunchVel - dfplayer.AimYPunchVel.shift(1)
 	dfplayer['AimYPunchAccelDiff'] = dfplayer.AimYPunchAccel - dfplayer.AimYPunchAccel.shift(1)
 
+	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
+	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
 	
-	player_intersects(df , enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
+	player_intersects(df) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
 	pdb.set_trace()
+	#Plot:
+	plot_scatter_m4a1s(dfplayer)	
 
 	# Convert gender to number
 	df['Gender'] = df['Sex'].map({'female': 0, 'male': 1})
