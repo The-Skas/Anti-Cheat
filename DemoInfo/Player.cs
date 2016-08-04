@@ -31,9 +31,7 @@ namespace DemoInfo
 
 		public Vector AimPunchVel { get; set; }
 
-		public float ViewOffsetX    { get; set; }
-
-		public float ViewOffsetY    { get; set; }
+		public float ViewOffsetZ    { get; set; }
 
 		public float ViewDirectionX { get; set; }
 

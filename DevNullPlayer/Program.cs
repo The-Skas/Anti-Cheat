@@ -25,16 +25,18 @@ namespace DevNullPlayer
 				// and open it. 
 				var outputStream = new StreamWriter (outputFileName);
 				//Write to csv file headers first:
-
 				//Write Header? Possible Issue is if Im writing multiple files so organising which is which is good.
-				outputStream.WriteLine (WriteCSVLine("Steam_ID", "Name","Tick" ,"Time", "Round", "IsAlive", "PlayerX","PlayerY", "PlayerZ", "ViewX", "ViewY", 
+				outputStream.WriteLine (WriteCSVLine("Steam_ID", "Name","Tick" ,"Time", "Round", "Alive", "X","Y", "Z", "VelX","VelY","VelZ", "ViewX", "ViewY", 
 													"ViewXPunchAngle", "ViewYPunchAngle", "AimXPunchAngle", "AimYPunchAngle", "AimXPunchVel", "AimYPunchVel",
-													"ViewXOffset", "ViewYOffset", "HasShot", "Weapon"));
+													"ViewZOffset", "HasShot", "Weapon"));
 
+				string outputFileHurt = Math.Round(parser.TickRate)+"t_" + map+"_" +demo_name+ "_"+"attackinfo.csv";
+				var outputHurtStream = new StreamWriter (outputFileHurt);
+				outputHurtStream.WriteLine(WriteCSVLine ("Tick","Attacker", "Victim" ,"HitGroup"));
 				//PARSING GOES HERE
 
-		
-				int round = 0;
+				int round_total = 0;
+				int roundCSV = 0;
 				Dictionary<Player, int> failures = new Dictionary<Player, int>();
 				parser.TickDone += (sender, e) => {
 					//Problem: The HP coming from CCSPlayerEvent are sent 1-4 ticks later
@@ -43,13 +45,14 @@ namespace DevNullPlayer
 					foreach(var p in parser.PlayingParticipants)
 					{
 						
-						var wep = "0";
+						var wep = "None";
 						if(p.ActiveWeapon != null && p.ActiveWeapon.OriginalString != null) {
-								wep = p.ActiveWeapon.OriginalString;
+							wep = p.ActiveWeapon.Weapon.ToString();
 						}
 						// ID ; Tick ; Time ;
-						outputStream.WriteLine (WriteCSVLine(p.SteamID,p.Name, parser.IngameTick, parser.CurrentTime, round, p.IsAlive, p.Position.X, p.Position.Y, p.Position.Z, p.ViewDirectionX, p.ViewDirectionY, p.ViewPunchAngle.X, p.ViewPunchAngle.Y, p.AimPunchAngle.X, p.AimPunchAngle.Y, p.AimPunchVel.X, p.AimPunchVel.Y, 
-							p.ViewOffsetX, p.ViewOffsetY, p.HasShot, wep )); 
+						outputStream.WriteLine (WriteCSVLine(p.SteamID,p.Name, parser.IngameTick, parser.CurrentTime, roundCSV, p.IsAlive, p.Position.X, p.Position.Y, p.Position.Z, p.Velocity.X, p.Velocity.Y, p.Velocity.Z,  p.ViewDirectionX, p.ViewDirectionY,
+							p.ViewPunchAngle.X, p.ViewPunchAngle.Y, p.AimPunchAngle.X, p.AimPunchAngle.Y, p.AimPunchVel.X, p.AimPunchVel.Y, 
+							p.ViewOffsetZ, p.HasShot, wep )); 
 
 
 						//Okay, if it's wrong 2 seconds in a row, something's off
@@ -79,12 +82,20 @@ namespace DevNullPlayer
 					//TODO: Test if The attacker is null if the world damages the player?
 					if(e.Attacker != null) {
 						int health = e.Health;
+						outputHurtStream.WriteLine(WriteCSVLine(parser.IngameTick, e.Attacker.SteamID, e.Player.SteamID ,e.Hitgroup.ToString()));
+
 					}
+
 						
 				};
 
+
+				parser.FreezetimeEnded    += (object sender, FreezetimeEndedEventArgs e) => {
+					round_total += 1;
+					roundCSV = round_total;
+				};
 				parser.RoundOfficiallyEnd += (object sender, RoundOfficiallyEndedEventArgs e) => {
-				
+					roundCSV = 0;
 				};
 
 				parser.WeaponFired += (object sender, WeaponFiredEventArgs e) => {
@@ -117,6 +128,7 @@ namespace DevNullPlayer
 				parser.ParseToEnd();
 				//END: Closes File
 				outputStream.Close ();
+				outputHurtStream.Close();
 				int x = 5;
 				x += 2;
 			}

@@ -537,6 +537,8 @@ namespace DemoInfo
 		/// Parses the next tick of the demo.
 		/// </summary>
 		/// <returns><c>true</c>, if this wasn't the last tick, <c>false</c> otherwise.</returns>
+		/// 
+		public static int bot_id = 0;
 		public bool ParseNextTick()
 		{
 			if (Header == null)
@@ -549,7 +551,6 @@ namespace DemoInfo
 					continue;
 
 				var rawPlayer = RawPlayers[i];
-
 				int id = rawPlayer.UserID;
 
 				if (PlayerInformations[i] != null) { //There is an good entity for this
@@ -573,6 +574,11 @@ namespace DemoInfo
 						PlayerBindEventArgs bind = new PlayerBindEventArgs();
 						bind.Player = p;
 						RaisePlayerBind(bind);
+					}
+
+					//Skas: Added this, if everything breaks.. probably this is the cause.
+					if (newplayer && p.SteamID == 0) {
+						p.SteamID = ++bot_id;
 					}
 				}
 			}
@@ -884,8 +890,7 @@ namespace DemoInfo
 			playerEntity.FindProperty("m_bHasHelmet").IntRecived += (sender, e) => p.HasHelmet = e.Value == 1;
 			playerEntity.FindProperty("localdata.m_Local.m_bDucking").IntRecived += (sender, e) =>  p.IsDucking = e.Value == 1;
 			playerEntity.FindProperty("m_iAccount").IntRecived += (sender, e) => p.Money = e.Value;
-			playerEntity.FindProperty("m_viewOffset[1]").FloatRecived   += (sender, e) => p.ViewOffsetX    = e.Value;
-			playerEntity.FindProperty("m_viewOffset[0]").FloatRecived   += (sender, e) => p.ViewOffsetY    = e.Value;
+			playerEntity.FindProperty("localdata.m_vecViewOffset[2]").FloatRecived   += (sender, e) => p.ViewOffsetZ    = e.Value;
 			playerEntity.FindProperty("m_angEyeAngles[1]").FloatRecived += (sender, e) => p.ViewDirectionX = e.Value;
 			playerEntity.FindProperty("m_angEyeAngles[0]").FloatRecived += (sender, e) => p.ViewDirectionY = e.Value;
 			playerEntity.FindProperty("m_flFlashDuration").FloatRecived += (sender, e) => p.FlashDuration = e.Value;
