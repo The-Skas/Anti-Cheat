@@ -1,0 +1,399 @@
+x = 4
+t = 2
+where
+list
+list [200:216]
+list [200]
+help list
+list [200,216]
+list 200 216
+list(200,216)
+c
+x = 4
+t = 2
+dfplayer
+df
+dfplayer['ViewZOffset']
+dfplayer
+dfplayer['ViewZOffset']
+list
+list(200, 227)
+dfenemy.iloc[2]
+dfplayer.Intersection
+where
+list(200, 227)
+intersect
+dfplayer
+dfplayer.XAimbot
+dfplayer.Intersect
+dfenemy.iloc[2].Tick
+dfplayer.iloc[2].Tick
+-1372.79237746|#|2560.97206373|#|65.9105042074
+-1370.57131566|#|2559.53782732|#|61.6492266436
+-1371.63928073|#|2560.26093644|#|61.7204488771
+dfplayer.Intersect[0:60]
+dfplayer.Intersect
+dfplayer.Intersect.split("|#|")
+dfplayer.Intersect.values.split("|#|")
+dfplayer.Intersect.map(split("|#|"))
+dfplayer.Intersect.map(x.split("|#|"))
+dfplayer.Intersect.values.map(x.split("|#|"))
+dfplayer.Intersect.applymap(x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
+len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
+fig
+fig.plot
+fig.scatter
+x = 4
+t = 2
+where
+list
+list [200:216]
+list [200]
+help list
+list [200,216]
+list 200 216
+list(200,216)
+c
+x = 4
+t = 2
+dfplayer
+df
+dfplayer['ViewZOffset']
+dfplayer
+dfplayer['ViewZOffset']
+list
+list(200, 227)
+dfenemy.iloc[2]
+dfplayer.Intersection
+where
+list(200, 227)
+intersect
+dfplayer
+dfplayer.XAimbot
+dfplayer.Intersect
+dfenemy.iloc[2].Tick
+dfplayer.iloc[2].Tick
+-1372.79237746|#|2560.97206373|#|65.9105042074
+-1370.57131566|#|2559.53782732|#|61.6492266436
+-1371.63928073|#|2560.26093644|#|61.7204488771
+dfplayer.Intersect[0:60]
+dfplayer.Intersect
+dfplayer.Intersect.split("|#|")
+dfplayer.Intersect.values.split("|#|")
+dfplayer.Intersect.map(split("|#|"))
+dfplayer.Intersect.map(x.split("|#|"))
+dfplayer.Intersect.values.map(x.split("|#|"))
+dfplayer.Intersect.applymap(x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
+len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
+fig
+fig.plot
+fig.scatter
+dfplayer
+dfplayer[["VelX"]]
+df
+c
+x = 4
+t = 2
+where
+list
+list [200:216]
+list [200]
+help list
+list [200,216]
+list 200 216
+list(200,216)
+c
+x = 4
+t = 2
+dfplayer
+df
+dfplayer['ViewZOffset']
+dfplayer
+dfplayer['ViewZOffset']
+list
+list(200, 227)
+dfenemy.iloc[2]
+dfplayer.Intersection
+where
+list(200, 227)
+intersect
+dfplayer
+dfplayer.XAimbot
+dfplayer.Intersect
+dfenemy.iloc[2].Tick
+dfplayer.iloc[2].Tick
+-1372.79237746|#|2560.97206373|#|65.9105042074
+-1370.57131566|#|2559.53782732|#|61.6492266436
+-1371.63928073|#|2560.26093644|#|61.7204488771
+dfplayer.Intersect[0:60]
+dfplayer.Intersect
+dfplayer.Intersect.split("|#|")
+dfplayer.Intersect.values.split("|#|")
+dfplayer.Intersect.map(split("|#|"))
+dfplayer.Intersect.map(x.split("|#|"))
+dfplayer.Intersect.values.map(x.split("|#|"))
+dfplayer.Intersect.applymap(x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
+len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
+fig
+fig.plot
+fig.scatter
+x = 4
+t = 2
+where
+list
+list [200:216]
+list [200]
+help list
+list [200,216]
+list 200 216
+list(200,216)
+c
+x = 4
+t = 2
+dfplayer
+df
+dfplayer['ViewZOffset']
+dfplayer
+dfplayer['ViewZOffset']
+list
+list(200, 227)
+dfenemy.iloc[2]
+dfplayer.Intersection
+where
+list(200, 227)
+intersect
+dfplayer
+dfplayer.XAimbot
+dfplayer.Intersect
+dfenemy.iloc[2].Tick
+dfplayer.iloc[2].Tick
+-1372.79237746|#|2560.97206373|#|65.9105042074
+-1370.57131566|#|2559.53782732|#|61.6492266436
+-1371.63928073|#|2560.26093644|#|61.7204488771
+dfplayer.Intersect[0:60]
+dfplayer.Intersect
+dfplayer.Intersect.split("|#|")
+dfplayer.Intersect.values.split("|#|")
+dfplayer.Intersect.map(split("|#|"))
+dfplayer.Intersect.map(x.split("|#|"))
+dfplayer.Intersect.values.map(x.split("|#|"))
+dfplayer.Intersect.applymap(x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
+len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
+fig
+fig.plot
+fig.scatter
+df
+where
+c
+x = 4
+t = 2
+where
+list
+list [200:216]
+list [200]
+help list
+list [200,216]
+list 200 216
+list(200,216)
+c
+x = 4
+t = 2
+dfplayer
+df
+dfplayer['ViewZOffset']
+dfplayer
+dfplayer['ViewZOffset']
+list
+list(200, 227)
+dfenemy.iloc[2]
+dfplayer.Intersection
+where
+list(200, 227)
+intersect
+dfplayer
+dfplayer.XAimbot
+dfplayer.Intersect
+dfenemy.iloc[2].Tick
+dfplayer.iloc[2].Tick
+-1372.79237746|#|2560.97206373|#|65.9105042074
+-1370.57131566|#|2559.53782732|#|61.6492266436
+-1371.63928073|#|2560.26093644|#|61.7204488771
+dfplayer.Intersect[0:60]
+dfplayer.Intersect
+dfplayer.Intersect.split("|#|")
+dfplayer.Intersect.values.split("|#|")
+dfplayer.Intersect.map(split("|#|"))
+dfplayer.Intersect.map(x.split("|#|"))
+dfplayer.Intersect.values.map(x.split("|#|"))
+dfplayer.Intersect.applymap(x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
+len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
+fig
+fig.plot
+fig.scatter
+x = 4
+t = 2
+where
+list
+list [200:216]
+list [200]
+help list
+list [200,216]
+list 200 216
+list(200,216)
+c
+x = 4
+t = 2
+dfplayer
+df
+dfplayer['ViewZOffset']
+dfplayer
+dfplayer['ViewZOffset']
+list
+list(200, 227)
+dfenemy.iloc[2]
+dfplayer.Intersection
+where
+list(200, 227)
+intersect
+dfplayer
+dfplayer.XAimbot
+dfplayer.Intersect
+dfenemy.iloc[2].Tick
+dfplayer.iloc[2].Tick
+-1372.79237746|#|2560.97206373|#|65.9105042074
+-1370.57131566|#|2559.53782732|#|61.6492266436
+-1371.63928073|#|2560.26093644|#|61.7204488771
+dfplayer.Intersect[0:60]
+dfplayer.Intersect
+dfplayer.Intersect.split("|#|")
+dfplayer.Intersect.values.split("|#|")
+dfplayer.Intersect.map(split("|#|"))
+dfplayer.Intersect.map(x.split("|#|"))
+dfplayer.Intersect.values.map(x.split("|#|"))
+dfplayer.Intersect.applymap(x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
+len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
+fig
+fig.plot
+fig.scatter
+dfplayer
+dfplayer[["VelX"]]
+df
+c
+x = 4
+t = 2
+where
+list
+list [200:216]
+list [200]
+help list
+list [200,216]
+list 200 216
+list(200,216)
+c
+x = 4
+t = 2
+dfplayer
+df
+dfplayer['ViewZOffset']
+dfplayer
+dfplayer['ViewZOffset']
+list
+list(200, 227)
+dfenemy.iloc[2]
+dfplayer.Intersection
+where
+list(200, 227)
+intersect
+dfplayer
+dfplayer.XAimbot
+dfplayer.Intersect
+dfenemy.iloc[2].Tick
+dfplayer.iloc[2].Tick
+-1372.79237746|#|2560.97206373|#|65.9105042074
+-1370.57131566|#|2559.53782732|#|61.6492266436
+-1371.63928073|#|2560.26093644|#|61.7204488771
+dfplayer.Intersect[0:60]
+dfplayer.Intersect
+dfplayer.Intersect.split("|#|")
+dfplayer.Intersect.values.split("|#|")
+dfplayer.Intersect.map(split("|#|"))
+dfplayer.Intersect.map(x.split("|#|"))
+dfplayer.Intersect.values.map(x.split("|#|"))
+dfplayer.Intersect.applymap(x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
+len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
+fig
+fig.plot
+fig.scatter
+x = 4
+t = 2
+where
+list
+list [200:216]
+list [200]
+help list
+list [200,216]
+list 200 216
+list(200,216)
+c
+x = 4
+t = 2
+dfplayer
+df
+dfplayer['ViewZOffset']
+dfplayer
+dfplayer['ViewZOffset']
+list
+list(200, 227)
+dfenemy.iloc[2]
+dfplayer.Intersection
+where
+list(200, 227)
+intersect
+dfplayer
+dfplayer.XAimbot
+dfplayer.Intersect
+dfenemy.iloc[2].Tick
+dfplayer.iloc[2].Tick
+-1372.79237746|#|2560.97206373|#|65.9105042074
+-1370.57131566|#|2559.53782732|#|61.6492266436
+-1371.63928073|#|2560.26093644|#|61.7204488771
+dfplayer.Intersect[0:60]
+dfplayer.Intersect
+dfplayer.Intersect.split("|#|")
+dfplayer.Intersect.values.split("|#|")
+dfplayer.Intersect.map(split("|#|"))
+dfplayer.Intersect.map(x.split("|#|"))
+dfplayer.Intersect.values.map(x.split("|#|"))
+dfplayer.Intersect.applymap(x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|"))
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
+dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
+len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
+fig
+fig.plot
+fig.scatter
+df
+where
+df
+df.Time

@@ -119,18 +119,26 @@ def orthogonal(vec1, vec2):
 
 P_VIEW_Z_OFFSET = 50
 Intersect = namedtuple('Intersect', ['point', 'normal', 'localx', 'localy'])
-def player_look_intersect(p_view_x, p_view_y, p_pos , e_pos ):
-	""" Calculates the point of intersection of the players look direction
-	relative to a specific position.
+def player_look_intersect(player, enemy):
+	""" Calculates the point of of the player's look direction relative
+	to an enemy.
+
+	params: player is a row from a player's dataframe.
+			enemy  is a row from an enemie's dataframe.
 	"""
-	p_look_dir = dir_from_angle(p_view_x, p_view_y)
-	# Need to set Z to 0.
-	l_0 = np.array([p_pos[0], p_pos[1], p_pos[2] + P_VIEW_Z_OFFSET])
+	p_pos = np.array([ player.X  ,  player.Y,    player.Z])
+
+	p_look_dir = dir_from_angle(player.ViewX + 2.0 * player.AimXPunchAngle, player.ViewY + 2.0 * player.AimYPunchAngle)
 	
+	l_0 = np.array([player.X, player.Y, player.Z + player.ViewZOffset])
+	
+
+	## The plane is perpindicular to the Z Axis.
 	normal_vec = np.array(p_look_dir)
 	normal_vec[2] = 0
 
 	#Calculate Intersection Point.
+	e_pos = np.array([ enemy.X,  enemy.Y,  enemy.Z + enemy.ViewZOffset])
 	intersection_point = line_plane_intersect(l_0 =l_0, l_vec= p_look_dir , p_0 = e_pos, normal_vec = normal_vec)
 
 	#Calculate 2d coordinate relative: 
@@ -181,10 +189,9 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
 	""" TO HERE """ ######
 	for i, (player, enemy) in enumerate(zip(dfplayer.iterrows(), dfenemy.iterrows())):
-		p_pos = np.array([player[1].PlayerX, player[1].PlayerY, player[1].PlayerZ])
-		e_pos = np.array([ enemy[1].PlayerX,  enemy[1].PlayerY,  enemy[1].PlayerZ])
+		p_pos = np.array([player[1].X, player[1].Y, player[1].Z])
 
-		intersect = player_look_intersect(player[1].ViewX + 2.0*player[1].AimXPunchAngle, player[1].ViewY + 2.0 * player[1].AimYPunchAngle, p_pos, e_pos)
+		intersect = player_look_intersect(player[1], enemy[1])
 		dfplayer.set_value(i, "XAimbot", intersect.localx)
 		dfplayer.set_value(i, "YAimbot", intersect.localy) 
 		dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
@@ -195,18 +202,36 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 
 	##First Draw Player and Enemy Position.
 
-	fig = plt.figure()
-
+	fig1 = plt.figure()
+	axes = plt.gca()
+	axes.set_xlim([dfenemy.iloc[2].X - 5, dfenemy.iloc[2].X + 5])
+	axes.set_ylim([dfenemy.iloc[2].Y - 5,dfenemy.iloc[2].Y + 5])
 	i = 0
 	def update(frame):
 		i = frame
-		fig.clear()
-		plt.scatter(x=dfplayer.iloc[i].PlayerX, y=dfplayer.iloc[i].PlayerY, color="green")
-		plt.scatter(x=dfenemy.iloc[i].PlayerX, y=dfenemy.iloc[i].PlayerY, color="red")
+		fig1.clear()
+		axes = plt.gca()
+		axes.set_xlim([dfplayer.X.min() - 5, dfenemy.X.max() + 5])
+		axes.set_ylim([dfplayer.Y.min() - 5, dfenemy.Y.max() + 5])
+
+		plt.scatter(x=dfplayer.iloc[i].X, y=dfplayer.iloc[i].Y, color="green")
+		plt.scatter(x=dfenemy.iloc[i].X, y=dfenemy.iloc[i].Y, color="red")
 		intersect = dfplayer.iloc[i].Intersect.split("|#|")
 		plt.scatter(x=float(intersect[0]),y=float(intersect[1]), color="blue")
 
-	animation = FuncAnimation(fig, update, interval=24)
+	def update_plane(frame):
+		i = frame
+		fig2.clear()
+		axes = plt.gca()
+		axes.set_xlim([-10,10])
+		axes.set_ylim([-10,10])
+		plt.scatter(x=0, y=0, color="red")
+		plt.scatter(x=float(dfplayer.iloc[i].XAimbot),y=float(dfplayer.iloc[i].YAimbot), color="blue")
+
+	fig2 = plt.figure()
+	# animation = FuncAnimation(fig1, update, interval=24)
+	animation_2 = FuncAnimation(fig2, update_plane, interval=24)
+
 	plt.show()
 	pdb.set_trace()
 
@@ -220,13 +245,14 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	# dfplayer= df[(df.Tick > 4570) & (df.Steam_ID > 0)]
 	dfplayer = None
 	if not player_id:
-		dfplayer= df[(df.Steam_ID > 0)]
+		#TODO: Assuming no bots exceeding 1000
+		dfplayer= df[(df.Steam_ID > 1000)]
 	else:
 		dfplayer = df[(df.Steam_ID == int(player_id))]
 
 	dfeugene = df[(df.Name == "Eugene")]
 	#Drop Rows.
-	dfplayer= dfplayer.drop(["Steam_ID","PlayerX", "PlayerY", "PlayerZ", "Unnamed: "+str(len(dfplayer.columns)-1)], axis=1)
+	dfplayer= dfplayer.drop(["Steam_ID","X", "Y", "Z", "Unnamed: "+str(len(dfplayer.columns)-1)], axis=1)
 
 	dfplayer["TimeDiff"] = (dfplayer.Time - dfplayer.Time.shift(1))
 	#Calculates the difference between previous viewAngle-X, and current viewAngleX. 
