@@ -31,6 +31,9 @@ namespace DemoInfo
 
 		public Vector AimPunchVel { get; set; }
 
+		public float ViewOffsetX    { get; set; }
+
+		public float ViewOffsetY    { get; set; }
 
 		public float ViewDirectionX { get; set; }
 
@@ -75,6 +78,8 @@ namespace DemoInfo
 		public bool HasDefuseKit { get; set; }
 
 		public bool HasHelmet { get; set; }
+
+		public bool HasShot   { get; set; }
 
 		internal int TeamID;
 

@@ -28,7 +28,8 @@ namespace DevNullPlayer
 
 				//Write Header? Possible Issue is if Im writing multiple files so organising which is which is good.
 				outputStream.WriteLine (WriteCSVLine("Steam_ID", "Name","Tick" ,"Time", "Round", "IsAlive", "PlayerX","PlayerY", "PlayerZ", "ViewX", "ViewY", 
-					"ViewXPunchAngle", "ViewYPunchAngle", "AimXPunchAngle", "AimYPunchAngle", "AimXPunchVel", "AimYPunchVel"));
+													"ViewXPunchAngle", "ViewYPunchAngle", "AimXPunchAngle", "AimYPunchAngle", "AimXPunchVel", "AimYPunchVel",
+													"ViewXOffset", "ViewYOffset", "HasShot", "Weapon"));
 
 				//PARSING GOES HERE
 
@@ -42,14 +43,21 @@ namespace DevNullPlayer
 					foreach(var p in parser.PlayingParticipants)
 					{
 						
+						var wep = "0";
+						if(p.ActiveWeapon != null && p.ActiveWeapon.OriginalString != null) {
+								wep = p.ActiveWeapon.OriginalString;
+						}
 						// ID ; Tick ; Time ;
-						
-						outputStream.WriteLine (WriteCSVLine(p.SteamID,p.Name, parser.IngameTick, parser.CurrentTime, round, p.IsAlive, p.Position.X, p.Position.Y, p.Position.Z, p.ViewDirectionX, p.ViewDirectionY, p.ViewPunchAngle.X, p.ViewPunchAngle.Y, p.AimPunchAngle.X, p.AimPunchAngle.Y, p.AimPunchVel.X, p.AimPunchVel.Y));
+						outputStream.WriteLine (WriteCSVLine(p.SteamID,p.Name, parser.IngameTick, parser.CurrentTime, round, p.IsAlive, p.Position.X, p.Position.Y, p.Position.Z, p.ViewDirectionX, p.ViewDirectionY, p.ViewPunchAngle.X, p.ViewPunchAngle.Y, p.AimPunchAngle.X, p.AimPunchAngle.Y, p.AimPunchVel.X, p.AimPunchVel.Y, 
+							p.ViewOffsetX, p.ViewOffsetY, p.HasShot, wep )); 
+
+
 						//Okay, if it's wrong 2 seconds in a row, something's off
 						//Since there should be a tick where it's right, right?
 						//And if there's something off (e.g. two players are swapped)
 						//there will be 2 seconds of ticks where it's wrong
 						//So no problem here :)
+						p.HasShot = false;
 
 					}
 				};
@@ -77,6 +85,13 @@ namespace DevNullPlayer
 
 				parser.RoundOfficiallyEnd += (object sender, RoundOfficiallyEndedEventArgs e) => {
 				
+				};
+
+				parser.WeaponFired += (object sender, WeaponFiredEventArgs e) => {
+					// e.Shooter.ActiveWeapon;
+					e.Shooter.HasShot = true;
+					//var _tick = parser.IngameTick;
+					//var bleh_0 = 0;
 				};
 
 				

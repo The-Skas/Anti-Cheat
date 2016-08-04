@@ -884,6 +884,8 @@ namespace DemoInfo
 			playerEntity.FindProperty("m_bHasHelmet").IntRecived += (sender, e) => p.HasHelmet = e.Value == 1;
 			playerEntity.FindProperty("localdata.m_Local.m_bDucking").IntRecived += (sender, e) =>  p.IsDucking = e.Value == 1;
 			playerEntity.FindProperty("m_iAccount").IntRecived += (sender, e) => p.Money = e.Value;
+			playerEntity.FindProperty("m_viewOffset[1]").FloatRecived   += (sender, e) => p.ViewOffsetX    = e.Value;
+			playerEntity.FindProperty("m_viewOffset[0]").FloatRecived   += (sender, e) => p.ViewOffsetY    = e.Value;
 			playerEntity.FindProperty("m_angEyeAngles[1]").FloatRecived += (sender, e) => p.ViewDirectionX = e.Value;
 			playerEntity.FindProperty("m_angEyeAngles[0]").FloatRecived += (sender, e) => p.ViewDirectionY = e.Value;
 			playerEntity.FindProperty("m_flFlashDuration").FloatRecived += (sender, e) => p.FlashDuration = e.Value;
