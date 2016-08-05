@@ -558,6 +558,11 @@ namespace DemoInfo
 					if (!Players.ContainsKey(id)){
 						Players[id] = PlayerInformations[i];
 						newplayer = true;
+
+
+						if (rawPlayer.GUID == "BOT") {
+							rawPlayer.XUID = ++bot_id;
+						}
 					}
 
 					Player p = Players[id];
@@ -576,10 +581,7 @@ namespace DemoInfo
 						RaisePlayerBind(bind);
 					}
 
-					//Skas: Added this, if everything breaks.. probably this is the cause.
-					if (newplayer && p.SteamID == 0) {
-						p.SteamID = ++bot_id;
-					}
+	
 				}
 			}
 
