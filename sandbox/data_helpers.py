@@ -121,8 +121,11 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 
 	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
-	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewX)**2  + (dfplayer.TrueViewY)**2).apply(np.sqrt)
+	
+	dfplayer["TrueViewXDiff"]= ((dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1) + 180) % 360 - 180).abs()
+	dfplayer["TrueViewYDiff"]= ((dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1) + 180) % 360 - 180).abs()
 
+	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewXDiff)**2  + (dfplayer.TrueViewYDiff)**2).apply(np.sqrt)
 	""" TO HERE """ ######
 	
 
@@ -231,7 +234,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 
 	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
-	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewX)**2  + (dfplayer.TrueViewY)**2).apply(np.sqrt)
+
 
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
 	

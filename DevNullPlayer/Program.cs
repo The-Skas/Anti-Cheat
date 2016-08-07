@@ -32,7 +32,7 @@ namespace DevNullPlayer
 
 				string outputFileHurt = Math.Round(parser.TickRate)+"t_" + map+"_" +demo_name+ "_"+"attackinfo.csv";
 				var outputHurtStream = new StreamWriter (outputFileHurt);
-				outputHurtStream.WriteLine(WriteCSVLine ("Tick","Attacker", "Victim" ,"HitGroup"));
+				outputHurtStream.WriteLine(WriteCSVLine ("Tick","Attacker", "Victim" ,"HitGroup", "Weapon"));
 				//PARSING GOES HERE
 
 				int round_total = 0;
@@ -82,8 +82,10 @@ namespace DevNullPlayer
 					//TODO: Test if The attacker is null if the world damages the player?
 					if(e.Attacker != null) {
 						int health = e.Health;
-						outputHurtStream.WriteLine(WriteCSVLine(parser.IngameTick, e.Attacker.SteamID, e.Player.SteamID ,e.Hitgroup.ToString()));
+						outputHurtStream.WriteLine(WriteCSVLine(parser.IngameTick, e.Attacker.SteamID, e.Player.SteamID ,e.Hitgroup.ToString(), e.Weapon.Weapon.ToString()));
 
+					} else {
+						outputHurtStream.WriteLine(WriteCSVLine(parser.IngameTick, "World", e.Player.SteamID ,e.Hitgroup.ToString(), "None"));
 					}
 
 						
@@ -144,8 +146,9 @@ namespace DevNullPlayer
 					throw new ArgumentNullException ();
 				}
 				result += arg.ToString() +";";
+
 			}
-			return result;
+			return result.Substring(0,result.Length - 1);
 //			return string.Format(
 //				"{0};{1};{2};{3};{4};{5};{6};{7};{8};{9};{10};{11};{12};{13};{14};{15};{16};{17};{18};{19};{20};{21};{22};{23};",
 //				"Round-Number", // parser.CTScore + parser.TScore, //Round-Number

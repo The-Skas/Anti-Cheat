@@ -1,12 +1,3 @@
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
 fig.scatter
 x = 4
 t = 2
@@ -497,4 +488,13 @@ dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.HMM) == 1]
 dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
 dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 0]
 dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
-c
+View
+cdfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
+dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.HMM) == 1]
+dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','TrueViewX','TrueViewY''TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','TrueViewX','TrueViewY','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','TrueViewX','TrueViewY','TrueViewYDiff','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
