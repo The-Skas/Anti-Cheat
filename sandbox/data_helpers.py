@@ -121,6 +121,7 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 
 	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
+	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewX)**2  + (dfplayer.TrueViewY)**2).apply(np.sqrt)
 
 	""" TO HERE """ ######
 	
@@ -188,7 +189,6 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	#Get all hurt data.
 	dfhurt = pd.read_csv(sys.argv[2], delimiter=';', header=0)
 
-	pdb.set_trace()
 	#Derive Get all Shots.
 	dfshots = df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
 	
@@ -231,9 +231,20 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 
 	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
+	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewX)**2  + (dfplayer.TrueViewY)**2).apply(np.sqrt)
+
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
 	
-	return player_intersects(df) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
+	dfplayer = player_intersects(df, start_tick=0) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
+	
+	#Remove all data not part of a round
+	dfplayer = dfplayer[dfplayer.Round != 0]
+
+	#Create a distance metric from the target
+	dfplayer['AimbotDist'] = ((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt)
+
+	return dfplayer
+
 	# pdb.set_trace()
 	#Plot:
 	# plot_scatter_m4a1s(dfplayer)	

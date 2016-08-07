@@ -1,252 +1,3 @@
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
-fig.scatter
-dfplayer
-dfplayer[["VelX"]]
-df
-c
-x = 4
-t = 2
-where
-list
-list [200:216]
-list [200]
-help list
-list [200,216]
-list 200 216
-list(200,216)
-c
-x = 4
-t = 2
-dfplayer
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
-fig.scatter
-x = 4
-t = 2
-where
-list
-list [200:216]
-list [200]
-help list
-list [200,216]
-list 200 216
-list(200,216)
-c
-x = 4
-t = 2
-dfplayer
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
-fig.scatter
-df
-where
-c
-x = 4
-t = 2
-where
-list
-list [200:216]
-list [200]
-help list
-list [200,216]
-list 200 216
-list(200,216)
-c
-x = 4
-t = 2
-dfplayer
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
-fig.scatter
-x = 4
-t = 2
-where
-list
-list [200:216]
-list [200]
-help list
-list [200,216]
-list 200 216
-list(200,216)
-c
-x = 4
-t = 2
-dfplayer
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
-fig.scatter
-dfplayer
-dfplayer[["VelX"]]
-df
-c
-x = 4
-t = 2
-where
-list
-list [200:216]
-list [200]
-help list
-list [200,216]
-list 200 216
-list(200,216)
-c
-x = 4
-t = 2
-dfplayer
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
 dfplayer.Intersect.map(x.split("|#|"))
 dfplayer.Intersect.values.map(x.split("|#|"))
 dfplayer.Intersect.applymap(x.split("|#|"))
@@ -497,4 +248,253 @@ for i, x in  enumerate(dfplayer.columns): i
 {x: i for i, x in  enumerate(dfplayer.columns)}
 c
 [ player[p_get_i["X"]]  ,  player[p_get_i["Y"]],    player[p_get_i["Z"]]]
+c
+dfplayer
+dfplayer.ViewX
+dfplayer.ViewXDiff
+dfplayer.rounds
+dfplayer.Round
+dfplayer.Round == 0
+dfplayer[dfplayer.Round == 0]
+dfplayer[dfplayer.Round != dfplayer.Round.shift(1)]]
+dfplayer[dfplayer.Round != dfplayer.Round.shift(1)]
+dfplayer.shift(1)[dfplayer.Round != dfplayer.Round.shift(1)]
+dfplayer[37909]
+dfplayer[(37909-2): 37909 + 2]
+dfplayer[37909]
+dfplayer[(1123-2): 1123 + 2]
+dfplayer.shift(1)[dfplayer.Round != dfplayer.Round.shift(1)]
+dfplayer[dfplayer.Round != dfplayer.Round.shift(1)]
+dfplayer.shift(1)[dfplayer.Round != dfplayer.Round.shift(1)]
+dfplayer[dfplayer.Round != dfplayer.Round.shift(1)]
+dfplayer.shift(1)[dfplayer.Round != dfplayer.Round.shift(1)]
+dfplayer[dfplayer.Round != dfplayer.Round.shift(1)]
+dfplayer.shift(1)[dfplayer.Round != dfplayer.Round.shift(1)]
+where
+list
+dfplayer
+dfplayer[dfplayer.Round != dfplayer.Round.shift(1)]
+dfplayer[dfplayer.ViewDiff > 100]
+dfplayer[dfplayer.ViewDiff > 50]
+dfplayer[dfplayer.ViewXDiff > 50]
+dfplayer[dfplayer.ViewXDiff > 10]
+dfplayer[dfplayer
+dfplayer.ViewDiff
+dfplayer
+dfplayer[0]
+dfplayer[[0]]
+dfplayer.iloc[0]
+dfplayer[dfplayer.XAimbot > 100]
+dfplayer[dfplayer.XAimbot < 100]
+c
+df
+c df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+df
+ df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+c
+sys.argv[1]
+df[['Tick','Name','Steam_ID', 'Weapon']]
+df[(df.HasShot == True)]
+df[(df.HasShot == True)][['HashShot']]
+df[(df.HasShot == True)][['Tick']]
+df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+c
+(dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)
+dfplayer['Test'] = (dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)
+dfplayer
+((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt())
+((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt)
+dfrounds
+dictrounds
+dictrounds[6]
+dictrounds[7]
+dictrounds[8]
+dictrounds[9]
+dictrounds[10]
+S
+S.type
+S.type()
+S.dim
+S.ndim
+np.empty([2])
+np.empty(2)
+np.empty(shape=2)
+np.array()
+np.array([])
+np.array([[],[]])
+X = np.array([[],[]])
+S
+X.concatenate
+np.concatenate
+np.concatenate(X,S)
+np.concatenate(X,len(S))
+len(X)
+np.concatenate(S,S)
+np.vstack(S,S)
+np.vstack([S,S])
+len(np.vstack([S,S]))
+len(S)
+len(S) * 2
+len(np.vstack([S,X]))
+X
+S
+X.dim
+X.dtype
+X.ntype
+X.ndim
+np.array([dictrounds[key].values
+dictrounds[key].values
+S.type
+S
+S.dtype
+S.ndim
+X.dty[e
+X.dtype
+X.ndim
+X
+np.concatenate(S,X)
+np.vstack(S,X)
+np.vstack([S,X])
+X.shape
+S.shape
+np.reshape(X,(0,2))
+= np.reshape([],(0,2))
+= np.reshape(np.array(),(0,2))
+= np.reshape(np.array([]),(0,2))
+= np.reshape(np.array([0]),(0,2))
+= np.reshape(X),(0,2))
+= np.reshape(np.array([0]),(0,2))
+= np.reshape(np.array(),(0,2))
+np.reshape(X,(0,2))
+X = np.array([[],[]])
+np.reshape(np.array([[],[]]),(0,2))
+np.reshape(np.array([]),(0,2))
+df
+dictrounds[6]
+dictrounds[6].size
+len(dictrounds[6])
+where
+lengths
+lengths.sum()
+sum(lengths)
+X
+len(X)
+c
+where
+list
+X 
+X.sum()
+up
+up 
+up
+X
+X.sum()
+X[0]
+X[0].sum()
+_df
+_df.dropna()
+_df
+np.isfinite
+np.isfinite(dfplayer)
+dfplayer
+dfplayer.dropna()
+dfplayer.isnull()
+dfplayer[dfplayer.isnull()]
+dfplayer[dfplayer.isnull().any(axis=1)]]
+dfplayer[dfplayer.isnull().any(axis=1)]
+dfplayer[0:10]
+dfplayer[dfplayer.AimbotDist.isnull().any(axis=1)]
+dfplayer[dfplayer.AimbotDist.isnull()]
+dfplayer[dfplayer.ViewDiff]]
+dfplayer[dfplayer.ViewDiff.isnull()]
+dfplayer[(dfplayer.ViewDiff.isnull()) || (dfplayer.AimbotDist.isnull())]
+dfplayer[(dfplayer.ViewDiff.isnull()) | (dfplayer.AimbotDist.isnull())]
+dfplayer[(dfplayer.ViewDiff.isnull()) | (dfplayer.AimbotDist > 0]
+dfplayer[(dfplayer.ViewDiff.isnull()) | (dfplayer.AimbotDist > 0)]
+dfplayer[(dfplayer.ViewDiff.notnull()) & (dfplayer.AimbotDist.notnull())]
+dfplayer[(dfplayer.ViewDiff.isnull()) | (dfplayer.AimbotDist > 0)]
+dfplayer[(dfplayer.ViewDiff.notnull()) & (dfplayer.AimbotDist.notnull())]
+model.predict()
+model.predict(X)
+_result = model.predict(X)
+len(_result)
+dfplayer
+_result
+_result.sum()
+_result
+len(_result)
+X
+len(X)
+dfplayer.Ticks
+dfplayer.Tick
+len(dfplayer.Tick)
+where
+model 
+model.fit(X,lengths)
+model.predict(X)
+model.fit(X,lengths)
+model.predict(X)
+model.result()
+model.predict()
+model.predict(X)
+_predict = model.predict(X)
+_predict[0:10
+_predict[0:10]
+_predict[0:20]
+_predict[0:30]
+_predict[0:100]
+len(_predict[0:100])
+dfplayer[:100]
+dfplayer[['AimbotDist', 'ViewDiff'][:100]
+dfplayer[['AimbotDist', 'ViewDiff']][:100]
+dfplayer[['Tick','AimbotDist', 'ViewDiff']][:100]
+len(dfplayer)
+_result
+len(_predict)
+dfplayer['HMM'] = _predict
+dfplayer
+dfplayer['Tick','AimbotDiff', 'ViewDiff','HMM']
+dfplayer[['Tick','AimbotDiff', 'ViewDiff','HMM']]
+where
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][0:60]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 0]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 0]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1][0:100]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1][0:60]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1]
+where
+lsit
+where
+_result
+dfplayer['HMM'] = _result
+dfplayer['HMM']
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 0]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.Tick >= 24885]
+dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.Tick >= 24985]
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][dfplayer.Tick >= 24985]
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][dfplayer.Round > 6]
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][dfplayer.Round > 6 & dfplayer.HMM == 0]
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 0)]
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 7 ) & ( dfplayer.HMM == 0)]
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 0)]
+dfplayer['HMM'] = _result
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 0)]
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 1
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 1)]
+_result
+dfplayer['HMM'] = _result
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 0)]
+dfplayer
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Tick > 11000)]
+dfplayer
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Tick > 11000)]
+dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.HMM) == 1]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 0]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
 c
