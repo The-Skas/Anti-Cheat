@@ -5,7 +5,9 @@ import math
 import pylab as P
 import csv as csv
 import pdb
-from collections import namedtuple
+
+# My files
+import csgo_math
 
 #plot
 from mpl_toolkits.axes_grid.axislines import SubplotZero
@@ -85,75 +87,7 @@ def _debug():
 
 # https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection
 #
-def line_plane_intersect(l_0, l_vec, p_0, normal_vec):
-	""" Calculates intersect between a vector and a plane.
-	returns 0 if there is no intersect, otherwise:
-	returns intersection point [x,y,z]
-	"""
-	upper_eq = ((p_0 - l_0) * normal_vec).sum()
-	lower_eq = (l_vec * normal_vec).sum()
-	
-	if(lower_eq == 0):
-		return 0
-	else:
-		dist = upper_eq / lower_eq
-		return dist * l_vec + l_0
 
-def dir_from_angle(deg_alpha, deg_beta, r=1.0):
-	rad_alpha = math.radians(deg_alpha)
-	rad_beta  = math.radians(deg_beta)
-
-	x = r * math.cos(rad_beta) * math.sin(rad_alpha)
-	y = r * math.cos(rad_beta) * math.cos(rad_alpha)
-	z = r * math.sin(rad_beta)
-
-	#Weird, should be [x, y, z], but changing to fit demo data.
-	return np.array([y, x, -z])
-
-
-def orthogonal(vec1, vec2):
-	if (vec1 * vec2).sum() == 0:
-		return True
-	else:
-		return False
-
-P_VIEW_Z_OFFSET = 50
-Intersect = namedtuple('Intersect', ['point', 'normal', 'localx', 'localy'])
-def player_look_intersect(player, enemy):
-	""" Calculates the point of of the player's look direction relative
-	to an enemy.
-
-	params: player is a row from a player's dataframe.
-			enemy  is a row from an enemie's dataframe.
-	"""
-	p_pos = np.array([ player.X  ,  player.Y,    player.Z])
-
-	p_look_dir = dir_from_angle(player.ViewX + 2.0 * player.AimXPunchAngle, player.ViewY + 2.0 * player.AimYPunchAngle)
-	
-	l_0 = np.array([player.X, player.Y, player.Z + player.ViewZOffset])
-	
-
-	## The plane is perpindicular to the Z Axis.
-	normal_vec = np.array(p_look_dir)
-	normal_vec[2] = 0
-
-	#Calculate Intersection Point.
-	e_pos = np.array([ enemy.X,  enemy.Y,  enemy.Z + enemy.ViewZOffset])
-	intersection_point = line_plane_intersect(l_0 =l_0, l_vec= p_look_dir , p_0 = e_pos, normal_vec = normal_vec)
-
-	#Calculate 2d coordinate relative: 
-	#Where:e_pos is the origin
-	#	   u is the relative 'x'-axis,
-	#	   v is the relative 'y'-axis.
-	v = np.array([0,0,1])
-	u = np.cross(normal_vec, v)
-
-	y = ((intersection_point - e_pos) * v).sum()
-	x = ((intersection_point - e_pos) * u).sum()
-
-	#Todo: So this is the bottle neck apparently. Creating tuples. 
-	#	   Perhaps an alternative would be to re-use the same class by reference.
-	return Intersect(intersection_point, normal_vec, x, y)
 
 def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start_tick=24056, end_tick=100000000):
 	#TODO: Change this its hacky. Well acctually fuck it not worth it.
@@ -187,60 +121,82 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 
 	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
-	""" TO HERE """ ######
-	for i, (player, enemy) in enumerate(zip(dfplayer.iterrows(), dfenemy.iterrows())):
-		p_pos = np.array([player[1].X, player[1].Y, player[1].Z])
 
-		intersect = player_look_intersect(player[1], enemy[1])
+	""" TO HERE """ ######
+	
+
+	p_get_i = {x: i+1 for i, x in  enumerate(dfplayer.columns)}
+	e_get_i = {x: i+1 for i, x in  enumerate(dfenemy.columns)}
+	for i, (player, enemy) in enumerate(zip(dfplayer.itertuples(), dfenemy.itertuples())):
+		intersect = csgo_math.player_look_intersect(player, enemy, p_get_i, e_get_i)
 		dfplayer.set_value(i, "XAimbot", intersect.localx)
 		dfplayer.set_value(i, "YAimbot", intersect.localy) 
 		dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
 
-	print "stop here."
+	return dfplayer
+	# print '{:f}'.format(t1-t0)
+	# pdb.set_trace()
+
+
+	# print "stop here."
 
 	##Plot Fun###
 
 	##First Draw Player and Enemy Position.
 
-	fig1 = plt.figure()
-	axes = plt.gca()
-	axes.set_xlim([dfenemy.iloc[2].X - 5, dfenemy.iloc[2].X + 5])
-	axes.set_ylim([dfenemy.iloc[2].Y - 5,dfenemy.iloc[2].Y + 5])
-	i = 0
-	def update(frame):
-		i = frame
-		fig1.clear()
-		axes = plt.gca()
-		axes.set_xlim([dfplayer.X.min() - 5, dfenemy.X.max() + 5])
-		axes.set_ylim([dfplayer.Y.min() - 5, dfenemy.Y.max() + 5])
+	# fig1 = plt.figure()
+	# axes = plt.gca()
+	# axes.set_xlim([dfenemy.iloc[2].X - 5, dfenemy.iloc[2].X + 5])
+	# axes.set_ylim([dfenemy.iloc[2].Y - 5,dfenemy.iloc[2].Y + 5])
+	# i = 0
+	# def update(frame):
+	# 	i = frame
+	# 	fig1.clear()
+	# 	axes = plt.gca()
+	# 	axes.set_xlim([dfplayer.X.min() - 5, dfenemy.X.max() + 5])
+	# 	axes.set_ylim([dfplayer.Y.min() - 5, dfenemy.Y.max() + 5])
 
-		plt.scatter(x=dfplayer.iloc[i].X, y=dfplayer.iloc[i].Y, color="green")
-		plt.scatter(x=dfenemy.iloc[i].X, y=dfenemy.iloc[i].Y, color="red")
-		intersect = dfplayer.iloc[i].Intersect.split("|#|")
-		plt.scatter(x=float(intersect[0]),y=float(intersect[1]), color="blue")
+	# 	plt.scatter(x=dfplayer.iloc[i].X, y=dfplayer.iloc[i].Y, color="green")
+	# 	plt.scatter(x=dfenemy.iloc[i].X, y=dfenemy.iloc[i].Y, color="red")
+	# 	intersect = dfplayer.iloc[i].Intersect.split("|#|")
+	# 	plt.scatter(x=float(intersect[0]),y=float(intersect[1]), color="blue")
 
-	def update_plane(frame):
-		i = frame
-		fig2.clear()
-		axes = plt.gca()
-		axes.set_xlim([-10,10])
-		axes.set_ylim([-10,10])
-		plt.scatter(x=0, y=0, color="red")
-		plt.scatter(x=float(dfplayer.iloc[i].XAimbot),y=float(dfplayer.iloc[i].YAimbot), color="blue")
+	# def update_plane(frame):
+	# 	i = frame
+	# 	fig2.clear()
+	# 	axes = plt.gca()
+	# 	axes.set_xlim([-10,10])
+	# 	axes.set_ylim([-10,10])
+	# 	plt.scatter(x=0, y=0, color="red")
+	# 	plt.scatter(x=float(dfplayer.iloc[i].XAimbot),y=float(dfplayer.iloc[i].YAimbot), color="blue")
 
-	fig2 = plt.figure()
-	# animation = FuncAnimation(fig1, update, interval=24)
-	animation_2 = FuncAnimation(fig2, update_plane, interval=24)
+	# fig2 = plt.figure()
+	# # animation = FuncAnimation(fig1, update, interval=24)
+	# animation_2 = FuncAnimation(fig2, update_plane, interval=24)
 
-	plt.show()
-	pdb.set_trace()
-
-
+	# plt.show()
+	# pdb.set_trace()
 
 
+
+import sys
 def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = ['Name', 'Sex', 'Ticket', 'Cabin'], player_id = 0):
+	
+	
+	#Main data frame
 	df = pd.read_csv(file,delimiter=';', header=0)
-	pdb.set_trace
+	#Get all hurt data.
+	dfhurt = pd.read_csv(sys.argv[2], delimiter=';', header=0)
+
+	pdb.set_trace()
+	#Derive Get all Shots.
+	dfshots = df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+	
+	#Useful for merging when wanting to Find all shots that hit.
+	#Due to sometimes having None as weapon.
+	dfshothits = pd.merge(left=dfshots, right=dfhurt, left_on=["Tick", "Steam_ID"] ,right_on=["Tick", "Attacker"], how='right').drop(["Steam_ID"], axis=1)
+
+
 	#Get rows where tick is greater then 4570 and filter out bots.
 	# dfplayer= df[(df.Tick > 4570) & (df.Steam_ID > 0)]
 	dfplayer = None
@@ -252,7 +208,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 
 	dfeugene = df[(df.Name == "Eugene")]
 	#Drop Rows.
-	dfplayer= dfplayer.drop(["Steam_ID","X", "Y", "Z", "Unnamed: "+str(len(dfplayer.columns)-1)], axis=1)
+	dfplayer= dfplayer.drop(["Steam_ID","X", "Y", "Z"], axis=1)
 
 	dfplayer["TimeDiff"] = (dfplayer.Time - dfplayer.Time.shift(1))
 	#Calculates the difference between previous viewAngle-X, and current viewAngleX. 
@@ -277,85 +233,12 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
 	
-	player_intersects(df) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
-	pdb.set_trace()
+	return player_intersects(df) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
+	# pdb.set_trace()
 	#Plot:
-	plot_scatter_m4a1s(dfplayer)	
+	# plot_scatter_m4a1s(dfplayer)	
 
 	# Convert gender to number
-	df['Gender'] = df['Sex'].map({'female': 0, 'male': 1})
-
-	# Maps all non null values of Embarked to numbers.
-	pdb.set_trace()
-	df['Embarked']=  df[df['Embarked'].isnull() == False].Embarked.map({'C':1,'Q':2,'S':3})
-	# Gets the median
-	Embarked_median = df['Embarked'].median()
-	# Overwrites all of column 'Embarked' null values to equal the median 'Embarked'
-	# TODO: Create a model to predict 'Embarked'.
-	df['Embarked']=df['Embarked'].fillna(Embarked_median)
-
-	# Creates an array of 6 values. 2 Rows, 3 columns.
-	median_ages = np.zeros((2,3))
-
-	# For each Male/Female, we will have Three different median ages
-	# depending on what their Economic class ('Pclass') is.
-	for i in range(0,2):
-		for j in range(df['Pclass'].min(), df['Pclass'].max()+1):
-			median_ages[i,j-1] = df[(df['Gender'] == i ) & (df['Pclass'] == j)].Age.dropna().median()
-
-	# AgeIsNull
-	df['AgeIsNull'] = pd.isnull(df.Age).astype(int)
-
-	#  stores the median age for rows with null 'Age'
-	for i in range(0, 2):
-	    for j in range(0, 3):
-	        df.loc[(df.Age.isnull()) & (df.Gender == i) & (df.Pclass == j+1),'Age'] = median_ages[i,j]
-
-	# Convert all floats to a range of 0.5 or 1.0
-	# The reason being to fit the compo rules (Refer to data)
-	df['Age']= df['Age'].map(lambda x: math.ceil(x * 2.0) * 0.5)
-
-	# *** DO MEAN FOR FARE ****
-	mean_fare = np.zeros((2,3))
-	for i in range(0,2):
-		for j in range(df['Pclass'].min(), df['Pclass'].max()+1):
-			mean_fare[i,j-1] = df[(df['Gender'] == i ) & (df['Pclass'] == j)].Fare.dropna().mean()
-
-
-	for i in range(0, 2):
-	    for j in range(0, 3):
-	        df.loc[(df.Fare.isnull()) & (df.Gender == i) & (df.Pclass == j+1),'Fare'] = mean_fare[i,j]
-	# This creates a new column ('AgeIsNull') 
-	# 
-	# pd: this is the pandas library
-	# pd.isnull(arg1): this is a function that converts the dataFrame rows
-	# 				   into a true/false table.
-
-	df['FamilySize'] = df['SibSp'] + df['Parch']
-
-	# This multiplies the Age of the person by the social 
-	# class. It adds to the fact that higher ages are even
-	# LESS likely to survive
-	df['Age*Class'] = df.Age * df.Pclass
-
-	# Since skipi doesnt work well with strings
-	df.dtypes[df.dtypes.map(lambda x: x=='object')]
-	# Setting up for machine learning yikes! Horrible!
-	# The values you drop can improve or make worse.
-	df = df.drop(drop_columns_default + additional_columns, axis=1)
-	# Drops all columns that have any null value.. 
-	# uh? wtf? Super bad.
-	df = df.dropna()
-
-
-	# To store Id
-	passengerIds = df['PassengerId']
-
-	# Drop Id since output format issues
-	df = df.drop(['PassengerId'], axis = 1)
-	pdb.set_trace()
-
-	return df.values, passengerIds
 
 def get_array_id_from_file(file):
 	df = pd.read_csv(file, header=0)

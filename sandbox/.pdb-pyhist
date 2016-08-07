@@ -1,179 +1,3 @@
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
-fig.scatter
-x = 4
-t = 2
-where
-list
-list [200:216]
-list [200]
-help list
-list [200,216]
-list 200 216
-list(200,216)
-c
-x = 4
-t = 2
-dfplayer
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
-fig.scatter
-df
-where
-df
-df.Time
-list
-c
-x = 4
-t = 2
-where
-list
-list [200:216]
-list [200]
-help list
-list [200,216]
-list 200 216
-list(200,216)
-c
-x = 4
-t = 2
-dfplayer
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
-fig.scatter
-x = 4
-t = 2
-where
-list
-list [200:216]
-list [200]
-help list
-list [200,216]
-list 200 216
-list(200,216)
-c
-x = 4
-t = 2
-dfplayer
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
 dfplayer.Intersect.applymap(x.split("|#|"))
 dfplayer.Intersect.map(lambda x: x.split("|#|"))
 dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
@@ -498,3 +322,179 @@ df[(df.Steam_ID == 0) & (df.Steam_ID == 76561197979652439)]
 df[(df.Steam_ID != 0) & (df.Steam_ID != 76561197979652439)]
  df[(df.Steam_ID != 0) & (df.Steam_ID != 76561197979652439)]
 df[(df.Steam_ID != 0) & (df.Steam_ID != 76561197979652439)]
+where
+ df[(df.Steam_ID != 0) & (df.Steam_ID) != 76561197979652439]
+ df[(df.Steam_ID != 0) & (df.Steam_ID != 76561197979652439)]
+import sys
+sys.argv
+where
+list
+dfhurt
+df
+dfhurt
+dfplayer
+dfplayer[dfplayer.AimYPunchAccel < 0][['Tick','AimYPunchAccel']]
+dfhurt
+pd.merge(df1, df2, on='key')dfplayer 
+pd.merge(dfhurt, dfplayer, left_on='Attacker', right_on='Steam_ID')
+dfplayer
+pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID')
+pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID')[['Tick']]
+pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID')[['Tick_x']]
+pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID', how='left')
+pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID', how='right')
+pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID', how='left')
+pd.merge(dfhurt, df, left_on='Tick', right_on='Tick', how='left')
+dfhurt
+pd.merge(dfhurt, df, left_on='Tick', right_on='Tick', how='left')
+pd.merge(dfhurt, dfplayer, left_on='Tick', right_on='Tick', how='left')
+pd.merge(dfhurt, df[df.Steam_ID == 76561197979652439, left_on='Tick', right_on='Tick', how='left') 
+dfplayer
+df[df.
+dfplayer[dfplayer.AimYPunchAccel < 0][['Tick','AimYPunchAccel']]
+pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, key='Tick')
+pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick')
+pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt,on='Tick', h=right')
+pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, key='Tick')
+pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='right'))
+dfplayer[dfplayer.AimYPunchAccel < 0][['Tick','AimYPunchAccel']]\
+pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='right'))
+pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='right')
+pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='left')
+help(pd.merge)
+all_shots = pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='left')
+all_shots
+dfshots = pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='left')
+dfshots.iloc[3]
+dfshots.iloc[3].Attacker
+x= dfshots.iloc[3].Attacker
+x
+type(x)
+dfplayer[df.AimYPunchAccel < 0][['Tick','AimYPunchAccel']]
+dfplayer[df.AimYPunchAccel < 0][['Tick','HasShot']]
+dfplayer[df.HasShot == True][['Tick','HasShot']]
+dfplayer[df.HasShot == True][['Tick','Steam_ID','HasShot']]
+df[df.HasShot == True][['Tick','Steam_ID','HasShot']]
+df[df.HasShot == True][['Tick','Name','Steam_ID','HasShot']]
+df[(df.HasShot == True) & (df.Name !="bu khalifa")][['Tick','Name','Steam_ID','HasShot']]
+df[(df.HasShot == True) & (df.Name !="bu khalifa")][['Tick','Name','Steam_ID','HasShot', 'Weapon']]
+df[(df.HasShot == True)][['Tick','Name','Steam_ID','HasShot', 'Weapon']]
+df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+DFSHOTS = df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+dfshots = df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+dfshots
+where
+dfhurt
+pd.merge(left=dfshots, right=dfhurt, left_on=["Tick", "Steam_ID"] ,right_on=["Tick", "Attacker"])
+dfhurt
+pd.merge(left=dfshots, right=dfhurt, left_on=["Tick", "Steam_ID"] ,right_on=["Tick", "Attacker"], how='left')
+pd.merge(left=dfshots, right=dfhurt, left_on=["Tick", "Steam_ID"] ,right_on=["Tick", "Attacker"], how='right')
+where
+list
+where
+dfhurt
+where
+list
+where
+dfhurt
+dfshots
+dfhurt
+where
+import timeit
+s = """for i, (player, enemy) in enumerate(zip(dfplayer.iterrows(), dfenemy.iterrows())):
+p_pos = np.array([player[1].X, player[1].Y, player[1].Z])
+intersect = player_look_intersect(player[1], enemy[1])
+dfplayer.set_value(i, "XAimbot", intersect.localx)
+dfplayer.set_value(i, "YAimbot", intersect.localy) 
+dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
+!import code; code.interact(local=vars())
+for i, (player, enemy) in enumerate(zip(dfplayer.iterrows(), dfenemy.iterrows())):
+p_pos = np.array([player[1].X, player[1].Y, player[1].Z])
+intersect = player_look_intersect(player[1], enemy[1])
+dfplayer.set_value(i, "XAimbot", intersect.localx)
+dfplayer.set_value(i, "YAimbot", intersect.localy) 
+dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
+timeit
+import timeit
+dfplayer
+df
+where
+df
+!
+help(!)
+help
+import code; code.interact(local=vars())
+df
+_s = """for i, (player, enemy) in enumerate(zip(dfplayer.iterrows(), dfenemy.iterrows())):
+p_pos = np.array([player[1].X, player[1].Y, player[1].Z])
+intersect = player_look_intersect(player[1], enemy[1])
+dfplayer.set_value(i, "XAimbot", intersect.localx)
+dfplayer.set_value(i, "YAimbot", intersect.localy) 
+dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
+import code; code.interact(local=vars())
+for i, (player, enemy) in enumerate(zip(dfplayer.iterrows(), dfenemy.iterrows())):
+p_pos = np.array([player[1].X, player[1].Y, player[1].Z])
+intersect = player_look_intersect(player[1], enemy[1])
+dfplayer.set_value(i, "XAimbot", intersect.localx)
+dfplayer.set_value(i, "YAimbot", intersect.localy) 
+player_look_intersect(player[1], enemy[1])
+df
+c
+_t3 = time.time()
+_t3 - time.time()
+t1 - t0
+ - t0
+c
+dfplayer
+where
+list
+import timeit
+np
+timeit.timeit("np",number=1)
+timeit.timeit(stmt="np",setup = "import np ",number=1)
+timeit.timeit(stmt="np",setup = "import numpy as np ",number=1)
+timeit.timeit(stmt="np",setup = "import numpy as np ",number=1000)
+timeit.timeit(stmt="np.array([])",setup = "import numpy as np ",number=1000)
+timeit.timeit(stmt="np.array([1,2,3])",setup = "import numpy as np ",number=1000)
+_test()
+import cProfile
+cProfile.run('_test()')
+import pstats
+cProfile.run('_test()')
+cProfile.run('2+2')
+c
+player
+player[0]
+player[3]
+player[4]
+player[1].Z
+dfplayer.columns
+dfplayer.columns.get_loc('X')
+dfplayer.columns.get_loc('Stead_ID')
+dfplayer.columns.get_loc('Steam_ID')
+player[4]
+player[0]
+player[1]
+player
+dfplayer.columns.get_loc('index')
+dfplayer.columns.get_loc('Steam_ID')
+dfplayer.columns.get_loc('X')
+dfplayer.columns.get_loc('X')+ 1
+dfplayer.iloc[2]
+player
+player[8]
+player[7]
+dfplayer.columns.get_loc('X') + 1
+dfplayer.columns.map
+dfplayer.columns.map(lambda x: f[x] = x.index)
+dfplayer.columns.map(lambda x: f[x])
+dfplayer.columns.map(lambda x: x )
+dfplayer.columns.map(lambda x: int(x) )
+dfplayer.columns.map(lambda x: x+"2" )
+for i, x in  enumerate(dfplayer.columns): x
+for i, x in  enumerate(dfplayer.columns): i
+{(x,i) :for i, x in  enumerate(dfplayer.columns)}
+{x: i for i, x in  enumerate(dfplayer.columns)}
+c
+[ player[p_get_i["X"]]  ,  player[p_get_i["Y"]],    player[p_get_i["Z"]]]
+c

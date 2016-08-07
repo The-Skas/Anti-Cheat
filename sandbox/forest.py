@@ -8,7 +8,7 @@ import sys
 
 remove_columns = ['Parch', 'FamilySize', 'Age', 'AgeIsNull', 'SibSp', 'Pclass']
 
-player_id = sys.argv[2] if len(sys.argv) >= 3 else 0
+player_id = sys.argv[3] if len(sys.argv) >= 4 else 0
 
 train_data, train_passenger_id = clean_data_to_numbers(sys.argv[1],remove_columns, player_id=player_id)
 
