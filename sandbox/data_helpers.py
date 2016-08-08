@@ -122,16 +122,19 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
 	
-	dfplayer["TrueViewXDiff"]= ((dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1) + 180) % 360 - 180).abs()
-	dfplayer["TrueViewYDiff"]= ((dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1) + 180) % 360 - 180).abs()
+	dfplayer["TrueViewXDiff"] = ((dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1))  % 360 - 180).abs()
+	dfplayer["TrueViewYDiff"]=  ((dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1))  % 360 - 180).abs()
 
 	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewXDiff)**2  + (dfplayer.TrueViewYDiff)**2).apply(np.sqrt)
+
+	dfplayer["TrueViewXAngDiff"]= (dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1)) % 360 
+	dfplayer["TrueViewYAngDiff"]= (dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1)) % 360 
 
 	dfplayer["TrueViewDiffSpeed"] = dfplayer.TrueViewDiff / dfplayer.TimeDiff
 
 	#Get Sin value
 											###    y / x
-	dfplayer["TrueViewRad"]  =  dfplayer.apply(lambda row: math.atan2(row.TrueViewYDiff , row.TrueViewXDiff ), axis=1) 
+	dfplayer["TrueViewRad"]  =  dfplayer.apply(lambda row: math.atan2(row.TrueViewYAngDiff , row.TrueViewXAngDiff ), axis=1) 
 	dfplayer["TrueViewSin"]  =  dfplayer.apply(lambda row: math.sin(row.TrueViewRad), axis=1)
 	dfplayer["TrueViewCos"]  =  dfplayer.apply(lambda row: math.cos(row.TrueViewRad), axis=1)
 
