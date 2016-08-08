@@ -127,8 +127,8 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 
 	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewXDiff)**2  + (dfplayer.TrueViewYDiff)**2).apply(np.sqrt)
 
-	dfplayer["TrueViewXAngDiff"]= (dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1)) % 360 
-	dfplayer["TrueViewYAngDiff"]= (dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1)) % 360 
+	dfplayer["TrueViewXAngDiff"]= (dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1)) % 360 - 180
+	dfplayer["TrueViewYAngDiff"]= (dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1)) % 360 - 180 
 
 	dfplayer["TrueViewDiffSpeed"] = dfplayer.TrueViewDiff / dfplayer.TimeDiff
 

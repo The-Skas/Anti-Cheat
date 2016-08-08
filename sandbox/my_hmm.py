@@ -59,6 +59,8 @@ dfplayer = clean_data_to_numbers(sys.argv[1], player_id=player_id)
 # Chose 16 components due to dividing around a circle.
 model_1, X_1 = create_markov_model(dfplayer, ["TrueViewSin","TrueViewCos"], n_components = 16)
 # Plot as an Axis Around the model.
+pdb.set_trace()
+csgo_plot.plot_scatter_hmm(X_1[:,0] ,X_1[:,1] , model_1, X_1)
 
 #Chose 4 components to give some variance.
 model_2, X_2 = create_markov_model(dfplayer, ["TrueViewDiff"] , n_components=4)

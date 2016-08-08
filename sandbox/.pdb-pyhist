@@ -1,42 +1,3 @@
-dfplayer[[0]]
-dfplayer.iloc[0]
-dfplayer[dfplayer.XAimbot > 100]
-dfplayer[dfplayer.XAimbot < 100]
-c
-df
-c df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
-df
- df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
-c
-sys.argv[1]
-df[['Tick','Name','Steam_ID', 'Weapon']]
-df[(df.HasShot == True)]
-df[(df.HasShot == True)][['HashShot']]
-df[(df.HasShot == True)][['Tick']]
-df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
-c
-(dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)
-dfplayer['Test'] = (dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)
-dfplayer
-((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt())
-((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt)
-dfrounds
-dictrounds
-dictrounds[6]
-dictrounds[7]
-dictrounds[8]
-dictrounds[9]
-dictrounds[10]
-S
-S.type
-S.type()
-S.dim
-S.ndim
-np.empty([2])
-np.empty(2)
-np.empty(shape=2)
-np.array()
-np.array([])
 np.array([[],[]])
 X = np.array([[],[]])
 S
@@ -498,3 +459,42 @@ dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.ViewYDiff > 
 (351 + 10) % 360
 dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.Tick > 14096]
 dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.Tick > 14090]
+dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.Tick > 14096]
+csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
+dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.Tick > 14096]
+dfplayer[['Round','Tick','ViewX','ViewY','TrueViewXAngDiff','TrueViewYDiff']][dfplayer.Tick > 14096]
+dfplayer[['Round','Tick','ViewX','ViewY','TrueViewXAngDiff','TrueViewYDiff']][dfplayer.TrueViewXAngDiff < 0]]
+dfplayer[['Round','Tick','ViewX','ViewY','TrueViewXAngDiff','TrueViewYDiff']][dfplayer.TrueViewXAngDiff < 0]
+dfplayer[['Round','Tick','ViewX','ViewY','TrueViewXAngDiff','TrueViewYDiff']][dfplayer.TrueViewYAngDiff < 0]
+-5 % 360
+-5 % -360
+(dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1))  % 360 - 180
+-5 % -360
+csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
+X_1[:,0]
+X_1[:,1]
+X_1
+X_1[0]
+X_1[:,0]
+C
+c
+n
+where
+list
+mask
+n
+x
+x == i
+x == i
+i
+model.predict(X)
+X
+X 
+hidden_states = model.predict(X)
+mask = hidden_states == i
+mask
+i
+x[mask]
+mask = hidden_states == 1
+x[mask]
+c

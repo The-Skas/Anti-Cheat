@@ -19,11 +19,9 @@ def plot_plane(x, y):
 	plt.show()
 
 
-def plot_scatter(x,y):
+def plot_scatter_hmm(x,y, model, X):
 
 	#Must create new figure for each plot.
-	cm_subsection = np.linspace(0.0, 0.4, 20)
-	colors = [ cm.jet(k) for k in cm_subsection]
 
 	#Plot creating a fade away color for each line.. 
 	fig= plt.figure()
@@ -32,7 +30,16 @@ def plot_scatter(x,y):
 	plt.ylabel('ViewY')
 	#loop here over color
 	pdb.set_trace()
-	plt.scatter(x=x, y=y) #color=colors[i])
+
+	colours = cm.rainbow(np.linspace(0, 1, model.n_components))
+
+	# Use fancy indexing to plot data in each state.
+	hidden_states = model.predict(X)
+	for i, (state, colour) in enumerate(zip(range(model.n_components), colours)):
+		mask = hidden_states == i
+		pdb.set_trace()
+		plt.scatter(x=x[mask], y=y[mask], color=colour) #color=colors[i])
+
 	plt.show()
 
 
