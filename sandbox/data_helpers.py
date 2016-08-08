@@ -126,6 +126,13 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewYDiff"]= ((dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1) + 180) % 360 - 180).abs()
 
 	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewXDiff)**2  + (dfplayer.TrueViewYDiff)**2).apply(np.sqrt)
+	#Get Sin value
+											###    y / x
+	dfplayer["TrueViewRad"]  =  dfplayer.apply(lambda row: math.atan2(row.TrueViewYDiff , row.TrueViewXDiff ), axis=1) 
+	dfplayer["TrueViewSin"]  =  dfplayer.apply(lambda row: math.sin(row.TrueViewRad), axis=1)
+	dfplayer["TrueViewCos"]  =  dfplayer.apply(lambda row: math.cos(row.TrueViewRad), axis=1)
+	pdb.set_trace()
+
 	""" TO HERE """ ######
 	
 

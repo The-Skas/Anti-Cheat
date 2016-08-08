@@ -1,121 +1,3 @@
-fig.scatter
-x = 4
-t = 2
-where
-list
-list [200:216]
-list [200]
-help list
-list [200,216]
-list 200 216
-list(200,216)
-c
-x = 4
-t = 2
-dfplayer
-df
-dfplayer['ViewZOffset']
-dfplayer
-dfplayer['ViewZOffset']
-list
-list(200, 227)
-dfenemy.iloc[2]
-dfplayer.Intersection
-where
-list(200, 227)
-intersect
-dfplayer
-dfplayer.XAimbot
-dfplayer.Intersect
-dfenemy.iloc[2].Tick
-dfplayer.iloc[2].Tick
--1372.79237746|#|2560.97206373|#|65.9105042074
--1370.57131566|#|2559.53782732|#|61.6492266436
--1371.63928073|#|2560.26093644|#|61.7204488771
-dfplayer.Intersect[0:60]
-dfplayer.Intersect
-dfplayer.Intersect.split("|#|")
-dfplayer.Intersect.values.split("|#|")
-dfplayer.Intersect.map(split("|#|"))
-dfplayer.Intersect.map(x.split("|#|"))
-dfplayer.Intersect.values.map(x.split("|#|"))
-dfplayer.Intersect.applymap(x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|"))
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2])
-dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique()
-len(dfplayer.Intersect.map(lambda x: x.split("|#|")[2]).unique())
-fig
-fig.plot
-fig.scatter
-df
-where
-df
-df.Time
-df
-df.Steam_ID
-df.Steam_ID.unique()
-df[Steam_ID != 0]
-df[df.Steam_ID != 0]
-df[(df.Steam_ID != 0) & (df.Steam_ID) != 76561197979652439]
-df[(df.Steam_ID != 0) || (df.Steam_ID) != 76561197979652439]
-df[(df.Steam_ID != 0) | (df.Steam_ID) != 76561197979652439]
-df[(df.Steam_ID == 0) & (df.Steam_ID) == 76561197979652439]
-df[(df.Steam_ID == 0) & (df.Steam_ID == 76561197979652439)]
-df[(df.Steam_ID != 0) & (df.Steam_ID != 76561197979652439)]
- df[(df.Steam_ID != 0) & (df.Steam_ID != 76561197979652439)]
-df[(df.Steam_ID != 0) & (df.Steam_ID != 76561197979652439)]
-where
- df[(df.Steam_ID != 0) & (df.Steam_ID) != 76561197979652439]
- df[(df.Steam_ID != 0) & (df.Steam_ID != 76561197979652439)]
-import sys
-sys.argv
-where
-list
-dfhurt
-df
-dfhurt
-dfplayer
-dfplayer[dfplayer.AimYPunchAccel < 0][['Tick','AimYPunchAccel']]
-dfhurt
-pd.merge(df1, df2, on='key')dfplayer 
-pd.merge(dfhurt, dfplayer, left_on='Attacker', right_on='Steam_ID')
-dfplayer
-pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID')
-pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID')[['Tick']]
-pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID')[['Tick_x']]
-pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID', how='left')
-pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID', how='right')
-pd.merge(dfhurt, df, left_on='Attacker', right_on='Steam_ID', how='left')
-pd.merge(dfhurt, df, left_on='Tick', right_on='Tick', how='left')
-dfhurt
-pd.merge(dfhurt, df, left_on='Tick', right_on='Tick', how='left')
-pd.merge(dfhurt, dfplayer, left_on='Tick', right_on='Tick', how='left')
-pd.merge(dfhurt, df[df.Steam_ID == 76561197979652439, left_on='Tick', right_on='Tick', how='left') 
-dfplayer
-df[df.
-dfplayer[dfplayer.AimYPunchAccel < 0][['Tick','AimYPunchAccel']]
-pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, key='Tick')
-pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick')
-pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt,on='Tick', h=right')
-pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, key='Tick')
-pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='right'))
-dfplayer[dfplayer.AimYPunchAccel < 0][['Tick','AimYPunchAccel']]\
-pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='right'))
-pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='right')
-pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='left')
-help(pd.merge)
-all_shots = pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='left')
-all_shots
-dfshots = pd.merge( left=dfplayer[dfplayer.AimYPunchAccel < 0][['Tick']], right=dfhurt, on='Tick', how='left')
-dfshots.iloc[3]
-dfshots.iloc[3].Attacker
-x= dfshots.iloc[3].Attacker
-x
-type(x)
-dfplayer[df.AimYPunchAccel < 0][['Tick','AimYPunchAccel']]
-dfplayer[df.AimYPunchAccel < 0][['Tick','HasShot']]
-dfplayer[df.HasShot == True][['Tick','HasShot']]
-dfplayer[df.HasShot == True][['Tick','Steam_ID','HasShot']]
 df[df.HasShot == True][['Tick','Steam_ID','HasShot']]
 df[df.HasShot == True][['Tick','Name','Steam_ID','HasShot']]
 df[(df.HasShot == True) & (df.Name !="bu khalifa")][['Tick','Name','Steam_ID','HasShot']]
@@ -488,13 +370,131 @@ dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.HMM) == 1]
 dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
 dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 0]
 dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
-View
-cdfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+c
+dfplayer 
 dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.HMM) == 1]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewX','TrueViewY''TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewX','TrueViewY','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewX','TrueViewY','TrueViewYDiff','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 2]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 0]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 2]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12100]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12100)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) && dfplayer.HMM == 1]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 11000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14050)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14050)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
+len(dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)])
+len(dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 0)])
+len(dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 4)])
+len(dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)])
+len(dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 0)])
+len(dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 10000) &(dfplayer.HMM == 0)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 2)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 1)]
+help(hmmlearn)
+hmm
+where
+list(0,10)
+where
+list
+help(hmmlearn)
+import hmmlearn
+help(hmmlearn)
+help(hmmlearn.hmm)
+help(GuassianHMM)
+help(GaussianHMM)
+model
+model.predict_proba(X)
+len(model.predict_proba(X))
+len(model.predict(X))
+result
+_result
+dfplayer['HMM']
+len(dfplayer['HMM'])
+len(model.predict(X))
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 2)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 1)]
+model.decode
+model.decode(X)
+len(model.decode(X))
+len(model.decode(X))
+model.decode(X)[1]
+len(model.decode(X)[1])
+model.decode(X)[1][7015]
+model.decode(X)[1][7014]
+model.decode(X)[1][7016]
+model.decode(X)[1]
+model.decode(X)[1].sum()
+model.decode(X)
+model.decode(X[0:10])
+model.decode(X[20:40])
+model.decode(X[100:50])
+model.decode(X[100:150])
+model.predict(X[100:15])
+X
+model.predict(X[100:150])
+len(model.predict(X[100:150]))
+len(model.predict(X[500:600]))
+X[500:600]
+dfplayer['
+math
+math.atan
+math.atan(1,1)
+math.atan2(1,1)
+help(math.atan2)
+math.atan2(0,1)
+math.atan2(1,1)
+math.atan2(2,1)
+math.atan2(2,0)
+math.atan2(1,0)
+math.degrees(math.atan2(1,0))
+math.degrees(math.atan2(0,1))
+math.sin(math.atan2(1,0))
+math.sin(math.atan2(1,1))
+math.sin(math.atan2(1,2))
+math.sin(math.atan2(1,3))
+math.sin(math.atan2(1,-3))
+math.sin(math.atan2(1,3))
+math.sin(math.atan2(1,-3))
+math.cos(math.atan2(1,-3))
+math.cos(math.atan2(1,3))
+math.sin(math.atan2(1,1))
+math.sin(math.atan2(11))
+dfplayer.apply(lambda row: math.atan2(row.TrueViewY , row.TrueViewX ))
+dfplayer.apply(lambda row: math.atan2(row['TrueViewY'] , row['TrueViewX'] ))
+where
+list
+list(125,128)
+dfplayer.apply(lambda row: math.atan2(row['TrueViewYDiff'] , row['TrueViewXDiff'] ))
+dfplayer
+dfplayer['TrueViewYDiff']
+dfplayer.apply(lambda row: math.atan2(row['TrueViewYDiff'] , row['TrueViewXDiff'] ))
+dfplayer.apply(lambda row: math.atan2(row['TrueViewYDiff'] , row['TrueViewXDiff'] ), axis=1)
+dfplayer['TrueViewRad'] = dfplayer.apply(lambda row: math.atan2(row['TrueViewYDiff'] , row['TrueViewXDiff'] ), axis=1)
+sin(dfplayer.TrueViewRad)
+math.sin(dfplayer.TrueViewRad)
+dfplayer.TrueViewRad
+dfplayer.TrueViewRad > 0
+dfplayer[["TrueViewXDiff", "TrueViewYDiff", "TrueViewRad"]][dfplayer.TrueViewRad > 0]
+TrueViewY
+df.TrueViewY
+dfplayer.TrueViewY
+dfplaer[dfplayer.TrueViewY > 100
+dfplayer[["TrueViewXDiff", "TrueViewYDiff", "TrueViewRad"]][dfplayer.TrueViewRad > 0]
+dfplayer.TrueViewY
+dfplayer.TrueViewX
+dfplayer[["TrueViewXDiff", "TrueViewYDiff", "TrueViewRad"]][dfplayer.TrueViewRad > 0]
+math.sin(math.radians(0.351600))
+math.atan2(0.3516, 0)
+math.sin(math.atan2(0.3516, 0))
+where
+dfplayer
+dfplayer[dfplayer.TrueViewSin > 0]
