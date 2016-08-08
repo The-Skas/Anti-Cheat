@@ -126,12 +126,14 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewYDiff"]= ((dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1) + 180) % 360 - 180).abs()
 
 	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewXDiff)**2  + (dfplayer.TrueViewYDiff)**2).apply(np.sqrt)
+
+	dfplayer["TrueViewDiffSpeed"] = dfplayer.TrueViewDiff / dfplayer.TimeDiff
+
 	#Get Sin value
 											###    y / x
 	dfplayer["TrueViewRad"]  =  dfplayer.apply(lambda row: math.atan2(row.TrueViewYDiff , row.TrueViewXDiff ), axis=1) 
 	dfplayer["TrueViewSin"]  =  dfplayer.apply(lambda row: math.sin(row.TrueViewRad), axis=1)
 	dfplayer["TrueViewCos"]  =  dfplayer.apply(lambda row: math.cos(row.TrueViewRad), axis=1)
-	pdb.set_trace()
 
 	""" TO HERE """ ######
 	
@@ -261,6 +263,13 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 
 	# Convert gender to number
 
+def time_warp_data(df):
+	pass
+	#Given df..
+	# We check the difference in time between the data and normalize it.
+	# Speed is already normalized... All data that might vary
+
+	## Normalize 
 def get_array_id_from_file(file):
 	df = pd.read_csv(file, header=0)
 
