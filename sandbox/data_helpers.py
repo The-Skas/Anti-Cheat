@@ -144,13 +144,16 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	""" TO HERE """ ######
 	
 
-	p_get_i = {x: i+1 for i, x in  enumerate(dfplayer.columns)}
-	e_get_i = {x: i+1 for i, x in  enumerate(dfenemy.columns)}
-	for i, (player, enemy) in enumerate(zip(dfplayer.itertuples(), dfenemy.itertuples())):
-		intersect = csgo_math.player_look_intersect(player, enemy, p_get_i, e_get_i)
-		dfplayer.set_value(i, "XAimbot", intersect.localx)
-		dfplayer.set_value(i, "YAimbot", intersect.localy) 
-		dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
+	"""
+	Add me later brah, this is the aim. Without it you wont know when Im hitting.
+	"""
+	# p_get_i = {x: i+1 for i, x in  enumerate(dfplayer.columns)}
+	# e_get_i = {x: i+1 for i, x in  enumerate(dfenemy.columns)}
+	# for i, (player, enemy) in enumerate(zip(dfplayer.itertuples(), dfenemy.itertuples())):
+	# 	intersect = csgo_math.player_look_intersect(player, enemy, p_get_i, e_get_i)
+	# 	dfplayer.set_value(i, "XAimbot", intersect.localx)
+	# 	dfplayer.set_value(i, "YAimbot", intersect.localy) 
+	# 	dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
 
 	return dfplayer
 	# print '{:f}'.format(t1-t0)
@@ -229,8 +232,8 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	dfplayer= dfplayer.drop(["Steam_ID","X", "Y", "Z"], axis=1)
 
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
-	
-	dfplayer = player_intersects(df, start_tick=0) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
+	pdb.set_trace()
+	dfplayer = player_intersects(df, player_id=player_id, start_tick=69806, end_tick=110000) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
 	
 	#Remove all data not part of a round
 	dfplayer = dfplayer[dfplayer.Round != 0]

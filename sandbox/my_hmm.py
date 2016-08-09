@@ -57,6 +57,10 @@ time_1 = time.time()
 player_id = sys.argv[3] if len(sys.argv) >= 4 else 0
 
 dfplayer = clean_data_to_numbers(sys.argv[1], player_id=player_id)
+
+# Get unique ID... Hmmmm 
+# Hm the real question is to create a classifier for now.
+dfplayer_2 = clean_data_to_numbers(sys.argvs[1])
 print "Done Parsing: {:0.5f}".format(time.time() - time_1)
 
 # Chose 16 components due to dividing around a circle.
