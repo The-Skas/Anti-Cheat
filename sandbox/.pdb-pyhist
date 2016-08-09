@@ -1,20 +1,3 @@
-dfplayer.ViewDiff
-dfplayer
-dfplayer[0]
-dfplayer[[0]]
-dfplayer.iloc[0]
-dfplayer[dfplayer.XAimbot > 100]
-dfplayer[dfplayer.XAimbot < 100]
-c
-df
-c df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
-df
- df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
-c
-sys.argv[1]
-df[['Tick','Name','Steam_ID', 'Weapon']]
-df[(df.HasShot == True)]
-df[(df.HasShot == True)][['HashShot']]
 df[(df.HasShot == True)][['Tick']]
 df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
 c
@@ -498,3 +481,20 @@ dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM
 dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.TrueViewDiff > 20]
 dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 18]
 dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 18]
+n
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 18]
+dfplayer['HMM'] = model_3.predict(X_3)
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 18]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 0]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 1]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 2]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 3]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 4]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 5]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 6]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 7]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.TrueViewDiff > 50]
+dfplayer["TrueViewRad"]
+dfplayer["TrueViewRad"].max()
+math.degrees(3.1415926535897931)
+c

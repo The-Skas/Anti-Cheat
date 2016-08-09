@@ -139,6 +139,8 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewSin"]  =  dfplayer.apply(lambda row: math.sin(row.TrueViewRad), axis=1)
 	dfplayer["TrueViewCos"]  =  dfplayer.apply(lambda row: math.cos(row.TrueViewRad), axis=1)
 
+	## Used to measure changes in Mouse mdir
+	dfplayer["TrueViewRadDiff"] = dfplayer.TrueViewRad - dfplayer.TrueViewRad.shift(1)
 	""" TO HERE """ ######
 	
 

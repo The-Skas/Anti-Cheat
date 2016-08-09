@@ -55,12 +55,14 @@ import time
 
 time_1 = time.time()
 player_id = sys.argv[3] if len(sys.argv) >= 4 else 0
-print "Done Parsing: %.2f" %  time.time() - time_1
 
 dfplayer = clean_data_to_numbers(sys.argv[1], player_id=player_id)
+print "Done Parsing: {:0.5f}".format(time.time() - time_1)
+
 # Chose 16 components due to dividing around a circle.
+time_1 = time.time()
 model_1, X_1 = create_markov_model(dfplayer, ["TrueViewSin","TrueViewCos"], n_components = 8)
-print "Done markov model 1: %.2f" %  time.time() - time_1
+print "Done markov model 1:{:0.5f}".format(time.time() - time_1)
 # Plot as an Axis Around the model.
 # csgo_plot.plot_scatter_hmm(X_1[:,0] ,X_1[:,1] , model_1, X_1)
 # plt.show()
@@ -68,19 +70,20 @@ print "Done markov model 1: %.2f" %  time.time() - time_1
 #Chose 4 components to give some variance.
 time_1 = time.time()
 model_2, X_2 = create_markov_model(dfplayer, ["TrueViewDiff"] , n_components=4)
-print "Done markov model 2: %.2f" %  time.time() - time_1
+print "Done markov model 2: {:0.5f}".format(time.time() - time_1)
 
 # Plot as a linegraph over time.
 # csgo_plot.plot_plane(np.arange(len(X_2)), X_2)
 time_1 = time.time()
-model_3, X_3 = create_markov_model(dfplayer, ["TrueViewDiff","TrueViewSin","TrueViewCos"] , n_components=4*8)
-print "Done markov model 2: %.2f" %  time.time() - time_1
+model_3, X_3 = create_markov_model(dfplayer, ["TrueViewDiff","TrueViewSin","TrueViewCos"] , n_components=8)
+print "Done markov model 2: {:0.5f}".format(time.time() - time_1)
 
 csgo_plot.plot_scatter_hmm(X_3[:,1] ,X_3[:,2] , model_3, X_3)
+
+model_4, X_4 = create_markov_model(dfplayer, ["TrueViewRadDiff","TrueViewDiff"], n_components = 8)
+
+plt.show(block=False)
 pdb.set_trace()
-
-plt.show()
-
 ## Get all Non-Null ViewDiffs and Aimbotdist
 ## Issue with this is the fucking up the time series...
 
