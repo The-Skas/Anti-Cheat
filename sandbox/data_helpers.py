@@ -122,13 +122,14 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
 	
-	dfplayer["TrueViewXDiff"] = ((dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1))  % 360 - 180).abs()
-	dfplayer["TrueViewYDiff"]=  ((dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1))  % 360 - 180).abs()
+	dfplayer["TrueViewXDiff"] = ((dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1) + 180)  % 360 - 180).abs()
+	dfplayer["TrueViewYDiff"]=  ((dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1) + 180)  % 360 - 180).abs()
 
 	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewXDiff)**2  + (dfplayer.TrueViewYDiff)**2).apply(np.sqrt)
 
-	dfplayer["TrueViewXAngDiff"]= (dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1)) % 360 - 180
-	dfplayer["TrueViewYAngDiff"]= (dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1)) % 360 - 180 
+	# Understand the formula (ang_t - ang_t_1 ) + 180) % 360 - 180 ## gives us the shortest distance
+	dfplayer["TrueViewXAngDiff"]= (dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1) + 180) % 360 - 180
+	dfplayer["TrueViewYAngDiff"]= (dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1) + 180) % 360 - 180 
 
 	dfplayer["TrueViewDiffSpeed"] = dfplayer.TrueViewDiff / dfplayer.TimeDiff
 
@@ -224,29 +225,6 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	dfeugene = df[(df.Name == "Eugene")]
 	#Drop Rows.
 	dfplayer= dfplayer.drop(["Steam_ID","X", "Y", "Z"], axis=1)
-
-	dfplayer["TimeDiff"] = (dfplayer.Time - dfplayer.Time.shift(1))
-	#Calculates the difference between previous viewAngle-X, and current viewAngleX. 
-	#Then get value.
-	dfplayer['ViewXDiff'] = ((dfplayer.ViewX - dfplayer.ViewX.shift(1) + 180) % 360 - 180).abs()
-	#Categorizes the angles.
-	dfplayer['ViewXDiffBin'] = pd.cut(dfplayer.ViewXDiff,3,labels=["low","medium","high"])
-
-	#Same for Y
-	dfplayer['ViewYDiff'] = ((dfplayer.ViewY - dfplayer.ViewY.shift(1) + 180) % 360 - 180).abs()
-    #Bin angles to three:
-	dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
-
-	#Get acctual distance traveled of angle diff.. This needs testing probs.
-	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
-	dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
-	
-	dfplayer['AimYPunchAccel'] = dfplayer.AimYPunchVel - dfplayer.AimYPunchVel.shift(1)
-	dfplayer['AimYPunchAccelDiff'] = dfplayer.AimYPunchAccel - dfplayer.AimYPunchAccel.shift(1)
-
-	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
-	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
-
 
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
 	

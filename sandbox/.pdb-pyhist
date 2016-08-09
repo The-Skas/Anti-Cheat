@@ -1,3 +1,45 @@
+dfplayer.ViewDiff
+dfplayer
+dfplayer[0]
+dfplayer[[0]]
+dfplayer.iloc[0]
+dfplayer[dfplayer.XAimbot > 100]
+dfplayer[dfplayer.XAimbot < 100]
+c
+df
+c df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+df
+ df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+c
+sys.argv[1]
+df[['Tick','Name','Steam_ID', 'Weapon']]
+df[(df.HasShot == True)]
+df[(df.HasShot == True)][['HashShot']]
+df[(df.HasShot == True)][['Tick']]
+df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
+c
+(dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)
+dfplayer['Test'] = (dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)
+dfplayer
+((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt())
+((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt)
+dfrounds
+dictrounds
+dictrounds[6]
+dictrounds[7]
+dictrounds[8]
+dictrounds[9]
+dictrounds[10]
+S
+S.type
+S.type()
+S.dim
+S.ndim
+np.empty([2])
+np.empty(2)
+np.empty(shape=2)
+np.array()
+np.array([])
 np.array([[],[]])
 X = np.array([[],[]])
 S
@@ -293,208 +335,166 @@ dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.H
 dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 2)]
 dfplayer[['Round','Tick','TrueViewDiff','TrueViewSin','TrueViewCos','HMM']][(dfplayer.Tick > 14090)]
 dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 2)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 0)]
+dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 1)]
+dfplayer[['Round','Tick','TrueViewDiff','TrueViewSin','TrueViewCos','HMM']][(dfplayer.Tick > 14090)]
 where
 list
-dfcolumns
-list(dfcolumns)
-df
-df columns
-df
-X
-dictrounds[key][0]
 where
 list
-X
-dictrounds[key][0]
-dictrounds[key][0].as_matrix()
-X
-dictrounds[key][0]["Name"].as_matrix()
-dictrounds[key][0].as_matrix()
-np.vstack( X, dictrounds[key][0].as_matrix())
-np.vstack( [X, dictrounds[key][0].as_matrix()])
-np.vstack( [X, dictrounds[key][0][columns].as_matrix()])
-dictrounds[key][0][columns]
-np.vstack( [X, dictrounds[key][0][columns].as_matrix()])
-dfcolumns
-columns
-df[columns]
-df[columns].isnull()
-df & df[columns].isnull()
-df[ df &  df[columns].isnull()]
-df[ df & (df[columns].isnull())]
-df[ (df) & (df[columns].isnull())]
-df[](df[columns].isnull())]
-df[]
-df[:]
-df[:][df['ViewX'].isnull()]
-df[:][df['ViewX','ViewY'].isnull()]
-df[:][df[['ViewX','ViewY']].isnull()]
-X
-rounds
-dictround.keys()
-dictrounds.keys()
-dfclean
-dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 2)]
-dfclean[['Round','Tick','ViewDiff','HMM']][(dfclean.Tick > 14000) &(dfclean.HMM == 2)]
-dfclean[['Round','Tick','ViewDiff','HMM']][(dfclean.Tick > 14000) &(dfclean.HMM == 1) & (dfclean.]
-mode
-model
-help(model)
-model.predict_proba([0,1,2])
-model.predict_proba(X)
-len(model.predict_proba(X))
-model.score()
-model.score(X)
-model.score(X[0:10])
-model.score(X[0:1])
-model.score(X[0:10])
-model.score(X[0:20])
-model.score(X[0:30])
-model.score(X[0:50])
-model.score(X[0:100])
-model.score(X[0:200])
-model.score(X[0:10000])
-model.score(X[0:100000])
-model.score(X[0:90000])
-model.score(X[0:10000])
-model.score(X[1000:2000])
-model.score(X[1000:3000])
-model.score(X[1000:4000])
-model.score(X[1000:5000])
-model.score(X[1000:6000])
-model.score(X[1000:7000])
-model.score(X[1000:8000])
-model.score(X[1000:9000])
-len(X)
-model.score(X[1000:1010])
-model.score_samples(X[1000:1010])
-model.score(X[1000:9000])
-model_1
-model_2
-model_1
-model_2
-x_1
 X_1
-X_2
-dfclean[['Round','Tick','ViewDiff','HMM']][(dfclean.Tick > 14000) &(dfclean.HMM == 2)
-dfplayer
-dfplayer['HMM_C_S']
+model_1.predict(X_1)
 dfplayer['HMM_C_S'] = model_1.predict(X_1)
-dfplayer['HMM_Diff'] = model_2.predict(X_2)
-dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 2)]
-dfplayer[['Round','Tick','T','HMM']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 2)]
+dfplayer['HMM_Dist'] = model_2.predict(X_2)
+dfplayer[['Round','Tick','ViewDiff','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM == 0)]
+dfplayer[['Round','Tick','ViewDiff','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 0)]
+dfplayer[['Round','Tick','ViewDiff','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 1)]
 dfplayer[['Round','Tick','ViewDiff','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 2)]
-dfplayer[['Round','Tick','TrueViewSin','TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 4)]
-dfplayer[['Round','Tick','TrueViewSin','TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000))]
-dfplayer[['Round','Tick','TrueViewSin','TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000)]
-dfplayer[['Round','Tick','TrueViewSin','TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) & (dfplayer.TrueViewCos != 1.0)]]
-dfplayer[['Round','Tick','TrueViewSin','TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) & (dfplayer.TrueViewCos != 1.0)]
-import csgo_plot
-def plane_plot(x, y):
-fig = plt.figure(1)
-ax = SubplotZero(fig, 111)
-fig.add_subplot(ax)
-for direction in ["xzero", "yzero"]:
-ax.axis[direction].set_axisline_style("-|>")
-ax.axis[direction].set_visible(True)
-for direction in ["left", "right", "bottom", "top"]:
-ax.axis[direction].set_visible(False)
-ax.plot(x.values, y.values)
+dfplayer[['Round','Tick','ViewDiff','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 3)]
+dfplayer[['Round','Tick','ViewDiff','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 1)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin,', 'TrueViewCos',HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 1)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos',HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 1)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 1)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 3)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 1)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 0)]
+math.sin( -0.707107)
+math.cos( -0.707107)
+math.cos( 0)
+math.sin( 0)
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 1)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 2)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 3)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 4)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 5)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 6)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 7)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000) &(dfplayer.HMM_C_S == 3)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14094)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14090)]
+dfplayer[['Round','Tick','ViewDiff','TrueViewSin', 'TrueViewCos','HMM_C_S', 'HMM_Dist']][(dfplayer.Tick > 14090)]
+where
+list
+list(60,69)
+X_2
+X_1
+dfplayer
+dfplayer.TrueViewDiff
+dfplayer.ViewYDiff
+dfplayer.ViewXDiff
+dfplayer.TrueViewXDiff
+dfplayer.ViewXDiff
+dfplayer.ViewDiff
+dfplayer.ViewDiff.sum()
+dfplayer.TrueViewX
+dfplayer.TrueViewY
+dfplayer.ViewY
+dfplayer.ViewX
+(dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1))
+model_1
+model_1.score()
+model_1.score(X[0:2])
+model_1.score(X_1[0:2])
+model_1.score(X_1[0:5])
+model_1.score(X_1[0:100])
+model_1.score(X_1[1:101])
+model_1.score(X_1[300:400])
+model_1.score(X_1[1000:1100])
+model_1.score(X_1[1000:1200])
+model_1.score(X_1[2000:2100])
+model_1.score(X_1[2001:2101])
+csgo_plot.plot_scatter_hmm(X_1[:,0] ,X_1[:,1] , model_1, X_1)
+where
+list
+csgo_plot.plot_plane(X
+X_2
+csgo_plot.plot_plane(X_2, np.arange(len(X_2)))
+csgo_plot.plot_plane(np.arange(len(X_2)), X_2)
+dfplayer.TrueViewDiff
+csgo_plot.plot_scatter_hmm(X_1[:,0] ,X_1[:,1] , model_1, X_1)
 plt.show()
 where
 list
-X
-X_1
-X_1[0]
-X_1.type
-X_1[:,0]
-X_1[:,1]
-csgo_plot
-csgo_plot.plane_plot(X_1[:,0], X_1[:,1])
-reimport
-reload
-reload(cs_go)
-reload(csgo_plot)
-csgo_plot.scatter_plot(X_1[:,0], X_1[:,1])
-reload(csgo_plot)
-csgo_plot.scatter_plot(X_1[:,0], X_1[:,1])
-csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
-reload(csgo_plot)
-csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
-len(X_1[:,0])
-len(X_1[:,1])
-csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
-reload(csgo_plot)
-csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
-x
-where
-list
-x
-y
-x
-c
-csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
-plt.show()
-reload(csgo_plot)
-csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
-dfplayer[['Round','Tick','TrueViewSin','TrueViewCos','HMM_C_S']][(dfplayer.Tick > 14000)]
-dfplayer[['Round','Tick','TrueViewSin','TrueViewCos']][(dfplayer.Tick > 14000)]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewCos']]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.TrueViewXDiff < 0]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.TrueViewXDiff > 0]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.TrueViewYDiff > 0]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.TrueViewYDiff < 0]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.TrueViewYDiff > 0]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.ViewXDiff < 0]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.ViewYDiff < 0]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.ViewYDiff > 100]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.ViewYDiff > 200]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.ViewYDiff > 50]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.ViewYDiff > 10]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.ViewYDiff > 20]
-dfplayer[['Round','Tick','TrueViewXDiff','TrueViewYDiff']][dfplayer.ViewYDiff > 10]
-dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.ViewYDiff > 10]
-351 + 10 % 360
-(351 + 10) % 360
-dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.Tick > 14096]
-dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.Tick > 14090]
-dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.Tick > 14096]
-csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
-dfplayer[['Round','Tick','ViewX','ViewY','TrueViewYDiff']][dfplayer.Tick > 14096]
-dfplayer[['Round','Tick','ViewX','ViewY','TrueViewXAngDiff','TrueViewYDiff']][dfplayer.Tick > 14096]
-dfplayer[['Round','Tick','ViewX','ViewY','TrueViewXAngDiff','TrueViewYDiff']][dfplayer.TrueViewXAngDiff < 0]]
-dfplayer[['Round','Tick','ViewX','ViewY','TrueViewXAngDiff','TrueViewYDiff']][dfplayer.TrueViewXAngDiff < 0]
-dfplayer[['Round','Tick','ViewX','ViewY','TrueViewXAngDiff','TrueViewYDiff']][dfplayer.TrueViewYAngDiff < 0]
--5 % 360
--5 % -360
-(dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1))  % 360 - 180
--5 % -360
-csgo_plot.plot_scatter(X_1[:,0], X_1[:,1])
-X_1[:,0]
-X_1[:,1]
-X_1
-X_1[0]
-X_1[:,0]
-C
-c
 n
 where
 list
-mask
-n
-x
-x == i
-x == i
-i
-model.predict(X)
-X
-X 
-hidden_states = model.predict(X)
-mask = hidden_states == i
-mask
-i
-x[mask]
-mask = hidden_states == 1
-x[mask]
-c
+model_1
+model_1.predict_proba(X)
+model_1.predict_proba(X_1)
+model_1.score_samples(X_1)
+model_2.score_samples(X_2)
+model_2.score_samples(X_3)
+model_3.score_samples(X_3)
+model_3.score_samples(X_3)[-1]
+= model_3.score(X_3)
+_score = model_3.score(X_3)
+_score
+_array = model_3.score_samples(X_3)[1]
+_array
+_array[0]
+_array[1]
+_array[2]
+_array[3]
+_array[4]
+_array[5]
+_array[-1]
+len(_array)
+array[0]
+_array[0]
+len(_array[0])
+len(_array[1])
+_array[0]
+_array[1]
+_array[0]
+_array
+_array[0]
+_array[1]
+_array[2]
+_predict = model_3.score_samples(X_3)
+_predict[0:10]
+_predict
+_predict = model_3.predict(X_3)
+_predict[0:10]
+_array[1]
+_array[0]
+_array[1]
+_array[2]
+_array[3]
+_array[4]
+_array[5]
+_array[6]
+_array[7]
+_array[8]
+_array[9]
+_array[10]
+_array[11]
+_array[12]
+_array[13]
+_array[14]
+_array[15]
+_array[16]
+dfplayer['HMM'] = model_3.predict(X_3)
+dfplayer['HMM']
+dfplayer['HMM'][dfplayer.HMM == 3]
+dfplayer['HMM'][dfplayer.HMM == 1]
+dfplayer['HMM'][dfplayer.HMM == 2]
+dfplayer['HMM'][dfplayer.HMM == 3]
+dfplayer['HMM'][dfplayer.HMM == 4]
+dfplayer['HMM'][dfplayer.HMM == 5]
+dfplayer['HMM'][dfplayer.HMM == 6]
+dfplayer['HMM'][dfplayer.Tick > 14094]
+dfplayer['Tick','HMM'][dfplayer.Tick > 14094]
+dfplayer[['Tick','HMM']][dfplayer.Tick > 14094]
+dfplayer[['Tick','HMM', 'ViewXDiff']][dfplayer.Tick > 14094]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.Tick > 14094]
+X_3[7015]
+_result[7015]
+_result
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewRad","TrueViewSin","TrueViewCos"]][dfplayer.Tick > 14094]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM > 3]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 3]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.TrueViewDiff > 20]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 18]
+dfplayer[['Tick','HMM',"TrueViewDiff","TrueViewSin","TrueViewCos"]][dfplayer.HMM == 18]
