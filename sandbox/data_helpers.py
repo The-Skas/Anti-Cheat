@@ -95,7 +95,6 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfenemy  = df[(df.Name    == enemy_name)& (df.Tick >= start_tick)  & (df.Tick <= end_tick)].reset_index()
 						#TODO: Using iterrows is inefficient
 	dfplayer = dfplayer[dfplayer.Alive]
-	pdb.set_trace()
 	#adding new column, to overwrite
 	dfplayer["XAimbot"] = dfplayer["Tick"]
 	dfplayer["YAimbot"] = dfplayer["Tick"]
@@ -234,7 +233,6 @@ def clean_data_to_numbers(file, filehurt, dictargs, additional_columns = [], dro
 	dfplayer= dfplayer.drop(["Steam_ID","X", "Y", "Z"], axis=1)
 
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
-	pdb.set_trace()
 	dfplayer = player_intersects(df, player_id=int(dictargs["id"]), start_tick=int(dictargs["start_tick"]), end_tick=int(dictargs["end_tick"])) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
 	
 	#Remove all data not part of a round

@@ -1,213 +1,3 @@
-len(S)
-len(S) * 2
-len(np.vstack([S,X]))
-X
-S
-X.dim
-X.dtype
-X.ntype
-X.ndim
-np.array([dictrounds[key].values
-dictrounds[key].values
-S.type
-S
-S.dtype
-S.ndim
-X.dty[e
-X.dtype
-X.ndim
-X
-np.concatenate(S,X)
-np.vstack(S,X)
-np.vstack([S,X])
-X.shape
-S.shape
-np.reshape(X,(0,2))
-= np.reshape([],(0,2))
-= np.reshape(np.array(),(0,2))
-= np.reshape(np.array([]),(0,2))
-= np.reshape(np.array([0]),(0,2))
-= np.reshape(X),(0,2))
-= np.reshape(np.array([0]),(0,2))
-= np.reshape(np.array(),(0,2))
-np.reshape(X,(0,2))
-X = np.array([[],[]])
-np.reshape(np.array([[],[]]),(0,2))
-np.reshape(np.array([]),(0,2))
-df
-dictrounds[6]
-dictrounds[6].size
-len(dictrounds[6])
-where
-lengths
-lengths.sum()
-sum(lengths)
-X
-len(X)
-c
-where
-list
-X 
-X.sum()
-up
-up 
-up
-X
-X.sum()
-X[0]
-X[0].sum()
-_df
-_df.dropna()
-_df
-np.isfinite
-np.isfinite(dfplayer)
-dfplayer
-dfplayer.dropna()
-dfplayer.isnull()
-dfplayer[dfplayer.isnull()]
-dfplayer[dfplayer.isnull().any(axis=1)]]
-dfplayer[dfplayer.isnull().any(axis=1)]
-dfplayer[0:10]
-dfplayer[dfplayer.AimbotDist.isnull().any(axis=1)]
-dfplayer[dfplayer.AimbotDist.isnull()]
-dfplayer[dfplayer.ViewDiff]]
-dfplayer[dfplayer.ViewDiff.isnull()]
-dfplayer[(dfplayer.ViewDiff.isnull()) || (dfplayer.AimbotDist.isnull())]
-dfplayer[(dfplayer.ViewDiff.isnull()) | (dfplayer.AimbotDist.isnull())]
-dfplayer[(dfplayer.ViewDiff.isnull()) | (dfplayer.AimbotDist > 0]
-dfplayer[(dfplayer.ViewDiff.isnull()) | (dfplayer.AimbotDist > 0)]
-dfplayer[(dfplayer.ViewDiff.notnull()) & (dfplayer.AimbotDist.notnull())]
-dfplayer[(dfplayer.ViewDiff.isnull()) | (dfplayer.AimbotDist > 0)]
-dfplayer[(dfplayer.ViewDiff.notnull()) & (dfplayer.AimbotDist.notnull())]
-model.predict()
-model.predict(X)
-_result = model.predict(X)
-len(_result)
-dfplayer
-_result
-_result.sum()
-_result
-len(_result)
-X
-len(X)
-dfplayer.Ticks
-dfplayer.Tick
-len(dfplayer.Tick)
-where
-model 
-model.fit(X,lengths)
-model.predict(X)
-model.fit(X,lengths)
-model.predict(X)
-model.result()
-model.predict()
-model.predict(X)
-_predict = model.predict(X)
-_predict[0:10
-_predict[0:10]
-_predict[0:20]
-_predict[0:30]
-_predict[0:100]
-len(_predict[0:100])
-dfplayer[:100]
-dfplayer[['AimbotDist', 'ViewDiff'][:100]
-dfplayer[['AimbotDist', 'ViewDiff']][:100]
-dfplayer[['Tick','AimbotDist', 'ViewDiff']][:100]
-len(dfplayer)
-_result
-len(_predict)
-dfplayer['HMM'] = _predict
-dfplayer
-dfplayer['Tick','AimbotDiff', 'ViewDiff','HMM']
-dfplayer[['Tick','AimbotDiff', 'ViewDiff','HMM']]
-where
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][0:60]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 0]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 0]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1][0:100]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1][0:60]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1]
-where
-lsit
-where
-_result
-dfplayer['HMM'] = _result
-dfplayer['HMM']
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 1]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.HMM == 0]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.Tick >= 24885]
-dfplayer[['Tick','AimbotDist', 'ViewDiff','HMM']][dfplayer.Tick >= 24985]
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][dfplayer.Tick >= 24985]
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][dfplayer.Round > 6]
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][dfplayer.Round > 6 & dfplayer.HMM == 0]
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 0)]
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 7 ) & ( dfplayer.HMM == 0)]
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 0)]
-dfplayer['HMM'] = _result
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 0)]
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 1
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 1)]
-_result
-dfplayer['HMM'] = _result
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Round > 6 ) & ( dfplayer.HMM == 0)]
-dfplayer
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Tick > 11000)]
-dfplayer
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.Tick > 11000)]
-dfplayer[['Round','Tick','AimbotDist' ,'ViewDiff','HMM']][(dfplayer.HMM) == 1]
-dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
-dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 0]
-dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
-View
-cdfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','ViewDiff','HMM']][(dfplayer.HMM) == 1]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.HMM) == 1]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewX','TrueViewY''TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewX','TrueViewY','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewX','TrueViewY','TrueViewYDiff','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)]
-len(dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 1)])
-len(dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 2)])
-len(dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 0)])
-len(dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 2)])
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 2)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 3)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 4)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 2)]
-len(dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 2)])
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 2)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 3)
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 3)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 12000) &(dfplayer.HMM == 2)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 2)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 0)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 2)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 23)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 3)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 4)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 5)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 6)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 2)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 3)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 2)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 3)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 4)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 2)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 5)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 6)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 5)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 1)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 0)]
-dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 2)]
 dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 5000)  &(dfplayer.HMM == 3)]
 dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 11104)]
 dfplayer[['Round','Tick','TrueViewDiff','HMM']][(dfplayer.Tick > 11090)]
@@ -498,3 +288,213 @@ int(dictargs["start_tick"])
 int(dictargs["end_tick"])
 dictargs["end_tick"]
 c
+list
+lengths
+dictrounds
+dictrounds.keys()
+lengths
+test_round
+list
+_test_round
+test_round
+dictrounds.keys():
+dictrounds.keys()
+lengths
+lengths.sum()
+sum(lengths)
+X.sum()
+len(X)
+where
+list
+where
+n
+X
+model.predict(X)
+joblib.dump(model, "models/"+'_'.join(columns)+".pkl")
+c
+where
+list
+len(data)
+index
+len(index)
+list(2750)
+list(2760)
+data
+index
+len(data)
+len(index)
+index
+up
+where
+list
+up
+list
+key
+value
+dfhacker["Tick"]
+dfhacker["HMM"] = model_h.predict(X_h)
+len(dfhacker)
+len(X_h)
+test_round_f
+test_round_f[0]
+test_round_f[1]
+test_round_f[0]
+test_round_f.round
+test_round_f[0].round
+test_round_f[0].Round
+test_round_h
+test_round_h[0]
+test_round_h[0]["TrueViewDiffSpeed"]
+test_round_h[0]["TrueViewDiffSpeed"].asmatrix()
+test_round_h[0]["TrueViewDiffSpeed"].as_matrix()
+test_hacker = test_round_h[0]["TrueViewDiffSpeed"].as_matrix()
+test_fair = test_round_f[0]["TrueViewDiffSpeed"].as_matrix()
+test_fair
+test_hacker
+test_hacker.sum()
+test_fair.sum()
+test_hacker.sum()
+test_fair
+model_f.score(test_hacker)
+X_f
+X_f.shape
+test_hacker.shape
+test_fair.shape
+[test_fair.shape]
+[test_hacker]
+[test_hacker].shape
+np.array([test_hacker]).shape
+test_hacker.reshape(1,1)
+test_hacker.reshape(len(test_hacker),1)
+test_hacker.reshape(len(test_hacker),1).shape
+test_hacker
+test_hacker.sum()
+test_hacker.reshape(len(test_hacker),1).sum()
+test_fair
+len(test_fair)
+len(test_hacker)
+model_f.score(test_hacker)
+model_h.score(test_hacker)
+model_h.score(test_fair)
+model_f.score(test_fair)
+def window_stack(a, stepsize=1, width=3):
+    n = a.shape[0]
+where
+list
+window_stack(test_fair, step_size=0, width=128)
+window_stack(test_fair, stepsize=0, width=128)
+window_stack(test_fair, stepsize=1, width=128)
+window_stack(test_fair, stepsize=1, width=128).sum()
+x = window_stack(test_fair, stepsize=1, width=128).sum()
+x
+x = window_stack(test_fair, stepsize=1, width=128)
+X
+x
+x[0]
+x[0].shape
+np.hstack([1,2],[12])
+np.hstack([1,2])
+np.hstack([1,2]).shape
+np.vstack([1,2]).shape
+np.vstack([1,2])
+WHERE
+where
+train_hacker
+test_hacker
+for x in test_hacker: x
+wind
+len(wind)
+where
+list
+wind[0]
+window
+windows
+len(windows)
+windows.shape
+list
+score_fair
+score_hacker
+model_hacker.
+where
+list
+n
+list
+scores_fair
+scores_hacker
+scores_hacker.sum()
+scores_fair.sum()
+model_f.score(test_hacker)
+model_h.score(test_hacker)
+scores_fair - scores_hacker
+csgo_plot.scores_hacker - scores_fair
+test_hacker
+LEN(test_hacker)
+len(test_hacker)
+len(scores_fair)
+test_hacker - len(scores_fair)
+len(test_hacker) - len(scores_fair)
+np.zeros
+np.zeros(127)
+np.vstack([np.zeros(127), test_hacker])
+np.vstack([(np.zeros(127),1), test_hacker])
+test_hacker.shape
+np.vstack([np.zeros((127,1)), test_hacker])
+len(np.vstack([np.zeros((127,1)), test_hacker]))
+test_hacker
+test_hacker[0:9]
+len(np.vstack([np.zeros((127,1)), test_hacker]))[0:9]
+(np.vstack([np.zeros((127,1)), test_hacker])[0:9]
+np.vstack([np.zeros((127,1)), test_hacker])[0:9]
+np.vstack([np.zeros((127,1)), score_hacker])[0:9]
+np.vstack([np.zeros((127,1)), scores_hacker])[0:9]
+scores_hacker[0:9]
+scores_hacker[0:10]
+np.vstack([np.zeros((127,1)), scores_hacker - scores_fair ])[0:9]
+scores_hacker
+csgo.plot(scores_hacker - scores_fair
+c
+csgo.plot(scores_hacker - scores_fair
+where
+list
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+from matplotlib.lines import Line2D
+x
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+where
+list
+list(60,85)
+test_round_h[0]["TrueViewDiffSpeed"]
+test_round_h[0][["Tick", "TrueViewDiffSpeed"]]
+[["Tick", "TrueViewDiffSpeed"]]
+df =test_round_h[0]
+df[["Tick", "TrueViewDiffSpeed"]]
+df[["Tick", "TrueViewDiffSpeed"]][df.Tick>24250]
+df[["Tick", "TrueViewDiffSpeed"]][df.Tick>241-0]
+df[["Tick", "TrueViewDiffSpeed"]][df.Tick>24100]
+pickle.dump(ax, file('myplot.pickle', 'w'))
+where
+list
+csgo_plot.plot_plane_diff(x, y, title="_".join(columns))
+where
+list
+classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed"])
+df
+dfhacker
+classify_analysis(dfhacker, dffair, ["TrueViewRadDiff"])
+classify_analysis(dfhacker, dffair, ["TrueViewRadDiff", "TrueViewDiffSpeed"])
