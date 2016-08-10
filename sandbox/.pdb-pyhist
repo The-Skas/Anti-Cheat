@@ -1,0 +1,500 @@
+c
+list
+lengths
+dictrounds
+dictrounds.keys()
+lengths
+test_round
+list
+_test_round
+test_round
+dictrounds.keys():
+dictrounds.keys()
+lengths
+lengths.sum()
+sum(lengths)
+X.sum()
+len(X)
+where
+list
+where
+n
+X
+model.predict(X)
+joblib.dump(model, "models/"+'_'.join(columns)+".pkl")
+c
+where
+list
+len(data)
+index
+len(index)
+list(2750)
+list(2760)
+data
+index
+len(data)
+len(index)
+index
+up
+where
+list
+up
+list
+key
+value
+dfhacker["Tick"]
+dfhacker["HMM"] = model_h.predict(X_h)
+len(dfhacker)
+len(X_h)
+test_round_f
+test_round_f[0]
+test_round_f[1]
+test_round_f[0]
+test_round_f.round
+test_round_f[0].round
+test_round_f[0].Round
+test_round_h
+test_round_h[0]
+test_round_h[0]["TrueViewDiffSpeed"]
+test_round_h[0]["TrueViewDiffSpeed"].asmatrix()
+test_round_h[0]["TrueViewDiffSpeed"].as_matrix()
+test_hacker = test_round_h[0]["TrueViewDiffSpeed"].as_matrix()
+test_fair = test_round_f[0]["TrueViewDiffSpeed"].as_matrix()
+test_fair
+test_hacker
+test_hacker.sum()
+test_fair.sum()
+test_hacker.sum()
+test_fair
+model_f.score(test_hacker)
+X_f
+X_f.shape
+test_hacker.shape
+test_fair.shape
+[test_fair.shape]
+[test_hacker]
+[test_hacker].shape
+np.array([test_hacker]).shape
+test_hacker.reshape(1,1)
+test_hacker.reshape(len(test_hacker),1)
+test_hacker.reshape(len(test_hacker),1).shape
+test_hacker
+test_hacker.sum()
+test_hacker.reshape(len(test_hacker),1).sum()
+test_fair
+len(test_fair)
+len(test_hacker)
+model_f.score(test_hacker)
+model_h.score(test_hacker)
+model_h.score(test_fair)
+model_f.score(test_fair)
+def window_stack(a, stepsize=1, width=3):
+    n = a.shape[0]
+where
+list
+window_stack(test_fair, step_size=0, width=128)
+window_stack(test_fair, stepsize=0, width=128)
+window_stack(test_fair, stepsize=1, width=128)
+window_stack(test_fair, stepsize=1, width=128).sum()
+x = window_stack(test_fair, stepsize=1, width=128).sum()
+x
+x = window_stack(test_fair, stepsize=1, width=128)
+X
+x
+x[0]
+x[0].shape
+np.hstack([1,2],[12])
+np.hstack([1,2])
+np.hstack([1,2]).shape
+np.vstack([1,2]).shape
+np.vstack([1,2])
+WHERE
+where
+train_hacker
+test_hacker
+for x in test_hacker: x
+wind
+len(wind)
+where
+list
+wind[0]
+window
+windows
+len(windows)
+windows.shape
+list
+score_fair
+score_hacker
+model_hacker.
+where
+list
+n
+list
+scores_fair
+scores_hacker
+scores_hacker.sum()
+scores_fair.sum()
+model_f.score(test_hacker)
+model_h.score(test_hacker)
+scores_fair - scores_hacker
+csgo_plot.scores_hacker - scores_fair
+test_hacker
+LEN(test_hacker)
+len(test_hacker)
+len(scores_fair)
+test_hacker - len(scores_fair)
+len(test_hacker) - len(scores_fair)
+np.zeros
+np.zeros(127)
+np.vstack([np.zeros(127), test_hacker])
+np.vstack([(np.zeros(127),1), test_hacker])
+test_hacker.shape
+np.vstack([np.zeros((127,1)), test_hacker])
+len(np.vstack([np.zeros((127,1)), test_hacker]))
+test_hacker
+test_hacker[0:9]
+len(np.vstack([np.zeros((127,1)), test_hacker]))[0:9]
+(np.vstack([np.zeros((127,1)), test_hacker])[0:9]
+np.vstack([np.zeros((127,1)), test_hacker])[0:9]
+np.vstack([np.zeros((127,1)), score_hacker])[0:9]
+np.vstack([np.zeros((127,1)), scores_hacker])[0:9]
+scores_hacker[0:9]
+scores_hacker[0:10]
+np.vstack([np.zeros((127,1)), scores_hacker - scores_fair ])[0:9]
+scores_hacker
+csgo.plot(scores_hacker - scores_fair
+c
+csgo.plot(scores_hacker - scores_fair
+where
+list
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+from matplotlib.lines import Line2D
+x
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+reload(csgo_plot)
+csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
+where
+list
+list(60,85)
+test_round_h[0]["TrueViewDiffSpeed"]
+test_round_h[0][["Tick", "TrueViewDiffSpeed"]]
+[["Tick", "TrueViewDiffSpeed"]]
+df =test_round_h[0]
+df[["Tick", "TrueViewDiffSpeed"]]
+df[["Tick", "TrueViewDiffSpeed"]][df.Tick>24250]
+df[["Tick", "TrueViewDiffSpeed"]][df.Tick>241-0]
+df[["Tick", "TrueViewDiffSpeed"]][df.Tick>24100]
+pickle.dump(ax, file('myplot.pickle', 'w'))
+where
+list
+csgo_plot.plot_plane_diff(x, y, title="_".join(columns))
+where
+list
+classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed"])
+df
+dfhacker
+classify_analysis(dfhacker, dffair, ["TrueViewRadDiff"])
+classify_analysis(dfhacker, dffair, ["TrueViewRadDiff", "TrueViewDiffSpeed"])
+a[i:1+n+i-width:stepsize] 
+a[i:1+n+i-width:stepsize].shape
+a[i:1+n+i-width:stepsize]
+a[0:1+n+i-width:stepsize]
+(a[i:1+n+i-width:stepsize])
+(a[0:1+n+i-width:stepsize])
+(a[0:1+n+0-width:stepsize])
+(a[0:1+n+0-width:stepsize]).shape
+stepsize
+width
+(a[0:1+n+0-width:stepsize]).shape
+(a[0:1+n+0-width:stepsize])[0].shape
+(a[0:1+n+0-width:stepsize])[0]
+(a[0:1+n+0-width:stepsize]).shape
+a.shape[0]
+ a[i:1+i-width or None:stepsize]
+ a[0:1+0-width or None:stepsize]
+( a[0:1+0-width or None:stepsize])
+( a[0:1+0-width or None:stepsize]).shape
+( a[0:width])
+( a[0:width]).shape
+v = a
+v
+res = a[i:1+n+i-width:stepsize] for i in range(0,width)
+res = (v[i:1+n+i-width:stepsize] for i in range(0,width))
+res[0]
+res
+res = [(v[i:1+n+i-width:stepsize] for i in range(0,width))]
+res
+res.yield
+res.yield()
+res
+res[0].yield()
+res = [(v[i:1+n+i-width:stepsize] for i in range(0,width))]
+res = [  v[i:1+n+i-width:stepsize] for i in range(0,width) ] 
+res
+res[0]
+res[0].shape
+res[1].shape
+res[2].shape
+res[3].shape
+res[4].shape
+return [a[i:1+n+i-width:stepsize] for i in range(0,width)]
+n
+_windows
+windows
+windows[0]
+windows[0].shape
+c
+windows
+windows[0]
+windows[0].shape
+c
+up
+diffscores
+diff_scores
+test_hacker
+where
+list
+classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed","TrueViewRadDiff"])
+classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed","TrueViewRadDiff"], n_components=8)
+list
+dfhacker
+dfhacker["Tick","TrueViewRadDiff"][dfhacker.Tick > 25500]
+dfhacker[["Tick","TrueViewRadDiff"]][dfhacker.Tick > 25500]
+dfhacker[["Tick","TrueViewRadDiff"]][dfhacker.TrueViewRadDiff > 0 ]
+dfhacker[["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25500)&(dfhacker.TrueViewRadDiff > 0 )]
+dfhacker[["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25500)&(dfhacker.TrueViewRadDiff < 0 )]
+dfhacker[["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25200)&(dfhacker.TrueViewRadDiff < 0 )]
+dfhacker[["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25200)&(dfhacker.TrueViewRadDiff > 0 )]
+where
+list
+x
+y
+where
+list
+test_hacker
+test_hacker.sum()
+test_fair.sum()
+test_hacker[:,0]
+test_hacker[:,1]
+test_hacker[:,1].sum()
+test_hacker[:,0].sum()
+test_round_f[0][columns]
+test_round_f[0]
+test_round_f[0][["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25200)&(dfhacker.TrueViewRadDiff > 0 )]
+test_round_h[0]
+test_round_h[0][["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25200)&(dfhacker.TrueViewRadDiff > 0 )]
+test_round_h[0][["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25000)&(dfhacker.TrueViewRadDiff > 0 )]
+test_round_h[0][["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25000)
+test_round_h[0][["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25000)]
+dfhacker[["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25200)&(dfhacker.TrueViewRadDiff < 0 )]
+test_round_h[0][["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25000)]
+test_round_h[0][["Tick","TrueViewRadDiff"]][(dfhacker.Tick > 25000)].sum()
+test_hacker
+test_hacker.sum()
+test_hacker[:,0].sum()
+test_hacker[:,1].sum()
+test_round_h[0][["Tick","Round","TrueViewRadDiff"]][(dfhacker.Tick > 25000)]
+test_round_h[0][["Tick","Round","TrueViewRadDiff"]][(dfhacker.Tick > 24000)]
+classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed"])
+classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed","TrueViewDiffSpeed"])
+where
+list
+a
+v = a
+v
+len(v)
+v.shape
+_dim
+[a[i:1+n+i-width:stepsize] for i in range(0,width)]
+len([a[i:1+n+i-width:stepsize] for i in range(0,width)])
+res = [a[i:1+n+i-width:stepsize] for i in range(0,width)]
+res
+res.shape
+res[0]
+res[0].shape
+v
+v[0:127]
+len(v[0:127])
+len(v[0:128])
+len(v[1:129])
+len(v[2:130])
+width
+[a[i:1+n+i-width:stepsize] for i in range(0,width)]
+[a[i:1+n+i-width:stepsize] for i in range(0,width)][0]
+[a[i:1+n+i-width:stepsize] for i in range(0,width)][1]
+[a[i:1+n+i-width:stepsize] for i in range(0,width)][2]
+_res = [a[i:1+n+i-width:stepsize] for i in range(0,width)]
+_res.shape
+_res[0].shape
+_res[1].shape
+_res[2].shape
+_res[1:2:3]
+_res[1:2]
+np.hstack(a[i+stepsize:width+stepsize] for i in range(0,width))
+np.hstack(v[i+stepsize:width+stepsize] for i in range(0,width))
+v
+v[:100000]
+v[1:100000]
+v[100000:100000]
+np.hstack( a[i:1+n+i-width:stepsize] for i in range(0,width) )
+n
+v
+v.shape
+v.shape[0]
+size= v.shape[0]
+size % 128
+size
+size / 128
+1111 / 128
+128 * 8
+1111 % 128
+[1,2,3] + [1,2,3]
+[[1,2,3]] + [[1,2,3]]
+v
+v[0]
+len(v)
+v[0:2]
+v[0:2] + v[0:2]
+np.vstack(v[0:2],  v[0:2])
+np.vstack([v[0:2],  v[0:2]])
+np.vstack([v[-2:-4],  v[0:2]])
+v[-2
+v[-2]
+v[-2:10]]
+v[-2:-10]]
+v[-2:-10]
+v[-1]
+v[-2]
+v[-2:-10]
+v[-10]
+[x for x in range(4)]
+np.vstac([v[0],[x for x in range(4)]])
+np.vstack([v[0],[x for x in range(4)]])
+v[0]
+v
+v.shape
+where
+list
+np.stack
+np.stack([[1,2] for i in range(0,10)]
+np.stack([[1,2] for i in range(0,10)])
+X = np.stack([v[1,2] for i in range(0,10)])
+X
+v
+X = np.stack([v[i] for i in range(0,10)])
+X
+v
+X = np.stack([v[i] for i in range(0,len(v)-10)])
+X = np.stack([v[i:10] for i in range(0,len(v)-10)])
+v
+v[0:10]
+v[0:10].shape
+X = np.stack([v[i:10] for i in range(0,len(v)-10)])
+X = np.stack([v[i:10] for i in range(0,len(v)-11)])
+X = np.stack([v[i:10] for i in range(0,len(v)-20)])
+X = np.stack([v[i:10+i] for i in range(0,len(v)-20)])
+X = np.stack([v[i:10+i] for i in range(0,len(v)-5)])
+X = np.stack([v[i:10+i] for i in range(0,len(v)-10)])
+X.shape
+v
+X = np.stack([v[i:10+i] for i in range(0,len(v)-10)])
+X
+X.shape
+for x in X: x
+X = np.stack([v[i:window_size+i] for i in range(0,len(v)-window_size)])
+X.shape
+np.stack([X,X])
+np.stack([X,X]).shape
+X.shape
+X
+np.vstack([X,X])
+np.vstack([X,X]).shape
+for x in range(5): print x
+np.array(for x in range(5))
+np.array([for x in range(5)])
+np.array([x for x in range(5)])
+np.array([x for x in range(5)])[0:-1]
+np.array([x for x in range(5)])[2:-1]
+np.array([x for x in range(5)])[2:0]
+np.array([x for x in range(5)])[-1:0]
+np.array([x for x in range(5)])[-1:]
+np.array([x for x in range(5)])[-1:1]
+np.array([x for x in range(5)])[-1:-1]
+np.array([x for x in range(5)])[-1:-2]
+np.array([x for x in range(5)])[-2:-1]
+np.array([x for x in range(5)])[-2:]
+np.array([x for x in range(5)])[-1:]
+c
+where
+list
+up
+list
+np.stack(a[i:width+i] for i in range(0,length-width))
+python
+where
+list
+n
+where
+list
+a[i:width+i]
+v = a
+a[i:width+i]
+v[i:width+i]
+v[0:width+0]
+v[0:width+0].shape
+list
+where
+length
+np.stack(a[i:width+i] for i in range(0,length-width))
+np.stack([a[i:width+i] for i in range(0,length-width)])
+[a[i:width+i] for i in range(0,length-width)]
+a[i:width+i]
+[a[i:width+i] for i in range(0,length-width)]
+[a[i:width+i] for i in range(0,length)]
+length
+length - width
+width
+where
+list
+a.shape
+v.shape
+v.shape[0]
+n
+result
+result.shape
+n.shape
+remainder
+np.vstack([result, a[-remainder:]])
+a[-remainder:]
+a[-remainder:].shape
+v = a
+v[-remainder:].shape
+result.shape
+np.stack([v[-remainder:]])
+np.stack([v[-remainder:]]).shape
+np.vstack([np.stack([v[-remainder:]]), v])
+np.vstack([np.stack([v[-remainder:]]), result])
+result
+c
+list
+up
+list
+length_diff
+diff_scores
+diff_scores.shape
+length_diff
+_dim

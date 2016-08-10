@@ -27,6 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Commandlineparameters>/Users/skas/Documents/Uni/Info-Sec/Research/CSGO/demos/186_envyus-dignitas_de_inferno.dem</Commandlineparameters>
+    <Commandlineparameters>../../../demos/hack_2.dem</Commandlineparameters>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'SavePropValues|AnyCPU' ">
