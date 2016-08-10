@@ -91,9 +91,11 @@ def _debug():
 
 def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start_tick=24056, end_tick=100000000):
 	#TODO: Change this its hacky. Well acctually fuck it not worth it.
-	dfplayer = df[(df.Steam_ID == player_id) & (df.Tick >= start_tick) & (df.Tick <= end_tick) ].reset_index()
+	dfplayer = df[(df.Steam_ID == int(player_id)) & (df.Tick >= start_tick) & (df.Tick <= end_tick) ].reset_index()
 	dfenemy  = df[(df.Name    == enemy_name)& (df.Tick >= start_tick)  & (df.Tick <= end_tick)].reset_index()
 						#TODO: Using iterrows is inefficient
+	dfplayer = dfplayer[dfplayer.Alive]
+	pdb.set_trace()
 	#adding new column, to overwrite
 	dfplayer["XAimbot"] = dfplayer["Tick"]
 	dfplayer["YAimbot"] = dfplayer["Tick"]
@@ -202,13 +204,13 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 
 
 import sys
-def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = ['Name', 'Sex', 'Ticket', 'Cabin'], player_id = 0):
+def clean_data_to_numbers(file, filehurt, dictargs, additional_columns = [], drop_columns_default = ['Name', 'Sex', 'Ticket', 'Cabin']):
 	
 	
 	#Main data frame
 	df = pd.read_csv(file,delimiter=';', header=0)
 	#Get all hurt data.
-	dfhurt = pd.read_csv(sys.argv[2], delimiter=';', header=0)
+	dfhurt = pd.read_csv(filehurt, delimiter=';', header=0)
 
 	#Derive Get all Shots.
 	dfshots = df[(df.HasShot == True)][['Tick','Name','Steam_ID', 'Weapon']]
@@ -221,11 +223,11 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 	#Get rows where tick is greater then 4570 and filter out bots.
 	# dfplayer= df[(df.Tick > 4570) & (df.Steam_ID > 0)]
 	dfplayer = None
-	if not player_id:
+	if not dictargs["id"]:
 		#TODO: Assuming no bots exceeding 1000
 		dfplayer= df[(df.Steam_ID > 1000)]
 	else:
-		dfplayer = df[(df.Steam_ID == int(player_id))]
+		dfplayer = df[(df.Steam_ID == int(dictargs["id"]))]
 
 	dfeugene = df[(df.Name == "Eugene")]
 	#Drop Rows.
@@ -233,7 +235,7 @@ def clean_data_to_numbers(file,additional_columns = [], drop_columns_default = [
 
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
 	pdb.set_trace()
-	dfplayer = player_intersects(df, player_id=player_id, start_tick=69806, end_tick=110000) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
+	dfplayer = player_intersects(df, player_id=int(dictargs["id"]), start_tick=int(dictargs["start_tick"]), end_tick=int(dictargs["end_tick"])) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
 	
 	#Remove all data not part of a round
 	dfplayer = dfplayer[dfplayer.Round != 0]

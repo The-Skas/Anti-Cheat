@@ -1,38 +1,3 @@
-c
-(dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)
-dfplayer['Test'] = (dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)
-dfplayer
-((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt())
-((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt)
-dfrounds
-dictrounds
-dictrounds[6]
-dictrounds[7]
-dictrounds[8]
-dictrounds[9]
-dictrounds[10]
-S
-S.type
-S.type()
-S.dim
-S.ndim
-np.empty([2])
-np.empty(2)
-np.empty(shape=2)
-np.array()
-np.array([])
-np.array([[],[]])
-X = np.array([[],[]])
-S
-X.concatenate
-np.concatenate
-np.concatenate(X,S)
-np.concatenate(X,len(S))
-len(X)
-np.concatenate(S,S)
-np.vstack(S,S)
-np.vstack([S,S])
-len(np.vstack([S,S]))
 len(S)
 len(S) * 2
 len(np.vstack([S,X]))
@@ -498,3 +463,38 @@ math.degrees(3.1415926535897931)
 c
 player_id
 7656119797966
+where
+list
+c
+n
+c
+where
+list
+up
+df.Steam_ID
+list
+df.Steam_ID == player_id
+player_id
+int(player_id)
+n
+c
+sys.argv[1]
+sys.argvs[1]
+n
+c
+plt.show(block=False)
+n
+where
+dictargs
+c
+up
+player_id
+df.Steam_id
+start_tick
+type(start_tick)
+c
+int(dictargs["id"])
+int(dictargs["start_tick"])
+int(dictargs["end_tick"])
+dictargs["end_tick"]
+c

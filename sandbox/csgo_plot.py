@@ -4,9 +4,11 @@ from matplotlib import cm
 from  matplotlib.animation import FuncAnimation
 import numpy as np
 import pdb
-def plot_plane(x, y, model,  X, name="Distance",xlabel="Tick", ylabel="Diff"):
-	fig, axs = plt.subplots(model.n_components, sharex=True, sharey=True)
 
+
+def plot_plane(x, y, model,  X, title="Hacker",xlabel="Tick", ylabel="Diff"):
+	fig, axs = plt.subplots(model.n_components, sharex=True, sharey=True)
+	fig.suptitle(title)
 	colours = cm.rainbow(np.linspace(0, 1, model.n_components))
 	hidden_states = model.predict(X)
 	for i, (ax, colour) in enumerate(zip(axs, colours)):
@@ -17,13 +19,13 @@ def plot_plane(x, y, model,  X, name="Distance",xlabel="Tick", ylabel="Diff"):
 	plt.show(block=False)
 
 
-def plot_scatter_hmm(x,y, model, X):
+def plot_scatter_hmm(x,y, model, X, title='Hacker View Direction'):
 
 	#Must create new figure for each plot.
 
 	#Plot creating a fade away color for each line.. 
 	fig= plt.figure()
-	fig.suptitle('Hacker View Direction')
+	fig.suptitle(title)
 	plt.xlabel('ViewCos')
 	plt.ylabel('ViewSin')
 	#loop here over color
