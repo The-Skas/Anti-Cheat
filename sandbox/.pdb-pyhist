@@ -1,96 +1,3 @@
-[test_hacker]
-[test_hacker].shape
-np.array([test_hacker]).shape
-test_hacker.reshape(1,1)
-test_hacker.reshape(len(test_hacker),1)
-test_hacker.reshape(len(test_hacker),1).shape
-test_hacker
-test_hacker.sum()
-test_hacker.reshape(len(test_hacker),1).sum()
-test_fair
-len(test_fair)
-len(test_hacker)
-model_f.score(test_hacker)
-model_h.score(test_hacker)
-model_h.score(test_fair)
-model_f.score(test_fair)
-def window_stack(a, stepsize=1, width=3):
-    n = a.shape[0]
-where
-list
-window_stack(test_fair, step_size=0, width=128)
-window_stack(test_fair, stepsize=0, width=128)
-window_stack(test_fair, stepsize=1, width=128)
-window_stack(test_fair, stepsize=1, width=128).sum()
-x = window_stack(test_fair, stepsize=1, width=128).sum()
-x
-x = window_stack(test_fair, stepsize=1, width=128)
-X
-x
-x[0]
-x[0].shape
-np.hstack([1,2],[12])
-np.hstack([1,2])
-np.hstack([1,2]).shape
-np.vstack([1,2]).shape
-np.vstack([1,2])
-WHERE
-where
-train_hacker
-test_hacker
-for x in test_hacker: x
-wind
-len(wind)
-where
-list
-wind[0]
-window
-windows
-len(windows)
-windows.shape
-list
-score_fair
-score_hacker
-model_hacker.
-where
-list
-n
-list
-scores_fair
-scores_hacker
-scores_hacker.sum()
-scores_fair.sum()
-model_f.score(test_hacker)
-model_h.score(test_hacker)
-scores_fair - scores_hacker
-csgo_plot.scores_hacker - scores_fair
-test_hacker
-LEN(test_hacker)
-len(test_hacker)
-len(scores_fair)
-test_hacker - len(scores_fair)
-len(test_hacker) - len(scores_fair)
-np.zeros
-np.zeros(127)
-np.vstack([np.zeros(127), test_hacker])
-np.vstack([(np.zeros(127),1), test_hacker])
-test_hacker.shape
-np.vstack([np.zeros((127,1)), test_hacker])
-len(np.vstack([np.zeros((127,1)), test_hacker]))
-test_hacker
-test_hacker[0:9]
-len(np.vstack([np.zeros((127,1)), test_hacker]))[0:9]
-(np.vstack([np.zeros((127,1)), test_hacker])[0:9]
-np.vstack([np.zeros((127,1)), test_hacker])[0:9]
-np.vstack([np.zeros((127,1)), score_hacker])[0:9]
-np.vstack([np.zeros((127,1)), scores_hacker])[0:9]
-scores_hacker[0:9]
-scores_hacker[0:10]
-np.vstack([np.zeros((127,1)), scores_hacker - scores_fair ])[0:9]
-scores_hacker
-csgo.plot(scores_hacker - scores_fair
-c
-csgo.plot(scores_hacker - scores_fair
 where
 list
 reload(csgo_plot)
@@ -498,3 +405,96 @@ test_round_f[0].TimeDiff
 test_round_f[0].TimeDiff.iloc[0]
 _time = test_round_f[0].TimeDiff.iloc[0]
 _time * X = 128
+c
+where
+list
+up
+length
+width
+length-width
+length
+len(a)
+where
+list
+remainder
+length 
+v=a
+len(v)
+v
+len(v)
+dim
+a[0:width]
+v[0:width]
+v[0:width+1]
+len(v[0:width+1])
+len(v[0:width+100])
+length - 1
+n
+pdb.set_trace()
+where
+list
+warped_window_size
+up
+list
+where
+list
+n
+s
+up
+n
+warped_window_size
+n
+where
+list
+where
+n
+scores_fair
+test_data
+len(test_data)
+test_round
+test_round[0]
+test_round[0][columns]
+len(test_round[0][columns])
+len(test_round[0])
+test_round[0]
+test_round[0].Tick
+test_round[0].Round
+test_round[0].Tick
+list
+list(100)
+list(80)
+list(50)
+list(120)
+list)
+list
+test_rounds
+test_round
+test_round.Tick
+test_round[0].Tick
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]][test_round[0].TrueViewRad > 0]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]][test_round[0].Tick > 49186]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]][test_round[0].TrueViewRad > 0]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad","Tick"]][test_round[0].TrueViewRad > 0]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]][test_round[0].Tick > 49186]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]]
+test_round[0][["TrueViewXVel","TrueViewYVel"]]
+test_round[0][["TrueViewXDiff","TrueViewXVel","TrueViewYVel"]]
+test_round[0][["TrueViewXDiff","TrueViewXVel","TrueViewYVel"]][test_round[0].TrueViewXVel > 20]
+list
+test_round[0][["TrueViewXDiff","TrueViewXVel","TrueViewYVel"]][
+test_round[0].Tick.max()
+df= test_round[0]
+df
+df[["TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df].TrueViewXVel > 20]
+df[["TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.TrueViewXVel > 20]
+df[["TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 110000]
+df[["TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111000]
+df[["Tick","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111000]
+df[["Tick","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111100]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111100]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111190]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111250]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewRad"]][df.Tick > 111250]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewSin","TrueViewCos"]][df.Tick > 111250]
+c

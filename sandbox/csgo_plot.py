@@ -23,7 +23,7 @@ def plot_plane_diff(xs, ys, title="Plane"):
 	plt.scatter(xs[ys>0],  ys[ys> 0] , c="red")
 	plt.scatter(xs[ys==0], ys[ys==0], c="blue")
 	plt.scatter(xs[ys<0],  ys[ys < 0], c="green")
-
+	plt.axhline(0, color='blue')
 	fig.savefig("/Volumes/Skas_HardD/Skas/Project/Plots/Fair_vs_Hacker/"+title+".png")
 	plt.show(block= False)
 

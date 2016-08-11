@@ -76,3 +76,36 @@ def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128
 
 		pdb.set_trace()
 		print "Stop"
+
+def window_stack(a, stepsize=1, width=3):
+    n = a.shape[0]
+    _dim = 1 if len(a.shape) < 2 else a.shape[1]
+    if _dim == 1:
+    	return np.hstack( a[i:1+n+i-width:stepsize] for i in range(0,width) )
+    else:
+    	length = n 
+    	width = width if width < length else length-1
+    	remainder = n % width 	
+
+    	result = np.stack(a[i:width+i] for i in range(0,length-width))
+    	if remainder == 0:
+    		return result 
+    	else:
+    		# gets the remainder and stacks it.
+    		## Todo: sort out missing data.
+    		#return np.vstack([result, a[-remainder:]])
+    		return result
+def sliding_window_predict(test_data,model_fair, model_hacker, window_size=128):
+	windows = window_stack(test_data, width=window_size)
+	# Uh... Don't like how this looks like as it can error.
+	_dim = 1 if len(windows[0].shape) < 2 else windows[0].shape[1]
+
+	# Scores should be array X by 1 Dimensions
+	scores_fair = np.empty(( len(windows) , 1), float)
+	scores_hacker = np.empty(( len(windows) , 1), float)
+
+	for i, window in enumerate(windows):
+		scores_fair[i] =   model_fair.score(window.reshape(len(window),  _dim))
+		scores_hacker[i] = model_hacker.score(window.reshape(len(window), _dim))
+
+	return scores_fair, scores_hacker

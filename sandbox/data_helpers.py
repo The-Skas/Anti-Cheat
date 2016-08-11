@@ -104,12 +104,12 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TimeDiff"] = (dfplayer.Time - dfplayer.Time.shift(1))
 	#Calculates the difference between previous viewAngle-X, and current viewAngleX. 
 	#Then get value.
-	dfplayer['ViewXDiff'] = ((dfplayer.ViewX - dfplayer.ViewX.shift(1) + 180) % 360 - 180).abs()
+	dfplayer['ViewXDiff'] = ((dfplayer.ViewX - dfplayer.ViewX.shift(1) + 180) % 360 - 180)
 	#Categorizes the angles.
 	dfplayer['ViewXDiffBin'] = pd.cut(dfplayer.ViewXDiff,3,labels=["low","medium","high"])
 
 	#Same for Y
-	dfplayer['ViewYDiff'] = ((dfplayer.ViewY - dfplayer.ViewY.shift(1) + 180) % 360 - 180).abs()
+	dfplayer['ViewYDiff'] = ((dfplayer.ViewY - dfplayer.ViewY.shift(1) + 180) % 360 - 180)
     #Bin angles to three:
 	dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
 
@@ -123,8 +123,11 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewX"]= dfplayer.ViewX + 2.0*dfplayer.AimXPunchAngle
 	dfplayer["TrueViewY"]= dfplayer.ViewY + 2.0*dfplayer.AimYPunchAngle
 	
-	dfplayer["TrueViewXDiff"] = ((dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1) + 180)  % 360 - 180).abs()
-	dfplayer["TrueViewYDiff"]=  ((dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1) + 180)  % 360 - 180).abs()
+	dfplayer["TrueViewXDiff"] = ((dfplayer.TrueViewX - dfplayer.TrueViewX.shift(1) + 180)  % 360 - 180)
+	dfplayer["TrueViewXVel"] = dfplayer.TrueViewXDiff / dfplayer.TimeDiff
+
+	dfplayer["TrueViewYDiff"]=  ((dfplayer.TrueViewY - dfplayer.TrueViewY.shift(1) + 180)  % 360 - 180)
+	dfplayer["TrueViewYVel"] = dfplayer.TrueViewYDiff / dfplayer.TimeDiff
 
 	dfplayer["TrueViewDiff"] = ((dfplayer.TrueViewXDiff)**2  + (dfplayer.TrueViewYDiff)**2).apply(np.sqrt)
 
@@ -140,8 +143,12 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewSin"]  =  dfplayer.apply(lambda row: math.sin(row.TrueViewRad), axis=1)
 	dfplayer["TrueViewCos"]  =  dfplayer.apply(lambda row: math.cos(row.TrueViewRad), axis=1)
 
+	dfplayer["ViewRad"] = dfplayer.apply(lambda row: math.atan2(row.ViewXDiff , row.ViewYDiff) , axis=1)
+	
+	dfplayer["ViewRadDiff"] = dfplayer.ViewRad - dfplayer.ViewRad.shift(1)
 	## Used to measure changes in Mouse mdir
 	dfplayer["TrueViewRadDiff"] = dfplayer.TrueViewRad - dfplayer.TrueViewRad.shift(1)
+	dfplayer["TrueViewRadDiffSpeed"] = dfplayer.TrueViewRadDiff / dfplayer.TimeDiff 
 	""" TO HERE """ ######
 	
 
@@ -155,6 +162,10 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	# 	dfplayer.set_value(i, "XAimbot", intersect.localx)
 	# 	dfplayer.set_value(i, "YAimbot", intersect.localy) 
 	# 	dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
+
+	## Drop rounds last:
+		#Remove all data not part of a round
+	dfplayer = dfplayer[dfplayer.Round != 0]
 
 	return dfplayer
 	# print '{:f}'.format(t1-t0)
@@ -235,9 +246,6 @@ def clean_data_to_numbers(file, filehurt, dictargs, additional_columns = [], dro
 	# dfplayer[dfplayer.ViewDiff > 20].drop(["Name", "ViewX", "ViewY","ViewXDiff", "ViewYDiff", "ViewXDiffBin", "ViewYDiffBin"], axis=1)[:50]
 	dfplayer = player_intersects(df, player_id=int(dictargs["id"]), start_tick=int(dictargs["start_tick"]), end_tick=int(dictargs["end_tick"])) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
 	
-	#Remove all data not part of a round
-	dfplayer = dfplayer[dfplayer.Round != 0]
-
 	#Create a distance metric from the target
 	dfplayer['AimbotDist'] = ((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt)
 

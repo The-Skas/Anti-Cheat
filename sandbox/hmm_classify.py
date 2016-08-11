@@ -19,7 +19,9 @@ def window_stack(a, stepsize=1, width=3):
     	return np.hstack( a[i:1+n+i-width:stepsize] for i in range(0,width) )
     else:
     	length = n 
-    	remainder = n % width 
+    	width = width if width < length else length-1
+    	remainder = n % width 	
+
     	result = np.stack(a[i:width+i] for i in range(0,length-width))
     	if remainder == 0:
     		return result 
@@ -71,6 +73,9 @@ def result_probability(hacker, fair):
 
 def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128):
 	# Hacker
+	import gc
+	gc.collect()
+
 	model_h, X_h, test_round_h = create_markov_model(dfhacker, columns, n_components=n_components, test_round=6)
 	hack_round = test_round_h[0].iloc[0].Round
 
@@ -81,7 +86,7 @@ def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128
 	#####
 	## Fair
 
-	model_f, X_f, test_round_f = create_markov_model(dffair , columns, n_components=n_components, test_round='r') 
+	model_f, X_f, test_round_f = create_markov_model(dffair , columns, n_components=n_components, test_round=8) 
 	fair_round = test_round_f[0].iloc[0].Round
 
 	csgo_plot.plot_plane_hmm(np.arange(len(X_f)), X_f, model_f, X_f, title="Fair-R-"+str(fair_round)+"n-"+str(n_components)+"-".join(columns)+" -- Fair")
@@ -95,7 +100,9 @@ def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128
 		_dim = 1 if len(test_data.shape) < 2 else test_data.shape[1]
 		test_data = test_data.reshape(len(test_data),_dim)
 
-		warped_window_size = window_size * TIME_C / test_round[0].iloc[0].TimeDiff
+		# The warped window size takes into account differences in tick-rates
+		# between demos.
+		warped_window_size = int(window_size * TIME_C / test_round[0].iloc[0].TimeDiff)
 		scores_fair, scores_hacker = sliding_window_predict(test_data, model_fair=model_f, model_hacker=model_h, window_size=warped_window_size)
 
 		name = "WinSize-"+str(warped_window_size)+name
@@ -132,11 +139,16 @@ hackerargs  = {'id':76561197979652439 ,'class':'hacker', 'start_tick':0 , 'end_t
 
 dfhacker = clean_data_to_numbers("32t_de_dust2_hack_2.csv", "32t_de_dust2_hack_2_attackinfo.csv", dictargs=hackerargs)
 
-fairargs = {'id':76561197979669175, 'class':'fair', 'start_tick':60000, 'end_tick':110000}
+fairargs = {'id':76561197979669175, 'class':'fair', 'start_tick':60000, 'end_tick':130000}
 
 dffair = clean_data_to_numbers("128t_de_inferno_186_envyus-dignitas_de_inferno.csv", "128t_de_inferno_186_envyus-dignitas_de_inferno_attackinfo.csv", dictargs=fairargs)
 
-classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed","TrueViewRadDiff"], n_components=4,window_size=128)
+classify_analysis(dfhacker, dffair, ["ViewRadDiff","ViewRad","TrueViewDiffSpeed"], n_components=4,window_size=128)
+# classify_analysis(dfhacker, dffair, ["TrueViewRadDiffSpeed"], n_components=4,window_size=128*2)
+# classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed"], n_components=4,window_size=128*2)
+
+
+
 # classify_analysis(dfhacker, dffair, ["TrueViewRadDiff"])
 
 
