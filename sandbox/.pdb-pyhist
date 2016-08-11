@@ -1,77 +1,3 @@
-c
-list
-lengths
-dictrounds
-dictrounds.keys()
-lengths
-test_round
-list
-_test_round
-test_round
-dictrounds.keys():
-dictrounds.keys()
-lengths
-lengths.sum()
-sum(lengths)
-X.sum()
-len(X)
-where
-list
-where
-n
-X
-model.predict(X)
-joblib.dump(model, "models/"+'_'.join(columns)+".pkl")
-c
-where
-list
-len(data)
-index
-len(index)
-list(2750)
-list(2760)
-data
-index
-len(data)
-len(index)
-index
-up
-where
-list
-up
-list
-key
-value
-dfhacker["Tick"]
-dfhacker["HMM"] = model_h.predict(X_h)
-len(dfhacker)
-len(X_h)
-test_round_f
-test_round_f[0]
-test_round_f[1]
-test_round_f[0]
-test_round_f.round
-test_round_f[0].round
-test_round_f[0].Round
-test_round_h
-test_round_h[0]
-test_round_h[0]["TrueViewDiffSpeed"]
-test_round_h[0]["TrueViewDiffSpeed"].asmatrix()
-test_round_h[0]["TrueViewDiffSpeed"].as_matrix()
-test_hacker = test_round_h[0]["TrueViewDiffSpeed"].as_matrix()
-test_fair = test_round_f[0]["TrueViewDiffSpeed"].as_matrix()
-test_fair
-test_hacker
-test_hacker.sum()
-test_fair.sum()
-test_hacker.sum()
-test_fair
-model_f.score(test_hacker)
-X_f
-X_f.shape
-test_hacker.shape
-test_fair.shape
-[test_fair.shape]
 [test_hacker]
 [test_hacker].shape
 np.array([test_hacker]).shape
@@ -498,3 +424,77 @@ diff_scores
 diff_scores.shape
 length_diff
 _dim
+NP
+np
+np.vectorize
+def diff(a,b): return a - b
+scores_hacker
+scores_fair
+scores_fair == scores_fair
+np.array_equal(scores_fair ,scores_fair)
+vecdiff = np.vectorize(diff)
+vecdiff(scores_fair, scores_hacker)
+_vecres= vecdiff(scores_fair, scores_hacker)
+diff_scores
+_vecres= vecdiff(scores_hacker, scores_fair )
+np.array_equal(_vecres, diff_scores)
+scores_fair
+1 / 0.2
+func = np.vectorize(result_probability)
+func(scores_hacker, scores_fair)
+def result_probability(hacker, fair):
+ratio = hacker / fair
+if( ratio >= 1):
+return 1.0 - 1.0 / ratio 
+else:
+return (ratio - 1.0)
+def result_probability(hacker, fair):ratio = hacker / fair;if( ratio >= 1):return 1.0 - 1.0 / ratio ;else:return (ratio - 1.0);
+list
+where
+func = np.vectorize(result_probability)
+func(scores_hacker, scores_fair)
+scores_hacker
+scores_fair
+diff_scores
+reload(my_debug)
+my_debug.result_probability
+my_debug.result_probabiliz
+func = np.vectorize(my_debug.result_probability)
+func
+func(scores_hacker, scores_fair)
+reload(my_debug)
+func = np.vectorize(my_debug.result_probability)
+func(scores_hacker, scores_fair)
+diff_scores
+scores_hacker
+scores_fair
+func(scores_hacker, scores_fair)
+_diff_scores = func(scores_hacker, scores_fair)
+y = np.vstack([np.zeros((length_diff, 1)), diff_scores ])
+y = np.vstack([np.zeros((length_diff, 1)), _diff_scores ])
+y
+x
+csgo_plot.plot_plane_diff(x, y, title="Probability-n-"+str(n_components)+"_".join(columns))
+diff_scores
+diff_scores < 0
+diff_scores[diff_scores < 0]
+diff_scores[diff_scores <= 0]
+diff_scores[diff_scores > 0]
+y = np.vstack([np.zeros((length_diff, 1)), diff_scores ])
+where
+list
+test_round_f[0].Round
+test_round_f[0].iloc[0]
+test_round_f[0].iloc[0].Round
+where
+list
+list(100)
+list(90)
+list(80)
+test_round_h
+test_round_h.TimeDiff
+test_round_h[0].TimeDiff
+test_round_f[0].TimeDiff
+test_round_f[0].TimeDiff.iloc[0]
+_time = test_round_f[0].TimeDiff.iloc[0]
+_time * X = 128

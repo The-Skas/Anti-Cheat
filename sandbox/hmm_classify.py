@@ -46,11 +46,35 @@ def sliding_window_predict(test_data,model_fair, model_hacker, window_size=128):
 
 	return scores_fair, scores_hacker
 
+import my_debug
+# The + 1.0 / - 1.0 here prevent a 0 denominator, preventing an error.
+def result_probability(hacker, fair):
+	if( (fair < 0) & (hacker > 0)):
+		hacker = (hacker - fair) + 1.0
+		fair = 1.0
+		#do normalize
+	elif( (fair >0)  & (hacker < 0)):
+		fair = (fair - hacker) +  1.0
+		hacker = 1.0
+		# do normalize
+	elif( (fair < 0) & (hacker < 0)):
+		# always has a ratio  < 1 and > 0?
+		temp = fair
+		fair = hacker - 1.0
+		hacker = temp - 1.0
 
-def classify_analysis(dfhacker, dffair, columns, n_components=4):
+	ratio = hacker / fair
+	if( ratio >= 1):
+		return 1.0 - 1.0 / ratio 
+	else:
+		return (ratio - 1.0)
+
+def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128):
+	# Hacker
 	model_h, X_h, test_round_h = create_markov_model(dfhacker, columns, n_components=n_components, test_round=6)
+	hack_round = test_round_h[0].iloc[0].Round
 
-	csgo_plot.plot_plane_hmm(np.arange(len(X_h)), X_h, model_h, X_h, title="n-"+str(n_components)+"-".join(columns)+" -- Hacker")
+	csgo_plot.plot_plane_hmm(np.arange(len(X_h)), X_h, model_h, X_h, title="Hack-R-"+str(hack_round)+"n-"+str(n_components)+"-".join(columns)+" -- Hacker")
 
 	plt.show(block=False)
 
@@ -58,39 +82,48 @@ def classify_analysis(dfhacker, dffair, columns, n_components=4):
 	## Fair
 
 	model_f, X_f, test_round_f = create_markov_model(dffair , columns, n_components=n_components, test_round='r') 
+	fair_round = test_round_f[0].iloc[0].Round
 
-	csgo_plot.plot_plane_hmm(np.arange(len(X_f)), X_f, model_f, X_f, title="n-"+str(n_components)+"-".join(columns)+" -- Fair")
+	csgo_plot.plot_plane_hmm(np.arange(len(X_f)), X_f, model_f, X_f, title="Fair-R-"+str(fair_round)+"n-"+str(n_components)+"-".join(columns)+" -- Fair")
 
 	plt.show(block=False)
 
-	test_hacker = test_round_h[0][columns].as_matrix()
-	_dim = 1 if len(test_hacker.shape) < 2 else test_hacker.shape[1]
-	test_hacker = test_hacker.reshape(len(test_hacker),_dim)
+	TIME_C = max(test_round_f[0].iloc[0].TimeDiff, test_round_h[0].iloc[0].TimeDiff )
 
-	test_fair = test_round_f[0][columns].as_matrix()
-	_dim = 1 if len(test_fair.shape) < 2 else test_fair.shape[1]
-	test_fair = test_fair.reshape(len(test_fair), _dim)
+	for name, test_round in zip(["Hacker-R"+str(hack_round),"Fair-R"+str(fair_round)],[test_round_h, test_round_f]):
+		test_data = test_round[0][columns].as_matrix()
+		_dim = 1 if len(test_data.shape) < 2 else test_data.shape[1]
+		test_data = test_data.reshape(len(test_data),_dim)
 
-	scores_fair, scores_hacker = sliding_window_predict(test_hacker, model_fair=model_f, model_hacker=model_h)
+		warped_window_size = window_size * TIME_C / test_round[0].iloc[0].TimeDiff
+		scores_fair, scores_hacker = sliding_window_predict(test_data, model_fair=model_f, model_hacker=model_h, window_size=warped_window_size)
 
-	# Meaning positive scores mean the hacker is classified
-	# negative scores mean the its the fair player.
-	diff_scores = scores_hacker - scores_fair
+		name = "WinSize-"+str(warped_window_size)+name
+		# Meaning positive scores mean the hacker is classified
+		# negative scores mean the its the fair player.
+		diff_scores = scores_hacker - scores_fair
 
-	length_diff = len(test_hacker) - len(diff_scores)
-	#
+		length_diff = len(test_data) - len(diff_scores)
+		#
 
-	## Should be 1 dimensoional as were simply stacking 0s on the score
-	y = np.vstack([np.zeros((length_diff, 1)), diff_scores ])
+		## Should be 1 dimensoional as were simply stacking 0s on the score
+		y = np.vstack([np.zeros((length_diff, 1)), diff_scores ])
 
-	# Dont panic just reshaping stuff
-	x = test_round_h[0]["Tick"].as_matrix()
-	x = x.reshape(len(x), 1)
+		# Dont panic just reshaping stuff
+		x = test_round[0]["Tick"].as_matrix()
+		x = x.reshape(len(x), 1)
 
-	csgo_plot.plot_plane_diff(x, y, title="n-"+str(n_components)+"_".join(columns))
+		csgo_plot.plot_plane_diff(x, y, title=name+"n-"+str(n_components)+"_".join(columns))
 
-	pdb.set_trace()
-	print "Stop"
+		# Calculate probability and plot
+		func = np.vectorize(result_probability)
+		probability_scores = func(scores_hacker, scores_fair)
+		y = np.vstack([np.zeros((length_diff, 1)), probability_scores ])
+		csgo_plot.plot_plane_diff(x, y, title=name+" Probability n-"+str(n_components)+"_".join(columns))
+
+
+		pdb.set_trace()
+		print "Stop"
 
 
 
@@ -103,7 +136,7 @@ fairargs = {'id':76561197979669175, 'class':'fair', 'start_tick':60000, 'end_tic
 
 dffair = clean_data_to_numbers("128t_de_inferno_186_envyus-dignitas_de_inferno.csv", "128t_de_inferno_186_envyus-dignitas_de_inferno_attackinfo.csv", dictargs=fairargs)
 
-classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed","TrueViewRadDiff"], n_components=12)
+classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed","TrueViewRadDiff"], n_components=4,window_size=128)
 # classify_analysis(dfhacker, dffair, ["TrueViewRadDiff"])
 
 
