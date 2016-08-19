@@ -23,16 +23,37 @@ def split_rounds(df):
 		dictrounds[key] = (_df , _length)
 	return dictrounds
 
-def create_markov_model(df, columns, n_components, covariance_type="diag", n_iter=1000,test_round=None):
-	# Given a data frame, list of columns for the markov model
-
-	# drop all data which has any of the columns null.
-	#remove null values
-
+def predict_rounds_markov_model(model, columns, df):
 	dfclean = df.dropna(subset=columns)
 	dfclean = dfclean.dropna()
-	# Get rounds
 	dictrounds = split_rounds(dfclean)
+
+	_df = None 
+	for key in dictrounds.keys():
+		# Get at index 0 since its tupled of df
+		S = dictrounds[key][0][columns].as_matrix()
+		X = np.vstack([S])
+		dictrounds[key][0]["HMM_"+"".join(columns)] = model.predict(X)
+		# Must set 'is' here as pandas uses boolean for masking.
+		if _df is None: 
+			_df = dictrounds[key][0]["HMM_"+"".join(columns)] 
+		else:
+			_df = pd.concat([_df, dictrounds[key][0]["HMM_"+"".join(columns)]]) 
+
+	return df.join(_df)
+
+
+def create_markov_model(df, columns, n_components, covariance_type="diag", n_iter=1000,test_round=None,dictrounds=None):
+	# Given a data frame, list of columns for the markov model
+
+	# If we didnt pass our own rounds.. 
+	if not dictrounds:
+		# drop all data which has any of the columns null.
+		#remove null values
+		dfclean = df.dropna(subset=columns)
+		dfclean = dfclean.dropna()
+		# Get rounds
+		dictrounds = split_rounds(dfclean)
 
 	import random
 	_test_round = None

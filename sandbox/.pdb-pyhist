@@ -1,71 +1,3 @@
-where
-list
-reload(csgo_plot)
-csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
-from matplotlib.lines import Line2D
-x
-reload(csgo_plot)
-csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
-reload(csgo_plot)
-csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
-reload(csgo_plot)
-csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
-reload(csgo_plot)
-csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
-reload(csgo_plot)
-csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
-reload(csgo_plot)
-csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
-reload(csgo_plot)
-csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
-reload(csgo_plot)
-csgo_plot.plot_plane_diff(x, y, title="TrueViewDiffSpeed")
-where
-list
-list(60,85)
-test_round_h[0]["TrueViewDiffSpeed"]
-test_round_h[0][["Tick", "TrueViewDiffSpeed"]]
-[["Tick", "TrueViewDiffSpeed"]]
-df =test_round_h[0]
-df[["Tick", "TrueViewDiffSpeed"]]
-df[["Tick", "TrueViewDiffSpeed"]][df.Tick>24250]
-df[["Tick", "TrueViewDiffSpeed"]][df.Tick>241-0]
-df[["Tick", "TrueViewDiffSpeed"]][df.Tick>24100]
-pickle.dump(ax, file('myplot.pickle', 'w'))
-where
-list
-csgo_plot.plot_plane_diff(x, y, title="_".join(columns))
-where
-list
-classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed"])
-df
-dfhacker
-classify_analysis(dfhacker, dffair, ["TrueViewRadDiff"])
-classify_analysis(dfhacker, dffair, ["TrueViewRadDiff", "TrueViewDiffSpeed"])
-a[i:1+n+i-width:stepsize] 
-a[i:1+n+i-width:stepsize].shape
-a[i:1+n+i-width:stepsize]
-a[0:1+n+i-width:stepsize]
-(a[i:1+n+i-width:stepsize])
-(a[0:1+n+i-width:stepsize])
-(a[0:1+n+0-width:stepsize])
-(a[0:1+n+0-width:stepsize]).shape
-stepsize
-width
-(a[0:1+n+0-width:stepsize]).shape
-(a[0:1+n+0-width:stepsize])[0].shape
-(a[0:1+n+0-width:stepsize])[0]
-(a[0:1+n+0-width:stepsize]).shape
-a.shape[0]
- a[i:1+i-width or None:stepsize]
- a[0:1+0-width or None:stepsize]
-( a[0:1+0-width or None:stepsize])
-( a[0:1+0-width or None:stepsize]).shape
-( a[0:width])
-( a[0:width]).shape
-v = a
-v
-res = a[i:1+n+i-width:stepsize] for i in range(0,width)
 res = (v[i:1+n+i-width:stepsize] for i in range(0,width))
 res[0]
 res
@@ -498,3 +430,71 @@ df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.T
 df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewRad"]][df.Tick > 111250]
 df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewSin","TrueViewCos"]][df.Tick > 111250]
 c
+where
+list
+n
+where
+n
+dict_rounds = predict_rounds_markov_model(model=model_h, column=columns, df=dfhacker)
+where
+list
+model_h
+where
+up
+where
+up
+dict_rounds
+dict_rounds[0]
+dict_rounds["0"]
+dict_rounds[2]
+dict_rounds[3]
+dict_rounds[4]
+dict_rounds[5]
+dict_rounds[6]
+dict_rounds[7]
+dict_rounds[8]
+dict_rounds[6]["HMM_ViewRadDiffSpeedViewDiffSpeed"]
+dict_rounds[6][0]["HMM_ViewRadDiffSpeedViewDiffSpeed"]
+dict_rounds[6][0]["HMM_ViewRadDiffSpeedViewDiffSpeed"].sum()
+dict_rounds[6][0]["HMM_ViewRadDiffSpeedViewDiffSpeed"].max()
+dict_rounds[6][0]["HMM_ViewRadDiffSpeedViewDiffSpeed"].min()
+where
+dictrounds
+ dffair= dffair.merge( dictrounds_fair[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='left')
+dictrounds_fair = predict_rounds_markov_model(model=model_f, columns=columns, df=dffair)
+dictrounds_fair
+ dffair= dffair.merge( dictrounds_fair[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right')
+ dffair= dffair.merge( dictrounds_fair[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right', right_index=True)
+ dffair= dffair.merge( dictrounds_fair[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right', right_index=True, left_index=True)
+dffair
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='left')
+dictrounds_hacker = predict_rounds_markov_model(model=model_h, columns=columns, df=dfhacker)
+dictrounds_hacker
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='left')
+dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"]
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='left')
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right')
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right', right_index=True)
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right', right_index=True, left_index=True)
+dfhacker
+dfhacker.join(dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame())
+_dfhacker = dfhacker.join(dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame())
+dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"]
+_dfhacker
+_dfhacker.iloc[10445]
+dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"]
+_dfhacker.index
+_dfhacker.index[10445]
+_dfhacker[_dfhacker.index == 10445]
+_dfhacker[_dfhacker.index == 10444]
+_dfhacker = dfhacker.join(dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"])
+_dfhacker
+_dfhacker[_dfhacker.index == 10445]
+_dfhacker = dfhacker.join(dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"])
+c
+where
+list
+dffair
+dfrounds
+dffrounds
+dfhacker_new

@@ -6,7 +6,7 @@ import pandas as pd
 import sys
 import pdb
 from sklearn.externals import joblib
-from my_hmm import create_markov_model
+from my_hmm import create_markov_model, predict_rounds_markov_model
 #plot
 import csgo_plot
 import time
@@ -71,12 +71,14 @@ def result_probability(hacker, fair):
 	else:
 		return (ratio - 1.0)
 
-def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128):
+
+def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128, dictrounds_hacker=None, dictrounds_fair=None, drawplot=True):
 	# Hacker
 	import gc
 	gc.collect()
 
-	model_h, X_h, test_round_h = create_markov_model(dfhacker, columns, n_components=n_components, test_round=6)
+	model_h, X_h, test_round_h = create_markov_model(dfhacker, columns, n_components=n_components, test_round=6, dictrounds=dictrounds_hacker)
+	# Given rounds and new HMM .. #fit new model to that
 	hack_round = test_round_h[0].iloc[0].Round
 
 	csgo_plot.plot_plane_hmm(np.arange(len(X_h)), X_h, model_h, X_h, title="Hack-R-"+str(hack_round)+"n-"+str(n_components)+"-".join(columns)+" -- Hacker")
@@ -86,7 +88,7 @@ def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128
 	#####
 	## Fair
 
-	model_f, X_f, test_round_f = create_markov_model(dffair , columns, n_components=n_components, test_round=8) 
+	model_f, X_f, test_round_f = create_markov_model(dffair , columns, n_components=n_components, test_round=7, dictrounds=dictrounds_fair) 
 	fair_round = test_round_f[0].iloc[0].Round
 
 	csgo_plot.plot_plane_hmm(np.arange(len(X_f)), X_f, model_f, X_f, title="Fair-R-"+str(fair_round)+"n-"+str(n_components)+"-".join(columns)+" -- Fair")
@@ -94,43 +96,62 @@ def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128
 	plt.show(block=False)
 
 	TIME_C = max(test_round_f[0].iloc[0].TimeDiff, test_round_h[0].iloc[0].TimeDiff )
+	if(drawplot):
+		for name, test_round in zip(["Hacker-R"+str(hack_round),"Fair-R"+str(fair_round)],[test_round_h, test_round_f]):
+			test_data = test_round[0][columns].as_matrix()
+			_dim = 1 if len(test_data.shape) < 2 else test_data.shape[1]
+			test_data = test_data.reshape(len(test_data),_dim)
 
-	for name, test_round in zip(["Hacker-R"+str(hack_round),"Fair-R"+str(fair_round)],[test_round_h, test_round_f]):
-		test_data = test_round[0][columns].as_matrix()
-		_dim = 1 if len(test_data.shape) < 2 else test_data.shape[1]
-		test_data = test_data.reshape(len(test_data),_dim)
+			# The warped window size takes into account differences in tick-rates
+			# between demos.
+			warped_window_size = int(window_size * TIME_C / test_round[0].iloc[0].TimeDiff)
+			scores_fair, scores_hacker = sliding_window_predict(test_data, model_fair=model_f, model_hacker=model_h, window_size=warped_window_size)
 
-		# The warped window size takes into account differences in tick-rates
-		# between demos.
-		warped_window_size = int(window_size * TIME_C / test_round[0].iloc[0].TimeDiff)
-		scores_fair, scores_hacker = sliding_window_predict(test_data, model_fair=model_f, model_hacker=model_h, window_size=warped_window_size)
+			name = "WinSize-"+str(warped_window_size)+name
+			# Meaning positive scores mean the hacker is classified
+			# negative scores mean the its the fair player.
+			diff_scores = scores_hacker - scores_fair
 
-		name = "WinSize-"+str(warped_window_size)+name
-		# Meaning positive scores mean the hacker is classified
-		# negative scores mean the its the fair player.
-		diff_scores = scores_hacker - scores_fair
+			length_diff = len(test_data) - len(diff_scores)
+			#
 
-		length_diff = len(test_data) - len(diff_scores)
-		#
+			## Should be 1 dimensoional as were simply stacking 0s on the score
+			y = np.vstack([np.zeros((length_diff, 1)), diff_scores ])
 
-		## Should be 1 dimensoional as were simply stacking 0s on the score
-		y = np.vstack([np.zeros((length_diff, 1)), diff_scores ])
+			# Dont panic just reshaping stuff
+			x = test_round[0]["Tick"].as_matrix()
+			x = x.reshape(len(x), 1)
 
-		# Dont panic just reshaping stuff
-		x = test_round[0]["Tick"].as_matrix()
-		x = x.reshape(len(x), 1)
+			csgo_plot.plot_plane_diff(x, y, title=name+"n-"+str(n_components)+"_".join(columns))
 
-		csgo_plot.plot_plane_diff(x, y, title=name+"n-"+str(n_components)+"_".join(columns))
-
-		# Calculate probability and plot
-		func = np.vectorize(result_probability)
-		probability_scores = func(scores_hacker, scores_fair)
-		y = np.vstack([np.zeros((length_diff, 1)), probability_scores ])
-		csgo_plot.plot_plane_diff(x, y, title=name+" Probability n-"+str(n_components)+"_".join(columns))
+			# Calculate probability and plot
+			func = np.vectorize(result_probability)
+			probability_scores = func(scores_hacker, scores_fair)
+			y = np.vstack([np.zeros((length_diff, 1)), probability_scores ])
+			csgo_plot.plot_plane_diff(x, y, title=name+" Probability n-"+str(n_components)+"_".join(columns))
 
 
-		pdb.set_trace()
-		print "Stop"
+			print "Stop"
+	
+
+
+
+	dfhacker_new = predict_rounds_markov_model(model=model_h, columns=columns, df=dfhacker)
+	dffair_new   = predict_rounds_markov_model(model=model_f, columns=columns, df=dffair)
+	pdb.set_trace()
+	return dfhacker_new, dffair_new
+
+
+def classify_analysis_ensemble(dfhacker, dffair, columns):
+	#Given two column values.. 
+	models = {}
+	
+	for data, _class in zip([dfhacker,dffair],["hacker","fair"]):
+		models[_class] = {}
+		for column in columns:
+			#generate a model for it.. of 8 components
+			models[_class][column] = create_markov_model(data , column, n_components=n_components, test_round=8)
+			# Store in
 
 
 
@@ -143,13 +164,29 @@ fairargs = {'id':76561197979669175, 'class':'fair', 'start_tick':60000, 'end_tic
 
 dffair = clean_data_to_numbers("128t_de_inferno_186_envyus-dignitas_de_inferno.csv", "128t_de_inferno_186_envyus-dignitas_de_inferno_attackinfo.csv", dictargs=fairargs)
 
-classify_analysis(dfhacker, dffair, ["ViewRadDiff","ViewRad","TrueViewDiffSpeed"], n_components=4,window_size=128)
-# classify_analysis(dfhacker, dffair, ["TrueViewRadDiffSpeed"], n_components=4,window_size=128*2)
-# classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed"], n_components=4,window_size=128*2)
+
+classify_analysis(dfhacker, dffair, ["TrueViewDiffSpeed","TrueViewRadDiff"], n_components=4,window_size=128)
+# classify_analysis(dfhacker, dffair, ["TrueViewRadDiffSpeed", "TrueViewDiffSpeed"], n_components=4,window_size=128*2)
+# classify_analysis(dfhacker, dffair, ["ViewDiffSpeed"], n_components=8,window_size=512)
 
 
 
-# classify_analysis(dfhacker, dffair, ["TrueViewRadDiff"])
+## Ensemble
+#dfhacker_new, dffair_new = classify_analysis(dfhacker, dffair, ["ViewRadDiffSpeed"], n_components=8,window_size=128, drawplot=False)
+#dfhacker_new, dffair_new = classify_analysis(dfhacker_new, dffair_new, ["ViewDiffSpeed"], n_components=8 , window_size=128, drawplot=False)
+# Cool so we have the data we need, but the issue is that we don't even care about the data...
+# we care about having the ViewRadDiffSpeed Model.. and the ViewDiffSpeed... 
+# We then predict the data
+pdb.set_trace()
+#dffhacker, dffair =classify_analysis(dfhacker_new, dffair_new, ["HMM_ViewDiffSpeed", "HMM_ViewRadDiffSpeed" ], n_components=8, window_size=128)
+
+#classify_analysis(dfhacker, dffair, columns)
+
+# Pass data in df, along with model:
+# predict data with model, and return simplified states..
+# Then given simplified states create a new column.. 
+# then simply call the data with.. new columns.., and 
+# classify_analysis(moddfhacker, moddffair, ["HMM_ViewSpeed", "HMM_RadSpeed"])
 
 
 

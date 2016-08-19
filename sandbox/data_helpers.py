@@ -111,11 +111,12 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	#Same for Y
 	dfplayer['ViewYDiff'] = ((dfplayer.ViewY - dfplayer.ViewY.shift(1) + 180) % 360 - 180)
     #Bin angles to three:
-	dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
+	#dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
 
 	#Get acctual distance traveled of angle diff.. This needs testing probs.
 	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
-	dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
+	dfplayer["ViewDiffSpeed"] =  dfplayer.ViewDiff / dfplayer.TimeDiff
+	#dfplayer['ViewDiffBin'] =  pd.cut(dfplayer.ViewDiff,2,labels=["low", "high"])
 	
 	dfplayer['AimYPunchAccel'] = dfplayer.AimYPunchVel - dfplayer.AimYPunchVel.shift(1)
 	dfplayer['AimYPunchAccelDiff'] = dfplayer.AimYPunchAccel - dfplayer.AimYPunchAccel.shift(1)
@@ -143,10 +144,13 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewSin"]  =  dfplayer.apply(lambda row: math.sin(row.TrueViewRad), axis=1)
 	dfplayer["TrueViewCos"]  =  dfplayer.apply(lambda row: math.cos(row.TrueViewRad), axis=1)
 
+
+
 	dfplayer["ViewRad"] = dfplayer.apply(lambda row: math.atan2(row.ViewXDiff , row.ViewYDiff) , axis=1)
-	
 	dfplayer["ViewRadDiff"] = dfplayer.ViewRad - dfplayer.ViewRad.shift(1)
+	dfplayer["ViewRadDiffSpeed"] = dfplayer.ViewRadDiff / dfplayer.TimeDiff
 	## Used to measure changes in Mouse mdir
+
 	dfplayer["TrueViewRadDiff"] = dfplayer.TrueViewRad - dfplayer.TrueViewRad.shift(1)
 	dfplayer["TrueViewRadDiffSpeed"] = dfplayer.TrueViewRadDiff / dfplayer.TimeDiff 
 	""" TO HERE """ ######
@@ -165,6 +169,7 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 
 	## Drop rounds last:
 		#Remove all data not part of a round
+	dfplayer['AimbotDist'] = ((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt)
 	dfplayer = dfplayer[dfplayer.Round != 0]
 
 	return dfplayer
@@ -247,7 +252,7 @@ def clean_data_to_numbers(file, filehurt, dictargs, additional_columns = [], dro
 	dfplayer = player_intersects(df, player_id=int(dictargs["id"]), start_tick=int(dictargs["start_tick"]), end_tick=int(dictargs["end_tick"])) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
 	
 	#Create a distance metric from the target
-	dfplayer['AimbotDist'] = ((dfplayer.XAimbot)**2 + (dfplayer.YAimbot**2)).apply(np.sqrt)
+	
 
 	return dfplayer
 
@@ -264,17 +269,4 @@ def time_warp_data(df):
 	# Speed is already normalized... All data that might vary
 
 	## Normalize 
-def get_array_id_from_file(file):
-	df = pd.read_csv(file, header=0)
 
-	return df['PassengerId']
-
-def write_model(fileName, output, passengersId):
-	prediction_file = open(fileName, "wb")
-	prediction_file_object = csv.writer(prediction_file)
-	prediction_file_object.writerow(["PassengerId", "Survived"])
-	
-	for i,x in enumerate(passengersId):       # For each row in test.csv
-	        prediction_file_object.writerow([x, output[i].astype(int)])    # predict 1
-
-	prediction_file.close()
