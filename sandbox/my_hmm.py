@@ -43,7 +43,7 @@ def predict_rounds_markov_model(model, columns, df):
 	return df.join(_df)
 
 
-def create_markov_model(df, columns, n_components, covariance_type="diag", n_iter=1000,test_round=None,dictrounds=None):
+def create_markov_model(df, columns, n_components, covariance_type="diag", n_iter=1000,test_round=None,dictrounds=None,normalizer=None):
 	# Given a data frame, list of columns for the markov model
 
 	# If we didnt pass our own rounds.. 
@@ -71,6 +71,9 @@ def create_markov_model(df, columns, n_components, covariance_type="diag", n_ite
 		# Get at index 0 since its tupled of df
 		S = dictrounds[key][0][columns].as_matrix()
 		X = np.vstack([X,S])
+
+	if(normalizer):
+		X = normalizer.fit_transform(X)
 
 	lengths = [ dictrounds[key][1] for key in dictrounds.keys()]
 	model = GaussianHMM(n_components= n_components, covariance_type= covariance_type , n_iter= n_iter).fit(X, lengths)
