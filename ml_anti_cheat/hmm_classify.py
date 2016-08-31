@@ -8,7 +8,7 @@ import pdb
 from sklearn.externals import joblib
 from my_hmm import create_markov_model, predict_rounds_markov_model
 #plot
-import csgo_plot
+from plot import csgo_plot
 import time
 
 
