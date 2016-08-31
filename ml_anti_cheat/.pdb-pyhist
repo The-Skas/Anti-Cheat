@@ -1,0 +1,500 @@
+np.hstack(v[i+stepsize:width+stepsize] for i in range(0,width))
+v
+v[:100000]
+v[1:100000]
+v[100000:100000]
+np.hstack( a[i:1+n+i-width:stepsize] for i in range(0,width) )
+n
+v
+v.shape
+v.shape[0]
+size= v.shape[0]
+size % 128
+size
+size / 128
+1111 / 128
+128 * 8
+1111 % 128
+[1,2,3] + [1,2,3]
+[[1,2,3]] + [[1,2,3]]
+v
+v[0]
+len(v)
+v[0:2]
+v[0:2] + v[0:2]
+np.vstack(v[0:2],  v[0:2])
+np.vstack([v[0:2],  v[0:2]])
+np.vstack([v[-2:-4],  v[0:2]])
+v[-2
+v[-2]
+v[-2:10]]
+v[-2:-10]]
+v[-2:-10]
+v[-1]
+v[-2]
+v[-2:-10]
+v[-10]
+[x for x in range(4)]
+np.vstac([v[0],[x for x in range(4)]])
+np.vstack([v[0],[x for x in range(4)]])
+v[0]
+v
+v.shape
+where
+list
+np.stack
+np.stack([[1,2] for i in range(0,10)]
+np.stack([[1,2] for i in range(0,10)])
+X = np.stack([v[1,2] for i in range(0,10)])
+X
+v
+X = np.stack([v[i] for i in range(0,10)])
+X
+v
+X = np.stack([v[i] for i in range(0,len(v)-10)])
+X = np.stack([v[i:10] for i in range(0,len(v)-10)])
+v
+v[0:10]
+v[0:10].shape
+X = np.stack([v[i:10] for i in range(0,len(v)-10)])
+X = np.stack([v[i:10] for i in range(0,len(v)-11)])
+X = np.stack([v[i:10] for i in range(0,len(v)-20)])
+X = np.stack([v[i:10+i] for i in range(0,len(v)-20)])
+X = np.stack([v[i:10+i] for i in range(0,len(v)-5)])
+X = np.stack([v[i:10+i] for i in range(0,len(v)-10)])
+X.shape
+v
+X = np.stack([v[i:10+i] for i in range(0,len(v)-10)])
+X
+X.shape
+for x in X: x
+X = np.stack([v[i:window_size+i] for i in range(0,len(v)-window_size)])
+X.shape
+np.stack([X,X])
+np.stack([X,X]).shape
+X.shape
+X
+np.vstack([X,X])
+np.vstack([X,X]).shape
+for x in range(5): print x
+np.array(for x in range(5))
+np.array([for x in range(5)])
+np.array([x for x in range(5)])
+np.array([x for x in range(5)])[0:-1]
+np.array([x for x in range(5)])[2:-1]
+np.array([x for x in range(5)])[2:0]
+np.array([x for x in range(5)])[-1:0]
+np.array([x for x in range(5)])[-1:]
+np.array([x for x in range(5)])[-1:1]
+np.array([x for x in range(5)])[-1:-1]
+np.array([x for x in range(5)])[-1:-2]
+np.array([x for x in range(5)])[-2:-1]
+np.array([x for x in range(5)])[-2:]
+np.array([x for x in range(5)])[-1:]
+c
+where
+list
+up
+list
+np.stack(a[i:width+i] for i in range(0,length-width))
+python
+where
+list
+n
+where
+list
+a[i:width+i]
+v = a
+a[i:width+i]
+v[i:width+i]
+v[0:width+0]
+v[0:width+0].shape
+list
+where
+length
+np.stack(a[i:width+i] for i in range(0,length-width))
+np.stack([a[i:width+i] for i in range(0,length-width)])
+[a[i:width+i] for i in range(0,length-width)]
+a[i:width+i]
+[a[i:width+i] for i in range(0,length-width)]
+[a[i:width+i] for i in range(0,length)]
+length
+length - width
+width
+where
+list
+a.shape
+v.shape
+v.shape[0]
+n
+result
+result.shape
+n.shape
+remainder
+np.vstack([result, a[-remainder:]])
+a[-remainder:]
+a[-remainder:].shape
+v = a
+v[-remainder:].shape
+result.shape
+np.stack([v[-remainder:]])
+np.stack([v[-remainder:]]).shape
+np.vstack([np.stack([v[-remainder:]]), v])
+np.vstack([np.stack([v[-remainder:]]), result])
+result
+c
+list
+up
+list
+length_diff
+diff_scores
+diff_scores.shape
+length_diff
+_dim
+NP
+np
+np.vectorize
+def diff(a,b): return a - b
+scores_hacker
+scores_fair
+scores_fair == scores_fair
+np.array_equal(scores_fair ,scores_fair)
+vecdiff = np.vectorize(diff)
+vecdiff(scores_fair, scores_hacker)
+_vecres= vecdiff(scores_fair, scores_hacker)
+diff_scores
+_vecres= vecdiff(scores_hacker, scores_fair )
+np.array_equal(_vecres, diff_scores)
+scores_fair
+1 / 0.2
+func = np.vectorize(result_probability)
+func(scores_hacker, scores_fair)
+def result_probability(hacker, fair):
+ratio = hacker / fair
+if( ratio >= 1):
+return 1.0 - 1.0 / ratio 
+else:
+return (ratio - 1.0)
+def result_probability(hacker, fair):ratio = hacker / fair;if( ratio >= 1):return 1.0 - 1.0 / ratio ;else:return (ratio - 1.0);
+list
+where
+func = np.vectorize(result_probability)
+func(scores_hacker, scores_fair)
+scores_hacker
+scores_fair
+diff_scores
+reload(my_debug)
+my_debug.result_probability
+my_debug.result_probabiliz
+func = np.vectorize(my_debug.result_probability)
+func
+func(scores_hacker, scores_fair)
+reload(my_debug)
+func = np.vectorize(my_debug.result_probability)
+func(scores_hacker, scores_fair)
+diff_scores
+scores_hacker
+scores_fair
+func(scores_hacker, scores_fair)
+_diff_scores = func(scores_hacker, scores_fair)
+y = np.vstack([np.zeros((length_diff, 1)), diff_scores ])
+y = np.vstack([np.zeros((length_diff, 1)), _diff_scores ])
+y
+x
+csgo_plot.plot_plane_diff(x, y, title="Probability-n-"+str(n_components)+"_".join(columns))
+diff_scores
+diff_scores < 0
+diff_scores[diff_scores < 0]
+diff_scores[diff_scores <= 0]
+diff_scores[diff_scores > 0]
+y = np.vstack([np.zeros((length_diff, 1)), diff_scores ])
+where
+list
+test_round_f[0].Round
+test_round_f[0].iloc[0]
+test_round_f[0].iloc[0].Round
+where
+list
+list(100)
+list(90)
+list(80)
+test_round_h
+test_round_h.TimeDiff
+test_round_h[0].TimeDiff
+test_round_f[0].TimeDiff
+test_round_f[0].TimeDiff.iloc[0]
+_time = test_round_f[0].TimeDiff.iloc[0]
+_time * X = 128
+c
+where
+list
+up
+length
+width
+length-width
+length
+len(a)
+where
+list
+remainder
+length 
+v=a
+len(v)
+v
+len(v)
+dim
+a[0:width]
+v[0:width]
+v[0:width+1]
+len(v[0:width+1])
+len(v[0:width+100])
+length - 1
+n
+pdb.set_trace()
+where
+list
+warped_window_size
+up
+list
+where
+list
+n
+s
+up
+n
+warped_window_size
+n
+where
+list
+where
+n
+scores_fair
+test_data
+len(test_data)
+test_round
+test_round[0]
+test_round[0][columns]
+len(test_round[0][columns])
+len(test_round[0])
+test_round[0]
+test_round[0].Tick
+test_round[0].Round
+test_round[0].Tick
+list
+list(100)
+list(80)
+list(50)
+list(120)
+list)
+list
+test_rounds
+test_round
+test_round.Tick
+test_round[0].Tick
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]][test_round[0].TrueViewRad > 0]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]][test_round[0].Tick > 49186]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]][test_round[0].TrueViewRad > 0]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad","Tick"]][test_round[0].TrueViewRad > 0]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]][test_round[0].Tick > 49186]
+test_round[0][["TrueViewRadDiffSpeed","TrueViewRadDiff","TrueViewRad"]]
+test_round[0][["TrueViewXVel","TrueViewYVel"]]
+test_round[0][["TrueViewXDiff","TrueViewXVel","TrueViewYVel"]]
+test_round[0][["TrueViewXDiff","TrueViewXVel","TrueViewYVel"]][test_round[0].TrueViewXVel > 20]
+list
+test_round[0][["TrueViewXDiff","TrueViewXVel","TrueViewYVel"]][
+test_round[0].Tick.max()
+df= test_round[0]
+df
+df[["TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df].TrueViewXVel > 20]
+df[["TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.TrueViewXVel > 20]
+df[["TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 110000]
+df[["TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111000]
+df[["Tick","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111000]
+df[["Tick","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111100]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111100]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111190]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewDiffSpeed"]][df.Tick > 111250]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewRad"]][df.Tick > 111250]
+df[["Tick","TrueViewX","TrueViewXDiff","TrueViewXVel","TrueViewSin","TrueViewCos"]][df.Tick > 111250]
+c
+where
+list
+n
+where
+n
+dict_rounds = predict_rounds_markov_model(model=model_h, column=columns, df=dfhacker)
+where
+list
+model_h
+where
+up
+where
+up
+dict_rounds
+dict_rounds[0]
+dict_rounds["0"]
+dict_rounds[2]
+dict_rounds[3]
+dict_rounds[4]
+dict_rounds[5]
+dict_rounds[6]
+dict_rounds[7]
+dict_rounds[8]
+dict_rounds[6]["HMM_ViewRadDiffSpeedViewDiffSpeed"]
+dict_rounds[6][0]["HMM_ViewRadDiffSpeedViewDiffSpeed"]
+dict_rounds[6][0]["HMM_ViewRadDiffSpeedViewDiffSpeed"].sum()
+dict_rounds[6][0]["HMM_ViewRadDiffSpeedViewDiffSpeed"].max()
+dict_rounds[6][0]["HMM_ViewRadDiffSpeedViewDiffSpeed"].min()
+where
+dictrounds
+ dffair= dffair.merge( dictrounds_fair[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='left')
+dictrounds_fair = predict_rounds_markov_model(model=model_f, columns=columns, df=dffair)
+dictrounds_fair
+ dffair= dffair.merge( dictrounds_fair[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right')
+ dffair= dffair.merge( dictrounds_fair[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right', right_index=True)
+ dffair= dffair.merge( dictrounds_fair[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right', right_index=True, left_index=True)
+dffair
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='left')
+dictrounds_hacker = predict_rounds_markov_model(model=model_h, columns=columns, df=dfhacker)
+dictrounds_hacker
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='left')
+dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"]
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='left')
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right')
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right', right_index=True)
+dfhacker.merge( dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame(),  how='right', right_index=True, left_index=True)
+dfhacker
+dfhacker.join(dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame())
+_dfhacker = dfhacker.join(dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"].to_frame())
+dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"]
+_dfhacker
+_dfhacker.iloc[10445]
+dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"]
+_dfhacker.index
+_dfhacker.index[10445]
+_dfhacker[_dfhacker.index == 10445]
+_dfhacker[_dfhacker.index == 10444]
+_dfhacker = dfhacker.join(dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"])
+_dfhacker
+_dfhacker[_dfhacker.index == 10445]
+_dfhacker = dfhacker.join(dictrounds_hacker[6][0]["HMM_ViewRadDiffSpeed"])
+c
+where
+list
+dffair
+dfrounds
+dffrounds
+dfhacker_new
+where
+list
+model_h
+model_h.transat_
+model_h.transmat_
+model_h.transmat_[0]
+model_f.transmat_[0]
+model_f.transmat_[1]
+model_f.transmat_[2]
+model_f.transmat_[0]
+model_h.transmat_[0][0]
+model_h.transmat_[0][0] = 0.86330265
+model_h.transmat_[0]
+c
+where
+list
+df
+c
+where
+list
+warped_window_size
+wapred_window_size
+c
+where
+list
+test_data
+custom_test_data
+custom_test_data[columns]
+custom_test_data[columns].dropna()
+test_data[columns].dropna()
+test_data[0][columns].dropna()
+test_data[0][columns]
+test_round[0]
+test_round[1]
+test_round[0]
+test_round[0][columns]
+custom_test_data[columns].dropna()
+test_round[0][columns].dropna()
+where
+list
+n
+where
+list
+n
+where list
+list
+where
+list
+test_data
+test_round
+test_round[0]
+test_round[0][columns]
+test_round[0][columns].max()
+columns
+columns + "Tick"
+columns + ["Tick"]
+test_round[0][columns + ["Tick"]].max()
+test_round[0][columns + ["Tick"]]
+test_round[0][columns + ["Tick"]][test_round[0].ViewDiffSpeed > 100]
+test_round[0][columns + ["Tick"]][test_round[0].ViewDiffSpeed > 1000]
+test_round[0][columns + ["Tick"]][test_round[0].ViewDiffSpeed > 500]
+test_round[0][columns + ["Tick"]][Tick > 312970]
+test_round[0][columns + ["Tick"]][test_round[0]Tick > 312970]
+test_round[0][columns + ["Tick"]][test_round[0].Tick > 312970]
+test_round[0][columns + ["Tick"]][test_round[0].ViewDiffSpeed > 500]
+test_round[0][columns + ["Tick"]][test_round[0].Tick > 316087]
+test_round[0][columns + ["Tick"]][test_round[0].Tick > 316150]
+test_round[0][columns + ["Tick"]][test_round[0].Tick > 316160]
+test_round[0][columns]
+df =test_round[0][columns]
+df
+df.ViewDiffSpeed
+df.ViewDiffSpeed - df.ViewSpeed
+df.ViewDiffSpeed - df.ViewDiffSpeed
+df.ViewDiffSpeed - df.ViewDiffSpeed.shift(1)
+(df.ViewDiffSpeed - df.ViewDiffSpeed.shift(1)).round()
+(df.ViewDiffSpeed - df.ViewDiffSpeed.shift(1)).round().abs()
+where
+list
+test_data
+test_data.max()
+np.argmax(test_data)
+test_data[2479]
+test_round[0]["Tick"]
+test_round[0]["Tick"][2479]
+dffair
+dffair["ViewDiffAccel"]
+dffair["ViewDiffAccel"].max()
+dffair["ViewDiffAccel","Tick"].max()
+dffair[["ViewDiffAccel","Tick"]].max()
+dffair["ViewDiffAccel","Tick"][Tick > 158076]
+dffair["ViewDiffAccel","Tick"][dffair.Tick > 158076]
+dffair[["ViewDiffAccel","Tick"]][dffair.Tick > 158076]
+dffair["ViewDiffAccel"].idxmax
+dffair["ViewDiffAccel"].idxmax()
+dffair[158096]
+dffair.iloc[158096]
+dffair.iloc[0]
+dffair.iloc[:2
+dffair.iloc[:2]
+dffair.iloc[158096]
+dffair.index
+dffair.index[4011]
+dffair.iloc[158096]
+dffair.index[158096]
+dffair.loc
+dffair.loc[10]
+dffair.loc[158096]
+dffair["ViewDiffAccel"].idxmax()
+dffair.loc[51444]
+dffair[["ViewDiffAccel","Tick"]][dffair.Tick > 111427]
+dffair[["ViewDiffSpeed","ViewDiffAccel","Tick"]][dffair.Tick > 111427]
