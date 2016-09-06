@@ -102,8 +102,8 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["XAimbot"] = dfplayer["Tick"]
 	dfplayer["YAimbot"] = dfplayer["Tick"]
 	dfplayer["Intersect"] = dfplayer["Tick"].astype(str)
-
-	""" DELETE HERE"""###
+	
+	#Calculate the difference in time.
 	dfplayer["TimeDiff"] = (dfplayer.Time - dfplayer.Time.shift(1))
 	#Calculates the difference between previous viewAngle-X, and current viewAngleX. 
 	#Then get value.
@@ -113,8 +113,8 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 
 	#Same for Y
 	dfplayer['ViewYDiff'] = ((dfplayer.ViewY - dfplayer.ViewY.shift(1) + 180) % 360 - 180)
-    #Bin angles to three:
-	#dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
+    	#Bin angles to three:
+	dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
 
 	#Get acctual distance traveled of angle diff.. This needs testing probs.
 	dfplayer['ViewDiff'] = ((dfplayer.ViewYDiff)**2  + (dfplayer.ViewXDiff)**2).apply(np.sqrt)
@@ -159,22 +159,17 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer["TrueViewRadDiffSpeed"] = dfplayer.TrueViewRadDiff / dfplayer.TimeDiff 
 
 
-	# Binning values.
-	# Bin for 5 states of max... given a range...
-	#pdb.set_trace()
-	""" TO HERE """ ######
+
 	
 
-	"""
-	Add me later brah, this is the aim. Without it you wont know when Im hitting.
-	"""
-	# p_get_i = {x: i+1 for i, x in  enumerate(dfplayer.columns)}
-	# e_get_i = {x: i+1 for i, x in  enumerate(dfenemy.columns)}
-	# for i, (player, enemy) in enumerate(zip(dfplayer.itertuples(), dfenemy.itertuples())):
-	# 	intersect = csgo_math.player_look_intersect(player, enemy, p_get_i, e_get_i)
-	# 	dfplayer.set_value(i, "XAimbot", intersect.localx)
-	# 	dfplayer.set_value(i, "YAimbot", intersect.localy) 
-	# 	dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
+	#Calculate intersections
+	p_get_i = {x: i+1 for i, x in  enumerate(dfplayer.columns)}
+	e_get_i = {x: i+1 for i, x in  enumerate(dfenemy.columns)}
+	for i, (player, enemy) in enumerate(zip(dfplayer.itertuples(), dfenemy.itertuples())):
+		intersect = csgo_math.player_look_intersect(player, enemy, p_get_i, e_get_i)
+		dfplayer.set_value(i, "XAimbot", intersect.localx)
+		dfplayer.set_value(i, "YAimbot", intersect.localy) 
+		dfplayer.set_value(i, "Intersect", "|#|".join(map(str, intersect.point)))
 
 	## Drop rounds last:
 		#Remove all data not part of a round
@@ -182,49 +177,6 @@ def player_intersects(df,enemy_name="Eugene", player_id=76561197979652439, start
 	dfplayer = dfplayer[dfplayer.Round != 0]
 
 	return dfplayer
-	# print '{:f}'.format(t1-t0)
-	# pdb.set_trace()
-
-
-	# print "stop here."
-
-	##Plot Fun###
-
-	##First Draw Player and Enemy Position.
-
-	# fig1 = plt.figure()
-	# axes = plt.gca()
-	# axes.set_xlim([dfenemy.iloc[2].X - 5, dfenemy.iloc[2].X + 5])
-	# axes.set_ylim([dfenemy.iloc[2].Y - 5,dfenemy.iloc[2].Y + 5])
-	# i = 0
-	# def update(frame):
-	# 	i = frame
-	# 	fig1.clear()
-	# 	axes = plt.gca()
-	# 	axes.set_xlim([dfplayer.X.min() - 5, dfenemy.X.max() + 5])
-	# 	axes.set_ylim([dfplayer.Y.min() - 5, dfenemy.Y.max() + 5])
-
-	# 	plt.scatter(x=dfplayer.iloc[i].X, y=dfplayer.iloc[i].Y, color="green")
-	# 	plt.scatter(x=dfenemy.iloc[i].X, y=dfenemy.iloc[i].Y, color="red")
-	# 	intersect = dfplayer.iloc[i].Intersect.split("|#|")
-	# 	plt.scatter(x=float(intersect[0]),y=float(intersect[1]), color="blue")
-
-	# def update_plane(frame):
-	# 	i = frame
-	# 	fig2.clear()
-	# 	axes = plt.gca()
-	# 	axes.set_xlim([-10,10])
-	# 	axes.set_ylim([-10,10])
-	# 	plt.scatter(x=0, y=0, color="red")
-	# 	plt.scatter(x=float(dfplayer.iloc[i].XAimbot),y=float(dfplayer.iloc[i].YAimbot), color="blue")
-
-	# fig2 = plt.figure()
-	# # animation = FuncAnimation(fig1, update, interval=24)
-	# animation_2 = FuncAnimation(fig2, update_plane, interval=24)
-
-	# plt.show()
-	# pdb.set_trace()
-
 
 
 import sys
