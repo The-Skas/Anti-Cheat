@@ -142,11 +142,7 @@ def main():
 	# model_4, X_4 = create_markov_model(dfplayer, ["TrueViewRadDiff","TrueViewDiff"], n_components = 8)
 	# csgo_plot.plot_scatter_hmm(X_3[:,1] ,X_3[:,2] , model_3, X_3, title=dictargs["class"]+" -- TrueViewRad | TrueViewDiff ")
 
-	pdb.set_trace()
 	## Get all Non-Null ViewDiffs and Aimbotdist
-	## Issue with this is the fucking up the time series...
-
-	write_model("data/RandomForestModel.csv", result, test_passenger_id)
 
 
 	# Do score here.
