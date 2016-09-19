@@ -7,7 +7,7 @@ import sys
 import pdb
 from sklearn.externals import joblib
 #plot
-import csgo_plot
+from plot import csgo_plot
 import time
 # Split rounds into multiple dataframes.
 

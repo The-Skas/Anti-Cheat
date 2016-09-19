@@ -78,8 +78,9 @@ def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128
 	gc.collect()
 	from sklearn.preprocessing import RobustScaler
 	robust_scaler = RobustScaler()
-																								   #test_round=6
-	model_h, X_h, test_round_h  = create_markov_model(dfhacker, columns, n_components=n_components, test_round=None, normalizer=None)
+	
+	test_round_arg = "r" if custom_test_data is None else None																							   #test_round=6
+	model_h, X_h, test_round_h  = create_markov_model(dfhacker, columns, n_components=n_components, test_round=test_round_arg, normalizer=None)
 	# Given rounds and new HMM .. #fit new model to that
 
 	hack_round = test_round_h[0].iloc[0].Round if custom_test_data is None else "-CUSTOM-"
@@ -90,8 +91,8 @@ def classify_analysis(dfhacker, dffair, columns, n_components=4, window_size=128
 
 	#####
 	## fairargs
-																								 #test_round=7
-	model_f, X_f, test_round_f = create_markov_model(dffair , columns, n_components=n_components, test_round=None, dictrounds=dictrounds_fair, normalizer=None) 
+																						 #test_round=7
+	model_f, X_f, test_round_f = create_markov_model(dffair , columns, n_components=n_components, test_round=test_round_arg, dictrounds=dictrounds_fair, normalizer=None) 
 	fair_round = test_round_f[0].iloc[0].Round if custom_test_data is None else "-CUSTOM-"
 
 	csgo_plot.plot_plane_hmm(np.arange(len(X_f)), X_f, model_f, X_f, title="Fair-R-"+str(fair_round)+"n-"+str(n_components)+"-".join(columns)+" -- Fair")
@@ -165,17 +166,17 @@ def classify_analysis_ensemble(dfhacker, dffair, columns):
 
 
 # Hacker / Fair
-hackerargs  = {'id':76561197979652439 ,'class':'hacker', 'start_tick':0 , 'end_tick':1000000}
+hackerargs  = {'id':76561197979652439 ,'class':'hacker', 'start_tick':0 , 'end_tick':1000000, "enemy_name":"Eugene"}
 dfhacker = data_munge("32t_de_dust2_hack_2.csv", "32t_de_dust2_hack_2_attackinfo.csv", dictargs=hackerargs)
 
-fairargs = {'id':76561197979669175, 'class':'fair', 'start_tick':60000, 'end_tick':160000}
+fairargs = {'id':76561197979669175, 'class':'fair', 'start_tick':60000, 'end_tick':160000, "enemy_name": "ENVYUS HappyV"}
 dffair = data_munge("128t_de_inferno_186_envyus-dignitas_de_inferno.csv", "128t_de_inferno_186_envyus-dignitas_de_inferno_attackinfo.csv", dictargs=fairargs)
 
 # using flusha's id
-suspectargs = {'id':76561197991348083 ,'class':'hacker', 'start_tick':310500 , 'end_tick':317000}
+suspectargs = {'id':76561197991348083 ,'class':'hacker', 'start_tick':310500 , 'end_tick':317000, "enemy_name":"Xizt Xtrfy"}
 dfsuspect = data_munge("128t_de_inferno_2013_fnatic-ninjas-in-pyjamas_de_inferno.csv", "128t_de_inferno_2013_fnatic-ninjas-in-pyjamas_de_inferno_attackinfo.csv", dictargs=suspectargs)
 
-classify_analysis(dfhacker, dffair, ["ViewDiffSpeed","ViewRad"], n_components=4,window_size=128,custom_test_data=dfsuspect)
+classify_analysis(dfhacker, dffair, ["ViewDiffSpeed","AimbotDist"], n_components=4,window_size=128,custom_test_data=dfsuspect)
 classify_analysis(dfhacker, dffair, ["ViewDiffSpeed"], n_components=4,window_size=256,custom_test_data=dfsuspect)
 # classify_analysis(dfhacker, dffair, ["TrueViewRadDiffSpeed", "TrueViewDiffSpeed"], n_components=4,window_size=128*2)
 # classify_analysis(dfhacker, dffair, ["ViewRad"], n_components=8,window_size=128)

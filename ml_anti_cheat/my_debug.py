@@ -5,7 +5,7 @@ Used as a temporary debug file to load functionality without restarting the prog
 
 
 # The + 1.0 / - 1.0 here prevent a 0 denominator, preventing an error.
-import csgo_plot
+from plot import csgo_plot
 def result_probability(hacker, fair):
 	if( (fair < 0) & (hacker > 0)):
 		hacker = (hacker - fair) + 1.0

@@ -25,8 +25,7 @@ def player_intersects(df,dfplayer,enemy_name="Eugene", player_id=765611979796524
 
 	dfenemy = None
 	if enemy_name:
-		dfenemy  = dfplayer[(df.Name == enemy_name)& (df.Tick >= start_tick)  & (df.Tick <= end_tick)].reset_index()
-
+		dfenemy  = df[(df.Name == enemy_name)& (df.Tick >= start_tick)  & (df.Tick <= end_tick)].reset_index()
 	# Get only when alive.
 	dfplayer = dfplayer[dfplayer.Alive]
 
@@ -80,9 +79,8 @@ def data_munge(file, filehurt, dictargs, additional_columns = [], drop_columns_d
 		dfplayer= df[(df.Steam_ID > 1000)]
 	else:
 		dfplayer = df[(df.Steam_ID == int(dictargs["id"]))]
-
-	#Drop Rows.
-	dfplayer= dfplayer.drop(["Steam_ID","X", "Y", "Z"], axis=1)
+	## Drop Rows.
+	# dfplayer= dfplayer.drop(["Steam_ID","X", "Y", "Z"], axis=1)
 	
 	#Calculate the difference in time.
 	dfplayer["TimeDiff"] = (dfplayer.Time - dfplayer.Time.shift(1))
