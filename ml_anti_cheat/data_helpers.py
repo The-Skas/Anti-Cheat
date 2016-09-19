@@ -83,14 +83,14 @@ def data_munge(file, filehurt, dictargs, additional_columns = [], drop_columns_d
 
 	#Drop Rows.
 	dfplayer= dfplayer.drop(["Steam_ID","X", "Y", "Z"], axis=1)
-
+	
+	#Calculate the difference in time.
 	dfplayer["TimeDiff"] = (dfplayer.Time - dfplayer.Time.shift(1))
 	#Calculates the difference between viewAngles. 
 	#Then get value.
 	dfplayer['ViewXDiff'] = ((dfplayer.ViewX - dfplayer.ViewX.shift(1) + 180) % 360 - 180)
 	dfplayer['ViewYDiff'] = ((dfplayer.ViewY - dfplayer.ViewY.shift(1) + 180) % 360 - 180)
-    #Bin angles to three:
-	dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
+
 	dfplayer['ViewYDiffBin'] =  pd.cut(dfplayer.ViewYDiff,3,labels=["low","medium","high"])
 
 	#Get acctual distance traveled of angle diff.. This needs testing probs.
@@ -140,11 +140,6 @@ def data_munge(file, filehurt, dictargs, additional_columns = [], drop_columns_d
 
 	return dfplayer
 
-	# pdb.set_trace()
-	#Plot:
-	# plot_scatter_m4a1s(dfplayer)	
-
-	# Convert gender to number
 
 def time_warp_data(df):
 	pass
