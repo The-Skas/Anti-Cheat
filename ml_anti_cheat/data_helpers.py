@@ -136,7 +136,7 @@ def data_munge(file, filehurt, dictargs, additional_columns = [], drop_columns_d
 	dfplayer["TrueViewRadDiffSpeed"] = dfplayer.TrueViewRadDiff / dfplayer.TimeDiff 
 
 	# Calculate all of a players intersections with a specific player.
-	dfplayer = player_intersects(df,dfplayer, player_id=int(dictargs["id"]), start_tick=int(dictargs["start_tick"]), end_tick=int(dictargs["end_tick"]), enemy_name=None) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
+	dfplayer = player_intersects(df,dfplayer, player_id=int(dictargs["id"]), start_tick=int(dictargs["start_tick"]), end_tick=int(dictargs["end_tick"]), enemy_name=dictargs["enemy_name"]) #, enemy_name = "ENVYUS apEXmousse[D]", player_id=76561197995369711, start_tick=47900, end_tick=48500)
 
 	return dfplayer
 

@@ -1,3 +1,9 @@
+"""
+Used as a temporary debug file to load functionality without restarting the program
+"""
+
+
+
 # The + 1.0 / - 1.0 here prevent a 0 denominator, preventing an error.
 import csgo_plot
 def result_probability(hacker, fair):

@@ -232,3 +232,7 @@ $RECYCLE.BIN/
 
 # userprefs belong to the user
 *.userprefs
+
+#Python
+.pdb-pyhist
+.pyc

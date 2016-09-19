@@ -51,11 +51,9 @@ def plot_plane_hmm(x, y, model,  X, title="Hacker",xlabel="Tick", ylabel="Diff")
 
 
 def plot_scatter_hmm(x,y, model, X, title='Hacker View Direction'):
-
 	#Must create new figure for each plot.
-
 	#Plot creating a fade away color for each line.. 
-	fig= plt.figure()
+	fig = plt.figure()
 	fig.suptitle(title)
 	plt.xlabel('ViewCos')
 	plt.ylabel('ViewSin')
